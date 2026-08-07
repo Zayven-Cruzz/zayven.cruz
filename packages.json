@@ -1,0 +1,6 @@
+{
+  "name": "dsprimis-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DsPrimis portfolio — static site, no build step required."
+}
