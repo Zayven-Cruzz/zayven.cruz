@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biyografi & Sèvis Trading</title>
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* Background foto ak yon kouch nwa pou tèks yo ka byen sot deyò */
+      background: linear-gradient(rgba(10, 15, 29, 0.85), rgba(10, 15, 29, 0.92)), 
+                  url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+      padding: 30px 15px;
+    }
+
+    /* KAD PRENSIPAL LA */
+    .profile-card {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 24px;
+      padding: 40px 25px;
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+
+    /* AVATAR / PROFILE PHOTO */
+    .avatar-container {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #00f2fe;
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+    }
+
+    .avatar-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* BADGE VERIFIKASYON WA */
+    .verified-badge {
+      color: #00f2fe;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+
+    /* TÈKS AN ANGLÈ / BIO */
+    .bio-box {
+      background: rgba(0, 0, 0, 0.3);
+      border-left: 4px solid #00f2fe;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      color: #e0e0e0;
+      margin-bottom: 25px;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      margin: 25px 0 15px 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #00f2fe;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 8px;
+    }
+
+    /* BOUTON YON DÈYÈ LÒT */
+    .btn-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 14px 20px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-whatsapp {
+      background-color: #25D366;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+    }
+
+    .btn-whatsapp-channel {
+      background: linear-gradient(135deg, #11998e, #38ef7d);
+      box-shadow: 0 4px 15px rgba(56, 239, 125, 0.2);
+    }
+
+    .btn-instagram {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      box-shadow: 0 4px 15px rgba(220, 39, 67, 0.2);
+    }
+
+    .btn-binance-link {
+      background: #F3BA2F;
+      color: #000000;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(243, 186, 47, 0.3);
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.1);
+    }
+
+    /* SECTION BINANCE PAYMENT */
+    .crypto-card {
+      background: rgba(243, 186, 47, 0.1);
+      border: 1px solid #F3BA2F;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .crypto-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #F3BA2F;
+      font-weight: bold;
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+    }
+
+    .crypto-details {
+      font-size: 0.85rem;
+      color: #cccccc;
+      margin-bottom: 8px;
+    }
+
+    .wallet-box {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(243, 186, 47, 0.3);
+      padding: 10px 12px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      word-break: break-all;
+      margin-bottom: 10px;
+    }
+
+    .wallet-address {
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: #ffffff;
+      margin-right: 8px;
+    }
+
+    .btn-copy {
+      background: #F3BA2F;
+      color: #000;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 0.8rem;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+
+    .btn-copy:hover {
+      background: #ffe17d;
+    }
+
+    footer {
+      margin-top: 25px;
+      font-size: 0.75rem;
+      color: #888888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-card">
+    
+    <!-- Foto profil -->
+    <div class="avatar-container">
+      <img src="https://img2.pixhost.to/images/9902/756368937_upload.jpg" alt="Foto Profil">
+    </div>
+
+    <!-- Non ak Ti Title -->
+    <h1>𝓩𝒂𝒚𝒗𝒆𝒏 𝑪𝒓𝒖𝒛  ★</h1>
+    <div class="verified-badge"><i class="fa-solid fa-circle-check"></i> Binary Options Trader & Mentor</div>
+
+    <!-- Tèks Angle sou Bio, Formation ak Stratégie -->
+    <div class="bio-box">
+      📊 <strong>Master Binary Options Trading</strong><br>
+      Empowering traders with high-precision strategies, risk management, and professional mentorship. Join my exclusive channel for real-time market analysis, proven trading systems, and step-by-step masterclasses. Turn market trends into daily profits! 🚀📈
+    </div>
+
+    <!-- TI TIT AK BOUTON SÈVIS YO -->
+    <div class="section-title">Rezo & Kontak Direct</div>
+
+    <div class="btn-container">
+      <!-- DM WhatsApp -->
+      <a href="https://wa.me/50933518203" target="_blank" class="btn btn-whatsapp">
+        <i class="fa-brands fa-whatsapp"></i> WHATSAPP 
+      </a>
+
+      <!-- Chanèl WhatsApp -->
+      <a href="https://whatsapp.com/channel/0029VbAkTAOA89MigmORLJ3A" target="_blank" class="btn btn-whatsapp-channel">
+        <i class="fa-solid fa-bullhorn"></i> FOLLOW MY WHATSAPP CHANEL
+      </a>
+
+      <!-- DM Instagram -->
+      <a href="https://www.instagram.com/kevee.yxz?igsh=cTV1Yjlud3EwcjZp" target="_blank" class="btn btn-instagram">
+        <i class="fa-brands fa-instagram"></i> Suiv / INSTAGRAM 
+      </a>
+    </div>
+
+    <!-- SECTION PAYMENT BINANCE -->
+    <div class="section-title">Paiement USDT / Binance</div>
+
+    <div class="crypto-card">
+      <div class="crypto-header">
+        <i class="fa-solid fa-wallet"></i> Binance Pay / Crypto Deposit
+      </div>
+      <div class="crypto-details">
+        <strong>Network:</strong> USDT (BEP20 / BNB Smart Chain) <br>
+        <strong>Binance ID:</strong> 1199500555
+      </div>
+      
+      <!-- Adres Wallet BEP20 -->
+      <div class="wallet-box">
+        <span class="wallet-address" id="walletAddr">0x92e4f1dfef9f0d06ef084d24da45adc1d48d2756</span>
+        <button class="btn-copy" onclick="copyWallet()">Kopye</button>
+      </div>
+
+      <!-- Link Pay Binance Direct -->
+      <a href="https://s.binance.com/OzRXELge" target="_blank" class="btn btn-binance-link">
+        <i class="fa-solid fa-bolt"></i> Peye Dirèk via Binance Pay
+      </a>
+    </div>
+
+    <footer>
+      © 2026 𝓩𝒂𝒚𝒗𝒆𝒏 𝑪𝒓𝒖𝒛  ★
+    </footer>
+
+  </div>
+
+  <!-- Javascript pou fè bouton kopye a travay -->
+  <script>
+    function copyWallet() {
+      const walletText = document.getElementById("walletAddr").innerText;
+      navigator.clipboard.writeText(walletText).then(() => {
+        alert("Adres Wallet (BEP20) an kopye ak siksè! 👍");
+      }).catch(err => {
+        console.error('Erè lè w ap kopye: ', err);
+      });
+    }
+  </script>
+
+</body>
+</html>
