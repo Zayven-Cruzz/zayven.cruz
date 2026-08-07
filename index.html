@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XM Style - Trading Mastery & Education</title>
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* STYLING XM BROKER: RED (#d32027), BLACK (#111111), DARK GREY (#1a1a1a) */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: #0d0d0d;
+      color: #ffffff;
+      padding-bottom: 80px;
+    }
+
+    /* ------------------------------------------------------------- */
+    /* 1. EKRAN ENSKRIPSYON / KREYE KONT (LOGIN OVERLAY OBLIGATWA)   */
+    /* ------------------------------------------------------------- */
+    #auth-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0d0d0d;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .auth-box {
+      background: #141414;
+      border: 1px solid #d32027;
+      border-radius: 8px;
+      padding: 30px 20px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(211, 32, 39, 0.2);
+      text-align: center;
+    }
+
+    .auth-logo {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+
+    .auth-logo span {
+      color: #d32027;
+    }
+
+    .auth-sub {
+      color: #aaa;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+    }
+
+    /* ------------------------------------------------------------- */
+    /* 2. HEADER AK MAIN SITE (MASKE APARI KONT LAN KREYE)           */
+    /* ------------------------------------------------------------- */
+    #main-app {
+      display: none; /* Maske jiskaske kont lan verifye */
+    }
+
+    header {
+      background-color: #141414;
+      border-bottom: 2px solid #d32027;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #d32027;
+    }
+
+    .currency-switcher {
+      background: #222;
+      border: 1px solid #d32027;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 0.85rem;
+    }
+
+    .page {
+      display: none;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: #ffffff;
+      margin-bottom: 10px;
+      border-left: 4px solid #d32027;
+      padding-left: 10px;
+    }
+
+    .subtitle {
+      color: #aaa;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    /* CARD COMPONENTS */
+    .product-card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    .product-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .product-price {
+      font-size: 1.3rem;
+      color: #d32027;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .product-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      background: #222;
+    }
+
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .strategy-item {
+      background: #222;
+      border: 1px solid #333;
+      padding: 12px;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    .strategy-item input[type="checkbox"] {
+      margin-top: 10px;
+      transform: scale(1.3);
+      accent-color: #d32027;
+    }
+
+    /* FORMILÈ */
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 0.85rem;
+      color: #ccc;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 12px;
+      background: #222;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 4px;
+    }
+
+    .btn-xm {
+      background: #d32027;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: 0.2s;
+    }
+
+    .btn-xm:hover {
+      background: #b01a20;
+    }
+
+    /* PAYMENT SECTION */
+    .payment-option {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .payment-logo {
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-pay {
+      background: #252525;
+      border: 1px solid #d32027;
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    /* MODAL POPUP */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 200;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: #1a1a1a;
+      border: 1px solid #d32027;
+      padding: 25px;
+      border-radius: 8px;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    /* PITIT BOUTON SOCIAL YO */
+    .mini-socials {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .mini-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+
+    .mini-wa { background: #25D366; }
+    .mini-ig { background: #E1306C; }
+
+    /* BAR NAVIGATION ANBA A (BOTTOM NAV) */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #141414;
+      border-top: 1px solid #2a2a2a;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      z-index: 100;
+    }
+
+    .nav-item {
+      color: #888;
+      text-decoration: none;
+      font-size: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .nav-item i {
+      font-size: 1.2rem;
+    }
+
+    .nav-item.active {
+      color: #d32027;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================= -->
+  <!-- 1. EKRAN KREYE KONT AK KONFIMASYON KÒD 6 CHIF (BLOKAJ PREMYE FWA) -->
+  <!-- ============================================================= -->
+  <div id="auth-overlay">
+    <div class="auth-box">
+      <div class="auth-logo">M4 <span>TRADING</span></div>
+      <div class="auth-sub">Kreye kont ou pou w ka gen aksè ak sit la.</div>
+
+      <!-- ETAP 1: FORMILÈ KREYE KONT -->
+      <div id="signup-step1">
+        <div class="form-group">
+          <label>Email (Gmail) oubyen Nimewo Telefòn</label>
+          <input type="text" id="userContact" placeholder="gmail@gmail.com / +509..." required>
+        </div>
+        <div class="form-group">
+          <label>Mete yon Modpas (Password)</label>
+          <input type="password" id="userPassword" placeholder="••••••••" required>
+        </div>
+        <button class="btn-xm" onclick="requestAccountCode()">Voye Kòd Konfimasyon</button>
+      </div>
+
+      <!-- ETAP 2: ANTRE KÒD 6 CHIF LA -->
+      <div id="signup-step2" style="display:none;">
+        <p style="font-size:0.85rem; color:#25D366; margin-bottom:15px;">
+          <i class="fa-solid fa-paper-plane"></i> Yo voye yon kòd 6 chif nan Gmail/SMS ou!
+        </p>
+        <div class="form-group">
+          <label>Antre Kòd 6 Chif la</label>
+          <input type="text" id="otpCode" placeholder="Ex: 654321" maxlength="6" style="text-align:center; font-size:1.2rem; letter-spacing:3px;" required>
+        </div>
+        <button class="btn-xm" onclick="verifyAccountCode()">Konfime & Ouvri Kont</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================= -->
+  <!-- 2. KONTI SITE AN PRENSIPAL (AP PARÈT LÈ KONT LAN VERIFYE)     -->
+  <!-- ============================================================= -->
+  <div id="main-app">
+
+    <!-- HEADER -->
+    <header>
+      <div class="logo">M4 <span>TRADING</span></div>
+      <button class="currency-switcher" onclick="toggleCurrency()" id="currBtn">Montre an HTG (Goud)</button>
+    </header>
+
+    <!-- PAJ 1: PWODWI / FORMASYON AK STRATEJI -->
+    <div id="page-products" class="page active">
+      <h2>Nos Formations & Stratégies</h2>
+      <p class="subtitle">Chwazi formasyon ak strateji ou vle achte yo.</p>
+
+      <!-- FORMATION TRADING -->
+      <div class="product-card">
+        <div class="product-title">Formation Complete Trading Binaires & Forex</div>
+        <div class="product-price" data-usd="15">Prix: $15.00 USD</div>
+        <p style="font-size:0.85rem; color:#ccc; margin-bottom:10px;">
+          Aprann analize mache a, jere risk ou, epi mèt strateji avanse yo sou Pocket Option ak lòt brikè yo.
+        </p>
+        <button class="btn-xm" onclick="openNatcashModal('Formation Trading', 15)">Achte Ak Natcash</button>
+      </div>
+
+      <!-- STRATEGIES BINARY OPTIONS -->
+      <div class="product-card">
+        <div class="product-title">Stratégies Binary Options</div>
+        <p style="font-size:0.85rem; color:#aaa; margin-bottom:10px;">
+          Prix: <strong style="color:#fff;" class="single-price" data-usd="5">$5.00 USD</strong> / grenn. 
+          <span style="color:#d32027;">🔥 Offre Spéciale: Chwazi 3 Strateji pou sèlman <span class="bundle-price" data-usd="15">$15.00 USD</span>!</span>
+        </p>
+
+        <div class="strategy-grid">
+          <div class="strategy-item">
+            <img src="https://via.placeholder.com/200x120?text=Strategy+EMA" class="product-img" alt="Strategy 1">
+            <div style="font-weight:bold; font-size:0.9rem;">EMA Crossover Strategy</div>
+            <input type="checkbox" class="strat-checkbox" value="EMA Crossover" onclick="calculateStrategyTotal()">
+          </div>
+
+          <div class="strategy-item">
+            <img src="https://via.placeholder.com/200x120?text=Strategy+RSI" class="product-img" alt="Strategy 2">
+            <div style="font-weight:bold; font-size:0.9rem;">RSI Reversal Strategy</div>
+            <input type="checkbox" class="strat-checkbox" value="RSI Reversal" onclick="calculateStrategyTotal()">
+          </div>
+
+          <div class="strategy-item">
+            <img src="https://via.placeholder.com/200x120?text=Strategy+Price+Action" class="product-img" alt="Strategy 3">
+            <div style="font-weight:bold; font-size:0.9rem;">Price Action Breakout</div>
+            <input type="checkbox" class="strat-checkbox" value="Price Action" onclick="calculateStrategyTotal()">
+          </div>
+        </div>
+
+        <div style="margin-top: 15px; text-align:right; font-weight:bold;" id="stratTotalText">
+          Total: $0.00 USD
+        </div>
+        <button class="btn-xm" style="margin-top:10px;" onclick="checkoutStrategies()">Achte Strateji Yo</button>
+      </div>
+    </div>
+
+    <!-- PAJ 2: PAYMENT METHOD (BINANCE & NATCASH) -->
+    <div id="page-payment" class="page">
+      <h2>Moyen de Paiement Direct</h2>
+      <p class="subtitle">Peye kach san tann pa Binance Pay oswa Natcash.</p>
+
+      <!-- BINANCE PAY -->
+      <div class="payment-option">
+        <div class="payment-logo">
+          <i class="fa-solid fa-wallet" style="color:#F3BA2F;"></i> Binance Pay (USDT)
+        </div>
+        <a href="https://s.binance.com/OzRXELge" target="_blank" class="btn-pay">Peye sou Binance</a>
+      </div>
+
+      <!-- NATCASH -->
+      <div class="payment-option">
+        <div class="payment-logo">
+          <i class="fa-solid fa-mobile-screen-button" style="color:#d32027;"></i> Natcash (Gourdes)
+        </div>
+        <button class="btn-pay" onclick="openNatcashModal('Depo / Peman Direct', 0)">Peye ak Natcash</button>
+      </div>
+    </div>
+
+    <!-- PAJ 3: VERIFICATION KONT (KYC) -->
+    <div id="page-verify" class="page">
+      <h2>Vérification du Compte (KYC)</h2>
+      <p class="subtitle">Veryfye kont ou pou w ka gen aksè ak tout sèvis nou yo san restriksyon.</p>
+
+      <form onsubmit="event.preventDefault(); alert('Dokiman w yo voye ak siksè! N ap verifye yo nan 24è.');">
+        <div class="form-group">
+          <label>Non Konplè</label>
+          <input type="text" placeholder="Antre non ak sinon w" required>
+        </div>
+
+        <div class="form-group">
+          <label>Adrès Email</label>
+          <input type="email" placeholder="example@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label>Tip Dokiman d'Identité</label>
+          <select required>
+            <option value="">Chwazi yon opsyon</option>
+            <option value="cin">Kàt Idantite Nasyonal (CIN)</option>
+            <option value="passport">Paspò</option>
+            <option value="license">Pèmi de Kondwi</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Upload Recto/Verso Dokiman an (Imaj)</label>
+          <input type="file" accept="image/*" required>
+        </div>
+
+        <button type="submit" class="btn-xm">Soumèt Pou Verifikasyon</button>
+      </form>
+    </div>
+
+    <!-- MINI BOUTON SOCIAL YO -->
+    <div class="mini-socials">
+      <a href="https://wa.me/50933518203" target="_blank" class="mini-btn mini-wa" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="https://www.instagram.com/kevee.yxz?igsh=cTV1Yjlud3EwcjZp" target="_blank" class="mini-btn mini-ig" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+
+    <!-- BAR NAVIGATION ANBA A (BOTTOM BAR) -->
+    <div class="bottom-nav">
+      <div class="nav-item active" onclick="switchPage('products', this)">
+        <i class="fa-solid fa-store"></i>
+        <span>Produits</span>
+      </div>
+      <div class="nav-item" onclick="switchPage('payment', this)">
+        <i class="fa-solid fa-credit-card"></i>
+        <span>Paiement</span>
+      </div>
+      <div class="nav-item" onclick="switchPage('verify', this)">
+        <i class="fa-solid fa-user-check"></i>
+        <span>Vérification</span>
+      </div>
+    </div>
+
+    <!-- MODAL NATCASH -->
+    <div class="modal" id="natcashModal">
+      <div class="modal-content">
+        <h3 style="color:#d32027; margin-bottom:10px;">Paiement Natcash</h3>
+        <p style="font-size:0.8rem; color:#aaa; margin-bottom:15px;" id="modalProdTitle">Antre nimewo w ak kantite kòb la</p>
+
+        <div id="natcashStep1">
+          <div class="form-group">
+            <label>Nimewo Natcash ou</label>
+            <input type="tel" id="natcashPhone" placeholder="+509 XXXX XXXX" required>
+          </div>
+          <div class="form-group">
+            <label>Montan (an HTG - Gourdes)</label>
+            <input type="number" id="natcashAmount" placeholder="Ex: 2175 HTG" required>
+          </div>
+          <button class="btn-xm" onclick="sendNatcashSMS()">Voye Kòd Konfimasyon SMS</button>
+        </div>
+
+        <div id="natcashStep2" style="display:none;">
+          <p style="font-size:0.85rem; color:#25D366; margin-bottom:10px;">
+            <i class="fa-solid fa-paper-plane"></i> Yon kòd SMS voye sou nimewo w la!
+          </p>
+          <div class="form-group">
+            <label>Antre Kòd SMS la</label>
+            <input type="text" id="smsCode" placeholder="Ex: 8492" required>
+          </div>
+          <button class="btn-xm" onclick="confirmNatcashPay()">Konfime Peman an</button>
+        </div>
+
+        <button style="background:none; border:none; color:#888; width:100%; margin-top:15px; cursor:pointer;" onclick="closeNatcashModal()">Anule</button>
+      </div>
+    </div>
+
+  </div> <!-- FIN MAIN-APP -->
+
+  <script>
+    const exchangeRate = 145;
+    let isHTG = false;
+    let currentSelectedStratPriceUSD = 0;
+    let generatedAuthCode = "";
+
+    // -------------------------------------------------------------
+    // LOGIQUE KREYE KONT AK KÒD 6 CHIF
+    // -------------------------------------------------------------
+    function requestAccountCode() {
+      const contact = document.getElementById('userContact').value;
+      const pass = document.getElementById('userPassword').value;
+
+      if (!contact || !pass) {
+        alert("Sivouplè rantre yon Gmail/Nimewo ak yon modpas!");
+        return;
+      }
+
+      // Generasyon yon kòd chwa 6 chif
+      generatedAuthCode = Math.floor(100000 + Math.random() * 900000).toString();
+
+      // Simulation voye kòd la nan Gmail/SMS
+      alert(`[SIMULATION VERIFICATION]: Kòd 6 chif ou an se: ${generatedAuthCode}\nEntré l pou konfime kont ou.`);
+
+      document.getElementById('signup-step1').style.display = 'none';
+      document.getElementById('signup-step2').style.display = 'block';
+    }
+
+    function verifyAccountCode() {
+      const enteredCode = document.getElementById('otpCode').value;
+
+      if (enteredCode === generatedAuthCode) {
+        alert("Kont ou kreye ak siksè! Byenveni sou M4 Trading.");
+        document.getElementById('auth-overlay').style.display = 'none';
+        document.getElementById('main-app').style.display = 'block';
+      } else {
+        alert("Kòd 6 chif sa a pa bon! Tanpri verifiye kòd la.");
+      }
+    }
+
+    // -------------------------------------------------------------
+    // LOGIQUE NAVIGATION AK CONVERSION CURRENCY
+    // -------------------------------------------------------------
+    function switchPage(pageId, element) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+      
+      document.getElementById('page-' + pageId).classList.add('active');
+      element.classList.add('active');
+    }
+
+    function toggleCurrency() {
+      isHTG = !isHTG;
+      const currBtn = document.getElementById('currBtn');
+      
+      if (isHTG) {
+        currBtn.innerText = "Montre an USD ($)";
+      } else {
+        currBtn.innerText = "Montre an HTG (Goud)";
+      }
+
+      document.querySelectorAll('.product-price').forEach(el => {
+        const usd = parseFloat(el.getAttribute('data-usd'));
+        if (isHTG) {
+          el.innerText = `Prix: ${(usd * exchangeRate).toLocaleString()} HTG`;
+        } else {
+          el.innerText = `Prix: $${usd.toFixed(2)} USD`;
+        }
+      });
+
+      const singleEl = document.querySelector('.single-price');
+      const bundleEl = document.querySelector('.bundle-price');
+      if (isHTG) {
+        singleEl.innerText = `${(5 * exchangeRate).toLocaleString()} HTG`;
+        bundleEl.innerText = `${(15 * exchangeRate).toLocaleString()} HTG`;
+      } else {
+        singleEl.innerText = `$5.00 USD`;
+        bundleEl.innerText = `$15.00 USD`;
+      }
+
+      calculateStrategyTotal();
+    }
+
+    function calculateStrategyTotal() {
+      const checkboxes = document.querySelectorAll('.strat-checkbox:checked');
+      const count = checkboxes.length;
+      let totalUSD = 0;
+
+      if (count === 3) {
+        totalUSD = 15;
+      } else {
+        totalUSD = count * 5;
+      }
+
+      currentSelectedStratPriceUSD = totalUSD;
+      const displayEl = document.getElementById('stratTotalText');
+
+      if (isHTG) {
+        displayEl.innerText = `Total: ${(totalUSD * exchangeRate).toLocaleString()} HTG`;
+      } else {
+        displayEl.innerText = `Total: $${totalUSD.toFixed(2)} USD`;
+      }
+    }
+
+    function checkoutStrategies() {
+      const checkboxes = document.querySelectorAll('.strat-checkbox:checked');
+      if (checkboxes.length === 0) {
+        alert("Sivouplè chwazi omwen yon strateji!");
+        return;
+      }
+      openNatcashModal(`${checkboxes.length} Strateji Trading`, currentSelectedStratPriceUSD);
+    }
+
+    // MODAL NATCASH
+    function openNatcashModal(productName, priceInUSD) {
+      document.getElementById('modalProdTitle').innerText = `Achte: ${productName}`;
+      const amountInput = document.getElementById('natcashAmount');
+      
+      if (priceInUSD > 0) {
+        amountInput.value = priceInUSD * exchangeRate;
+      } else {
+        amountInput.value = '';
+      }
+
+      document.getElementById('natcashStep1').style.display = 'block';
+      document.getElementById('natcashStep2').style.display = 'none';
+      document.getElementById('natcashModal').style.display = 'flex';
+    }
+
+    function closeNatcashModal() {
+      document.getElementById('natcashModal').style.display = 'none';
+    }
+
+    function sendNatcashSMS() {
+      const phone = document.getElementById('natcashPhone').value;
+      const amount = document.getElementById('natcashAmount').value;
+
+      if (!phone || !amount) {
+        alert("Sivouplè ranpli tout chan yo!");
+        return;
+      }
+
+      alert(`[NATCASH SMS SIMULATION]: Kòd konfimasyon ou an se: 8492. Entré l pou peye ${amount} HTG.`);
+      document.getElementById('natcashStep1').style.display = 'none';
+      document.getElementById('natcashStep2').style.display = 'block';
+    }
+
+    function confirmNatcashPay() {
+      const code = document.getElementById('smsCode').value;
+      if (code === '8492') {
+        alert("Peman an reyalize ak siksè! Mèsi pou konfyans ou.");
+        closeNatcashModal();
+      } else {
+        alert("Kòd SMS la pa bon, tanpri reesaye.");
+      }
+    }
+  </script>
+</body>
+</html>
