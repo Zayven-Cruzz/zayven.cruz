@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trading & Formation - Zayven Cruz</title>
+
+  <!-- FontAwesome Icons & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 15px 40px;
+    }
+
+    /* CONTAINER PRENSIPAL */
+    .container {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* HEADER / BANNER SECTION */
+    .header-card {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .header-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .header-subtitle {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+
+    /* SECTION TITLES */
+    .section-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-left: 5px;
+      margin-bottom: -10px;
+    }
+
+    /* CARDS GENERAL */
+    .card {
+      background: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    /* FORMATION CARDS */
+    .formation-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .formation-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .formation-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .formation-desc {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    /* MOTIVATION BINARY CHAPTERS */
+    .chapter-card {
+      position: relative;
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .chapter-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: #38bdf8;
+    }
+
+    .chapter-number {
+      font-size: 0.75rem;
+      color: #38bdf8;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    .chapter-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .chapter-text {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      color: #ffffff;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    .btn-back {
+      background: rgba(255, 255, 255, 0.05);
+      color: #94a3b8;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 10px;
+    }
+
+    .btn-back:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #64748b;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER / HERO -->
+    <div class="header-card">
+      <span class="badge">TRADING ACADEMY</span>
+      <h1 class="header-title">TRADING & FORMATION</h1>
+      <p class="header-subtitle">
+        Master les marchés financiers, domine le Binary Option ak yon psikoloji an fè. Plonje nan mond siksè finansyè a!
+      </p>
+    </div>
+
+    <!-- TIT SECTION: FORMATIONS -->
+    <div class="section-title">NOS FORMATIONS</div>
+
+    <!-- FORMATION 1 -->
+    <div class="card">
+      <div class="formation-header">
+        <div class="formation-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="formation-title">Binary Options Masterclass</div>
+      </div>
+      <p class="formation-desc">
+        Aprann teknoloji Binary Options apati de zéro: Analyse technique, Price Action, Strategi scalping ak gestion de risque strik.
+      </p>
+      <a href="https://wa.me/50933518203?text=Bonjou,%20mwen%20ta%20renmen%20enskri%20nan%20Formation%20Binary" class="btn btn-primary" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i> Rejoindre la Formation
+      </a>
+    </div>
+
+    <!-- FORMATION 2 -->
+    <div class="card">
+      <div class="formation-header">
+        <div class="formation-icon"><i class="fa-solid fa-brain"></i></div>
+        <div class="formation-title">Trading Psychology & Risk</div>
+      </div>
+      <p class="formation-desc">
+        Kontwole emosyon w (FOMO, Greed, Fear). Aprann jere kapitak w tankou yon pro pou w ka konsistan nan maché a.
+      </p>
+      <a href="https://wa.me/50933518203?text=Bonjou,%20mwen%20ta%20renmen%20plis%20enfòmasyon%20sou%20Psikoloji%20Trading" class="btn btn-primary" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i> Demande d'infos
+      </a>
+    </div>
+
+    <!-- TIT SECTION: MOTIVATION BINARY -->
+    <div class="section-title">MOTIVATION BINARY TRADING 💡</div>
+
+    <!-- CHAPIT 1 -->
+    <div class="chapter-card">
+      <div class="chapter-number">CHAPIT 1</div>
+      <div class="chapter-title">Règ 60 Segonn Nan</div>
+      <p class="chapter-text">
+        "Nan Binary Options, yon sèl minit ka chanje direksyon yon trade, men disiplin ou ap chanje tout lavi w. Pa kouri dèyè lajan, kouri dèyè bon eksekisyon strategi w la. Konsistans lan se nan pasyans li ye."
+      </p>
+    </div>
+
+    <!-- CHAPIT 2 -->
+    <div class="chapter-card">
+      <div class="chapter-number">CHAPIT 2</div>
+      <div class="chapter-title">Mèt nan Emosyon w</div>
+      <p class="chapter-text">
+        "Grafik la pa konnen ki moun ou ye, li sèlman reponn ak strikti maché a. Lè w pèdi yon trade, se pa yon echèk, se yon leson. Plis ou mèt nan emosyon w, se plis chak 'CALL' oswa 'PUT' ap fèt ak konfidan."
+      </p>
+    </div>
+
+    <!-- CHAPIT 3 -->
+    <div class="chapter-card">
+      <div class="chapter-number">CHAPIT 3</div>
+      <div class="chapter-title">Lafwa & Konfistans</div>
+      <p class="chapter-text">
+        "Chak gwo trader ou wè jodi a te sibi gwo pèt anvan yo te jwenn sekrè konsistans lan. Binary trading mande pou w wè sa lòt moun pa wè ak pou w aji lè lòt moun ap pè. Mete konfyans nan bwat zouti w!"
+      </p>
+    </div>
+
+    <!-- BOUTON RETOUNEN NAN PAJ PRENSIPAL LA -->
+    <a href="index.html" class="btn btn-back">
+      <i class="fa-solid fa-arrow-left"></i> Retour au Profil
+    </a>
+
+    <footer>
+      © 2026 ⚡ • POWERED BY @ZAYVEN.CRUZ ★
+    </footer>
+
+  </div>
+
+</body>
+      </html>
+      
