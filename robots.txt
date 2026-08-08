@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://zayven-cruz.vercel.app/sitemap.xml
-
+Sitemap: https://zayven-cruz.vercel.app/sitemap.x
