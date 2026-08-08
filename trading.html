@@ -219,6 +219,26 @@
       color: #64748b;
       margin-top: 10px;
     }
+    
+    /* GALRI IMAJ YO */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+.gallery-img {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Sa fòse imaj la vin yon karé (1:1 / 4x4) */
+  object-fit: cover;   /* Li anpeche imaj la rale oswa defòme */
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.03);
+}
   </style>
 </head>
 <body>
@@ -299,7 +319,14 @@
     <a href="index.html" class="btn btn-back">
       <i class="fa-solid fa-arrow-left"></i> 𝐑𝐞𝐭𝐨𝐮𝐫 𝐚𝐮 𝐏𝐫𝐨𝐟𝐢𝐥
     </a>
+<!-- TIT SECTION GALRI -->
+    <div class="section-title">⚡</div>
 
+    <!-- GALRI IMAJ YO -->
+    <div class="gallery-grid">
+      <img src="https://i.postimg.cc/2yJnDtrV/IMG-20260807-WA0013.jpg" class="gallery-img" alt="𝐈𝐌𝐆 1">
+    </div>
+    
     <footer>
       © 𝟐𝟎𝟐𝟔 ⚡ • 𝐏𝐎𝐖𝐄𝐑𝐄𝐃 𝐁𝐘 @𝐙𝐀𝐘𝐕𝐄𝐍.𝐂𝐑𝐔𝐙 ★
     </footer>
