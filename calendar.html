@@ -317,6 +317,68 @@
       <a href="Click https://us05web.zoom.us/j/81442480121?pwd=E4l5X6FA72of03KQ5JfJ49XFxGwtBq.1 to start or join a scheduled Zoom meeting." target="_blank" class="btn-zoom">
         <i class="fa-solid fa-video"></i> 𝐑𝐄𝐉𝐎𝐈𝐍𝐃𝐑𝐄 𝐋𝐄 𝐋𝐈𝐕𝐄 𝐙𝐎𝐎𝐌
       </a>
+
+      <!-- BOKS MODPAS ZOOM -->
+<div class="zoom-pass-box-cal">
+  <div class="zoom-pass-title-cal">
+    <i class="fa-solid fa-key"></i> 𝐌𝐎𝐓 𝐃𝐄 𝐏𝐀𝐒𝐒𝐄 𝐙𝐎𝐎𝐌 :
+  </div>
+  <div class="zoom-pass-code-cal" onclick="copyZoomPassCal()">
+    <span>𝐙𝐀𝐕𝐄𝐍𝐂𝐑𝐔𝐙</span>
+    <i class="fa-regular fa-copy" style="font-size: 0.9rem;"></i>
+  </div>
+  <span id="copyMsgCal" class="copy-success-text-cal">Copié !</span>
+</div>
+
+<style>
+  .zoom-pass-box-cal {
+    background: rgba(220, 38, 38, 0.12);
+    border: 1px dashed #ef4444;
+    border-radius: 14px;
+    padding: 12px;
+    margin-top: 12px;
+    text-align: center;
+  }
+  .zoom-pass-title-cal {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #ef4444;
+    margin-bottom: 6px;
+  }
+  .zoom-pass-code-cal {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #0a0f1d;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: all;
+    letter-spacing: 1px;
+  }
+  .copy-success-text-cal {
+    display: none;
+    font-size: 0.75rem;
+    color: #38bdf8;
+    margin-top: 4px;
+    font-weight: 600;
+  }
+</style>
+
+<script>
+  function copyZoomPassCal() {
+    navigator.clipboard.writeText("ZAVENCRUZ");
+    const msg = document.getElementById("copyMsgCal");
+    msg.style.display = "block";
+    setTimeout(() => { msg.style.display = "none"; }, 2000);
+  }
+</script>
+
+      
 <div class="status-container status-closed">
   <span class="status-dot"></span>
   <span>𝐒𝐄𝐒𝐒𝐈𝐎𝐍 : 𝐅𝐄𝐑𝐌É (𝐎𝐅𝐅)</span>
