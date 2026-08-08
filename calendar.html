@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>𝐒𝐄𝐒𝐒𝐈𝐎𝐍𝐒 𝐋𝐈𝐕𝐄 & 𝐂𝐀𝐋𝐄𝐍𝐃𝐑𝐈𝐄𝐑 - 𝐙𝐚𝐲𝐯𝐞𝐧 𝐂𝐫𝐮𝐳</title>
+
+  <!-- FontAwesome Icons & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0a0f1d; /* Bleu fonce */
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 15px 40px;
+    }
+
+    /* CONTAINER PRENSIPAL */
+    .container {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* HEADER CARD (Bleu, Blanc, Rouge) */
+    .header-card {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.3), rgba(220, 38, 38, 0.3));
+      backdrop-filter: blur(12px);
+      border: 2px solid #ffffff;
+      border-radius: 24px;
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+    }
+
+    .badge-calendar {
+      display: inline-block;
+      background: #dc2626; /* Rouge */
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+    }
+
+    .header-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .header-subtitle {
+      font-size: 0.85rem;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    /* SECTIONS TITLE */
+    .section-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #38bdf8; /* Bleu */
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-left: 5px;
+      margin-top: 10px;
+      margin-bottom: -10px;
+    }
+
+    /* CARD STYLE */
+    .card {
+      background: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    /* SCHEDULE ITEM (ORÈ YO) */
+    .schedule-box {
+      background: rgba(37, 99, 235, 0.1);
+      border-left: 4px solid #2563eb;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 12px;
+    }
+
+    .schedule-box.red {
+      background: rgba(220, 38, 38, 0.1);
+      border-left-color: #dc2626;
+    }
+
+    .schedule-day {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .schedule-time {
+      font-size: 0.85rem;
+      color: #38bdf8;
+      font-weight: 600;
+    }
+
+    .schedule-time.red-text {
+      color: #fca5a5;
+    }
+
+    /* SCHÉMA BUY & SELL BOXES */
+    .schema-card {
+      background: #1e293b;
+      border-radius: 18px;
+      padding: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .schema-title-buy {
+      color: #22c55e; /* Vert / Buy */
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .schema-title-sell {
+      color: #ef4444; /* Rouge / Sell */
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .schema-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 10px 0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .schema-text {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+
+    /* BOUTON ZOOM */
+    .btn-zoom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      background: linear-gradient(135deg, #2563eb, #dc2626); /* Bleu & Rouge */
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .btn-zoom:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    /* BOUTON RETOUNEN */
+    .btn-back {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .btn-back:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #94a3b8;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER CARD -->
+    <div class="header-card">
+      <span class="badge-calendar">📅 𝐒𝐄𝐒𝐒𝐈𝐎𝐍𝐒 & 𝐇𝐎𝐑𝐀𝐈𝐑𝐄𝐒</span>
+      <h1 class="header-title">𝐂𝐀𝐋𝐄𝐍𝐃𝐑𝐈𝐄𝐑 𝐃𝐄𝐒 𝐋𝐈𝐕𝐄𝐒</h1>
+      <p class="header-subtitle">
+        𝐒𝐮𝐢𝐯𝐞𝐳 𝐧𝐨𝐬 𝐬𝐞𝐬𝐬𝐢𝐨𝐧𝐬 𝐞𝐧 𝐝𝐢𝐫𝐞𝐜𝐭, 𝐚𝐧𝐚𝐥𝐲𝐬𝐞𝐳 𝐥𝐞 𝐦𝐚𝐫𝐜𝐡é 𝐚𝐯𝐞𝐜 𝐧𝐨𝐮𝐬 𝐞𝐭 𝐩𝐫𝐞𝐧𝐞𝐳 𝐝𝐞𝐬 𝐭𝐫𝐚𝐝𝐞𝐬 𝐞𝐧 𝐭𝐞𝐦𝐩𝐬 𝐫é𝐞𝐥.
+      </p>
+    </div>
+
+    <!-- SEKSYON 1: ORÈ SEYANS LIVE YO -->
+    <div class="section-title">𝟏. 𝐇𝐎𝐑𝐀𝐈𝐑𝐄𝐒 𝐃𝐄𝐒 𝐒𝐄𝐒𝐒𝐈𝐎𝐍𝐒 𝐙𝐎𝐎𝐌 ⏰</div>
+
+    <div class="card">
+      
+      <!-- SEYANS NUIT / MATEN -->
+      <div class="schedule-box">
+        <div class="schedule-day">
+          <i class="fa-solid fa-moon" style="color: #38bdf8;"></i>
+          <span>𝐋𝐔𝐍𝐃𝐈, 𝐌𝐄𝐑𝐂𝐑𝐄𝐃𝐈, 𝐉𝐄𝐔𝐃𝐈</span>
+        </div>
+        <div class="schedule-time">
+          🕒 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 𝐝𝐞 𝐍𝐮𝐢𝐭 : 𝟏𝟐:𝟎𝟎 𝐀𝐌 – 𝟒:𝟎𝟎 𝐀𝐌
+        </div>
+        <p style="font-size: 0.8rem; color: #cbd5e1; margin-top: 6px;">
+          𝐒𝐞𝐬𝐬𝐢𝐨𝐧 𝐢𝐝é𝐚𝐥𝐞 𝐩𝐨𝐮𝐫 𝐥𝐞 𝐬𝐜𝐚𝐥𝐩𝐢𝐧𝐠 𝐬𝐮𝐫 𝐥𝐞𝐬 𝐚𝐜𝐭𝐢𝐟𝐬 𝐎𝐓𝐂 𝐞𝐭 𝐥𝐞𝐬 𝐩𝐚𝐢𝐫𝐞𝐬 𝐚𝐬𝐢𝐚𝐭𝐢𝐪𝐮𝐞𝐬.
+        </p>
+      </div>
+
+      <!-- SEYANS APREMIDE -->
+      <div class="schedule-box red">
+        <div class="schedule-day">
+          <i class="fa-solid fa-sun" style="color: #ef4444;"></i>
+          <span>𝐕𝐄𝐍𝐃𝐑𝐄𝐃𝐈, 𝐒𝐀𝐌𝐄𝐃𝐈, 𝐌𝐀𝐑𝐃𝐈</span>
+        </div>
+        <div class="schedule-time red-text">
+          ☀️ 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 𝐝'𝐀𝐩𝐫è𝐬-𝐦𝐢𝐝𝐢 : 𝟏:𝟎𝟎 𝐏𝐌 – 𝟓:𝟎𝟎 𝐏𝐌 / 𝟔:𝟎𝟎 𝐏𝐌
+        </div>
+        <p style="font-size: 0.8rem; color: #cbd5e1; margin-top: 6px;">
+          𝐒𝐞𝐬𝐬𝐢𝐨𝐧 𝐢𝐧𝐭𝐞𝐧𝐬𝐢𝐯𝐞 𝐝𝐞 𝐭𝐫𝐚𝐝𝐢𝐧𝐠 𝐞𝐧 𝐝𝐢𝐫𝐞𝐜𝐭 𝐚𝐯𝐞𝐜 𝐚𝐧𝐚𝐥𝐲𝐬𝐞𝐬 𝐝𝐞 𝐭𝐞𝐧𝐝𝐚𝐧𝐜𝐞𝐬.
+        </p>
+      </div>
+
+      <!-- BOUTON ZOOM -->
+      <a href="https://zoom.us" target="_blank" class="btn-zoom">
+        <i class="fa-solid fa-video"></i> 𝐑𝐄𝐉𝐎𝐈𝐍𝐃𝐑𝐄 𝐋𝐄 𝐋𝐈𝐕𝐄 𝐙𝐎𝐎𝐌
+      </a>
+
+    </div>
+
+    <!-- SEKSYON 2: SCHÉMAS TRADING BUY (CALL) -->
+    <div class="section-title">𝟐. 𝐒𝐂𝐇É𝐌𝐀 : 𝐐𝐔𝐀𝐍𝐃 𝐀𝐂𝐇𝐄𝐓𝐄𝐑 (𝐁𝐔𝐘 / 𝐂𝐀𝐋𝐋) 📈</div>
+
+    <div class="schema-card">
+      <div class="schema-title-buy">
+        <i class="fa-solid fa-circle-arrow-up"></i>
+        <span>𝐒𝐈𝐆𝐍𝐀𝐋 𝐃'𝐀𝐂𝐇𝐀𝐓 (𝐁𝐔𝐘 / 𝐂𝐀𝐋𝐋)</span>
+      </div>
+      <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=500&auto=format&fit=crop&q=60" class="schema-img" alt="Schéma Buy">
+      <p class="schema-text">
+        <b>𝐂𝐨𝐧𝐝𝐢𝐭𝐢𝐨𝐧𝐬 𝐩𝐨𝐮𝐫 𝐚𝐜𝐡𝐞𝐭𝐞𝐫 (𝐁𝐔𝐘) :</b><br>
+        <b>𝟏.</b> 𝐋𝐞 𝐩𝐫𝐢𝐱 𝐭𝐨𝐮𝐜𝐡𝐞 𝐮𝐧 𝐧𝐢𝐯𝐞𝐚𝐮 𝐝𝐞 <b>𝐒𝐔𝐏𝐏𝐎𝐑𝐓</b> 𝐟𝐨𝐫𝐭.<br>
+        <b>𝟐.</b> Apparition d'une bougie de rejet (Marteau / Rejection Pinbar).<br>
+        <b>𝟑.</b> 𝐋'𝐢𝐧𝐝𝐢𝐜𝐚𝐭𝐞𝐮𝐫 (𝐑𝐒𝐈/𝐒𝐭𝐨𝐜𝐡𝐚𝐬𝐭𝐢𝐪𝐮𝐞) 𝐞𝐬𝐭 𝐞𝐧 𝐳𝐨𝐧𝐞 𝐝𝐞 <b>𝐒𝐮𝐫𝐯𝐞𝐧𝐭𝐞</b> (Sous 20).<br>
+        <b>𝟒.</b> 𝐀𝐜𝐭𝐢𝐨𝐧 : Klike sou bouton <b>GREEN / CALL (ACHAT)</b> pou 1 à 3 min.
+      </p>
+    </div>
+
+    <!-- SEKSYON 3: SCHÉMAS TRADING SELL (PUT) -->
+    <div class="section-title">𝟑. 𝐒𝐂𝐇É𝐌𝐀 : 𝐐𝐔𝐀𝐍𝐃 𝐕𝐄𝐍𝐃𝐑𝐄 (𝐒𝐄𝐋𝐋 / 𝐏𝐔𝐓) 📉</div>
+
+    <div class="schema-card">
+      <div class="schema-title-sell">
+        <i class="fa-solid fa-circle-arrow-down"></i>
+        <span>𝐒𝐈𝐆𝐍𝐀𝐋 𝐃𝐄 𝐕𝐄𝐍𝐓𝐄 (𝐒𝐄𝐋𝐋 / 𝐏𝐔𝐓)</span>
+      </div>
+      <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=500&auto=format&fit=crop&q=60" class="schema-img" alt="Schéma Sell">
+      <p class="schema-text">
+        <b>𝐂𝐨𝐧𝐝𝐢𝐭𝐢𝐨𝐧𝐬 𝐩𝐨𝐮𝐫 𝐯𝐞𝐧𝐝𝐫𝐞 (𝐒𝐄𝐋𝐋) :</b><br>
+        <b>𝟏.</b> 𝐋𝐞 𝐩𝐫𝐢𝐱 𝐭𝐨𝐮𝐜𝐡𝐞 𝐮𝐧𝐞 zone de <b>𝐑É𝐒𝐈𝐒𝐓𝐀𝐍𝐂𝐄</b> solide.<br>
+        <b>𝟐.</b> Apparition d'une bougie d'englobante baissière ou Étoile du soir.<br>
+        <b>𝟑.</b> 𝐋'𝐢𝐧𝐝𝐢𝐜𝐚𝐭𝐞𝐮𝐫 𝐞𝐬𝐭 𝐞𝐧 𝐳𝐨𝐧𝐞 𝐝𝐞 <b>𝐒𝐮𝐫𝐚𝐜𝐡𝐚𝐭</b> (Au-dessus de 80).<br>
+        <b>𝟒.</b> 𝐀𝐜𝐭𝐢𝐨𝐧 : Klike sou bouton <b>RED / PUT (VENTE)</b> pou 1 à 3 min.
+      </p>
+    </div>
+
+    <!-- SEKSYON 4: CONSEILS DE PRÉPARATION -->
+    <div class="section-title">𝟒. 𝐂𝐎𝐌𝐌𝐄𝐍𝐓 𝐒𝐄 𝐏𝐑É𝐏𝐀𝐑𝐄𝐑 𝐀𝐔𝐗 𝐋𝐈𝐕𝐄𝐒 🧠</div>
+
+    <div class="card">
+      <p class="schema-text">
+        <b>• 𝐂𝐨𝐧𝐧𝐞𝐱𝐢𝐨𝐧 :</b> Connectez-vous 5 minutes avant le début de la session Zoom.<br><br>
+        <b>• 𝐎𝐧𝐠𝐥𝐞𝐭𝐬 :</b> Gardez votre plateforme de trading (Pocket Option/Quotex) ouverte à côté de Zoom.<br><br>
+        <b>• 𝐆𝐞𝐬𝐭𝐢𝐨𝐧 :</b> Calculez votre risque par trade (maximum 1% à 3% de votre capital total).<br><br>
+        <b>• 𝐃𝐢𝐬𝐜𝐢𝐩𝐥𝐢𝐧𝐞 :</b> Ne prenez pas de trades après la fin officielle du Live.
+      </p>
+    </div>
+
+    <!-- SEKSYON 5: MOTIVATION POUR LES SESSIONS -->
+    <div class="card" style="border-left: 4px solid #38bdf8;">
+      <div style="font-weight: 700; color: #ffffff; font-size: 0.95rem; margin-bottom: 8px;">
+        💡 𝐋𝐀 𝐂𝐎𝐍𝐒𝐈𝐒𝐓𝐀𝐍𝐂𝐄 𝐒𝐔𝐑 𝐋𝐄 𝐋𝐎𝐍𝐆 𝐓𝐄𝐑𝐌𝐄
+      </div>
+      <p class="schema-text" style="font-style: italic;">
+        "Les sessions en direct ne sont pas seulement faites pour copier des trades, mais pour comprendre la logique derrière chaque décision. Observez, apprenez et devenez un trader indépendant."
+      </p>
+    </div>
+
+    <!-- BOUTON RETOUNEN -->
+    <a href="trading.html" class="btn-back">
+      <i class="fa-solid fa-arrow-left"></i> 𝐑𝐄𝐓𝐎𝐔𝐑
+    </a>
+
+    <footer>
+      © 2026 ⚡ • 𝐏𝐎𝐖𝐄𝐑𝐄𝐃 𝐁𝐘 @𝐙𝐀𝐘𝐕𝐄𝐍.𝐂𝐑𝐔𝐙 ★
+    </footer>
+
+  </div>
+
+</body>
+        </html>
+  
