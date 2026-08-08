@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>𝐐𝐔𝐈𝐙 𝐓𝐑𝐀𝐃𝐈𝐍𝐆 - 𝐙𝐚𝐲𝐯𝐞𝐧 𝐂𝐫𝐮𝐳</title>
+
+  <!-- FontAwesome Icons & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #1a0808; /* Rouge très foncé */
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 15px 40px;
+    }
+
+    /* CONTAINER PRENSIPAL */
+    .container {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    /* HEADER CARD (Jaune & Rouge) */
+    .header-card {
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.3), rgba(245, 158, 11, 0.3));
+      backdrop-filter: blur(12px);
+      border: 2px solid #f59e0b; /* Bòditi Jòn */
+      border-radius: 24px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(245, 158, 11, 0.2);
+    }
+
+    .badge-quiz {
+      display: inline-block;
+      background: #f59e0b;
+      color: #1a0808;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .header-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    /* CHANGER LANGUE / SELEKTÈ LANG */
+    .lang-selector {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      color: #ffffff;
+      padding: 5px 12px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .lang-btn.active {
+      background: #f59e0b;
+      color: #1a0808;
+    }
+
+    /* CARD QUIZ LA */
+    .quiz-card {
+      background: #261010;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #f59e0b;
+      font-weight: 700;
+      margin-bottom: 15px;
+      border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+      padding-bottom: 8px;
+    }
+
+    .question-text {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    /* REPOSN YO (OPTIONS) */
+    .options-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #ffffff;
+      padding: 12px 15px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .option-btn:hover {
+      background: rgba(245, 158, 11, 0.2);
+      border-color: #f59e0b;
+    }
+
+    .option-btn.correct {
+      background: #22c55e !important;
+      border-color: #22c55e !important;
+      color: #ffffff;
+    }
+
+    .option-btn.wrong {
+      background: #dc2626 !important;
+      border-color: #dc2626 !important;
+      color: #ffffff;
+    }
+
+    /* REZILTA FINAL CARD */
+    .result-card {
+      display: none;
+      background: #261010;
+      border: 2px solid #f59e0b;
+      border-radius: 20px;
+      padding: 25px 20px;
+      text-align: center;
+    }
+
+    .score-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #dc2626, #f59e0b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 15px auto;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+    }
+
+    .result-msg {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f59e0b;
+      margin-bottom: 10px;
+    }
+
+    .result-desc {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .btn-restart {
+      background: linear-gradient(135deg, #f59e0b, #dc2626);
+      color: #ffffff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-restart:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    /* BOUTON RETOUNEN */
+    .btn-back {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #94a3b8;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER CARD -->
+    <div class="header-card">
+      <span class="badge-quiz">🎯 𝐐𝐔𝐈𝐙 𝐓𝐑𝐀𝐃𝐈𝐍𝐆</span>
+      <h1 class="header-title">𝐓𝐄𝐒𝐓𝐄𝐙 𝐕𝐎𝐒 𝐂𝐎𝐍𝐍𝐀𝐈𝐒𝐒𝐀𝐍𝐂𝐄𝐒</h1>
+      
+      <!-- SELEKTÈ LANG -->
+      <div class="lang-selector">
+        <button class="lang-btn active" onclick="setLanguage('fr')">Français</button>
+        <button class="lang-btn" onclick="setLanguage('ht')">Kreyòl</button>
+        <button class="lang-btn" onclick="setLanguage('en')">English</button>
+      </div>
+    </div>
+
+    <!-- QUIZ BOX -->
+    <div id="quizBox" class="quiz-card">
+      <div class="quiz-header">
+        <span id="questionNum">𝐐𝐔𝐄𝐒𝐓𝐈𝐎𝐍 𝟏/𝟏𝟎</span>
+        <span id="scoreTracker">𝐒𝐂𝐎𝐑𝐄 : 𝟎</span>
+      </div>
+
+      <div id="questionText" class="question-text">
+        <!-- Text question an ap antre la nan JS -->
+      </div>
+
+      <div id="optionsContainer" class="options-container">
+        <!-- Bouton opsyon yo ap parèt la nan JS -->
+      </div>
+    </div>
+
+    <!-- REZILTA BOX (Affiche la la la lè w fini) -->
+    <div id="resultCard" class="result-card">
+      <div id="resultTitle" class="result-msg">🎉 𝐅É𝐋𝐈𝐂𝐈𝐓𝐀𝐓𝐈𝐎𝐍𝐒 !</div>
+      <div id="scoreCircle" class="score-circle">0/10</div>
+      <div id="resultDesc" class="result-desc">Vos connaissances en trading sont excellentes !</div>
+      <button class="btn-restart" onclick="restartQuiz()">🔄 𝐑𝐄𝐂𝐎𝐌𝐌𝐄𝐍𝐂𝐄𝐑 𝐋𝐄 𝐐𝐔𝐈𝐙</button>
+    </div>
+
+    <!-- BOUTON RETOUNEN -->
+    <a href="index.html" class="btn-back">
+      <i class="fa-solid fa-arrow-left"></i> 𝐑𝐄𝐓𝐎𝐔𝐑 𝐀𝐔 𝐏𝐑𝐎𝐅𝐈𝐋
+    </a>
+
+    <footer>
+      © 2026 ⚡ • 𝐏𝐎𝐖𝐄𝐑𝐄𝐃 𝐁𝐘 @𝐙𝐀𝐘𝐕𝐄𝐍.𝐂𝐑𝐔𝐙 ★
+    </footer>
+
+  </div>
+
+  <!-- JAVASCRIPT QUIZ ENGINE AK TRANSLATION -->
+  <script>
+    let currentLang = 'fr';
+    let currentQuestion = 0;
+    let score = 0;
+
+    const questionsData = {
+      fr: [
+        { q: "que signifie 'CALL' en Binary Options ?", options: ["Acheter (Hausse)", "Vendre (Baisse)", "Annuler le trade", "Attendre"], ans: 0 },
+        { q: "que signifie 'PUT' en Binary Options ?", options: ["Acheter", "Vendre (Baisse)", "Fermer le compte", "Doubler la mise"], ans: 1 },
+        { q: "quel est le risque maximum recommandé par trade ?", options: ["50% du capital", "100% du capital", "1% à 5% du capital", "20% du capital"], ans: 2 },
+        { q: "qu'est-ce qu'un Support en trading ?", options: ["Une zone où le prix a tendance à monter", "Une zone où le prix chute toujours", "Un indicateur payant", "Une erreur du broker"], ans: 0 },
+        { q: "qu'est-ce qu'une Résistance ?", options: ["Un niveau où le prix bloque vers le haut", "Un bouton sur Pocket Option", "Un signal VIP", "Un type de bougie"], ans: 0 },
+        { q: "que signifie 'OTC' sur les brokers ?", options: ["Over The Counter (Marché virtuel)", "Option Trading Club", "Ordre Technique Court", "Open Time Cash"], ans: 0 },
+        { q: "qu'est-ce que le Revenge Trading ?", options: ["Trader avec discipline", "Vouloir se venger du marché après une perte", "Une stratégie gagnante", "Trader sur Zoom"], ans: 1 },
+        { q: "que mesure l'indicateur RSI ?", options: ["La survente et le surachat", "Le nombre de traders en ligne", "Le solde de votre compte", "L'heure du marché"], ans: 0 },
+        { q: "que devez-vous faire après 3 pertes consécutives ?", options: ["Doubler les montants", "Arrêter de trader pour la journée", "Changer de broker", "Mettre tout votre capital"], ans: 1 },
+        { q: "le trading est-il un jeu de hasard ?", options: ["Oui, comme le casino", "Non, c'est une gestion de risque et d'analyse", "Oui, c'est de la chance pure", "Seulement le week-end"], ans: 1 }
+      ],
+      ht: [
+        { q: "kisa 'CALL' vle di nan Binary Options ?", options: ["Achte (Moute)", "Venn (Desann)", "Anile trade la", "Atann"], ans: 0 },
+        { q: "kisa 'PUT' vle di nan Binary Options ?", options: ["Achte", "Venn (Desann)", "Fèmen kont la", "Dobre kòb la"], ans: 1 },
+        { q: "ki risk maksimòm ou dwe pran pa trade ?", options: ["50% kapital la", "100% kapital la", "1% pou 5% kapital la", "20% kapital la"], ans: 2 },
+        { q: "kisa yon Support ye nan trading ?", options: ["Yon zòn kote pri a gen tandans moute", "Yon zòn kote pri a toujou tonbe", "Yon endikatè peyan", "Yon erè broker a"], ans: 0 },
+        { q: "kisa yon Résistance ye ?", options: ["Yon nivo kote pri a bloke anwo", "Yon bouton sou Pocket Option", "Yon siyal VIP", "Yon kalite bouji"], ans: 0 },
+        { q: "kisa 'OTC' vle di sou yon broker ?", options: ["Over The Counter (Mache virtuel)", "Option Trading Club", "Ordre Technique Court", "Open Time Cash"], ans: 0 },
+        { q: "kisa Revenge Trading ye ?", options: ["Trade ak disiplin", "Vle fè revanj ak mache a lè w pèdi", "Yon bon strateji", "Trade sou Zoom"], ans: 1 },
+        { q: "kisa endikatè RSI a mezire ?", options: ["Survente ak Surachat", "Kantite moun ki sou sit la", "Lajan ki nan kont ou", "Lè mache a"], ans: 0 },
+        { q: "kisa w dwe fè si w pèdi 3 trade konsèkitif ?", options: ["Dobre lajan an", "Sispann trade pou jounen an", "Chanje broker", "Mete tout kapital la"], ans: 1 },
+        { q: "èske trading se yon jwèt daza/kazinon ?", options: ["Wi, tankou kazino", "Non, se jesyon risk ak analiz", "Wi, se chans sèlman", "Sèlman nan wikenn"], ans: 1 }
+      ],
+      en: [
+        { q: "what does 'CALL' mean in Binary Options ?", options: ["Buy (Up)", "Sell (Down)", "Cancel trade", "Wait"], ans: 0 },
+        { q: "what does 'PUT' mean in Binary Options ?", options: ["Buy", "Sell (Down)", "Close account", "Double amount"], ans: 1 },
+        { q: "what is the recommended maximum risk per trade ?", options: ["50% of capital", "100% of capital", "1% to 5% of capital", "20% of capital"], ans: 2 },
+        { q: "what is a Support in trading ?", options: ["A zone where price tends to go up", "A zone where price always drops", "A paid indicator", "A broker error"], ans: 0 },
+        { q: "what is a Resistance ?", options: ["A level where price gets rejected going up", "A button on Pocket Option", "A VIP signal", "A candlestick type"], ans: 0 },
+        { q: "what does 'OTC' mean ?", options: ["Over The Counter (Virtual Market)", "Option Trading Club", "Order Technical Short", "Open Time Cash"], ans: 0 },
+        { q: "what is Revenge Trading ?", options: ["Trading with discipline", "Trading emotionally after a loss", "A winning strategy", "Trading on Zoom"], ans: 1 },
+        { q: "what does the RSI indicator measure ?", options: ["Oversold and Overbought zones", "Number of online traders", "Your account balance", "Market time"], ans: 0 },
+        { q: "what should you do after 3 losses in a row ?", options: ["Double your trade amount", "Stop trading for the day", "Change broker", "Risk all your capital"], ans: 1 },
+        { q: "is trading pure gambling ?", options: ["Yes, like a casino", "No, it is risk management and analysis", "Yes, it is pure luck", "Only on weekends"], ans: 1 }
+      ]
+    };
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      restartQuiz();
+    }
+
+    function loadQuestion() {
+      const qList = questionsData[currentLang];
+      const q = qList[currentQuestion];
+
+      document.getElementById('questionNum').innerText = `𝐐𝐔𝐄𝐒𝐓𝐈𝐎𝐍 ${currentQuestion + 1}/10`;
+      document.getElementById('scoreTracker').innerText = `𝐒𝐂𝐎𝐑𝐄 : ${score}`;
+      document.getElementById('questionText').innerText = `𝐪${currentQuestion + 1}. ${q.q.toUpperCase()}`;
+
+      const container = document.getElementById('optionsContainer');
+      container.innerHTML = '';
+
+      q.options.forEach((opt, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.innerText = opt;
+        btn.onclick = () => checkAnswer(index, btn);
+        container.appendChild(btn);
+      });
+    }
+
+    function checkAnswer(selectedIdx, btn) {
+      const qList = questionsData[currentLang];
+      const correctIdx = qList[currentQuestion].ans;
+
+      const allBtns = document.querySelectorAll('.option-btn');
+      allBtns.forEach(b => b.style.pointerEvents = 'none');
+
+      if (selectedIdx === correctIdx) {
+        btn.classList.add('correct');
+        score++;
+      } else {
+        btn.classList.add('wrong');
+        allBtns[correctIdx].classList.add('correct');
+      }
+
+      setTimeout(() => {
+        currentQuestion++;
+        if (currentQuestion < qList.length) {
+          loadQuestion();
+        } else {
+          showResult();
+        }
+      }, 1200);
+    }
+
+    function showResult() {
+      document.getElementById('quizBox').style.display = 'none';
+      document.getElementById('resultCard').style.display = 'block';
+      document.getElementById('scoreCircle').innerText = `${score}/10`;
+
+      const desc = document.getElementById('resultDesc');
+      if (score >= 8) {
+        desc.innerText = currentLang === 'ht' ? "Ekselan! Ou se yon vrè Trader mèt nan jesyon risk ak strateji!" : "Excellent ! Vous maîtrisez parfaitement les bases du trading !";
+      } else if (score >= 5) {
+        desc.innerText = currentLang === 'ht' ? "Bon travay! Men ou ka al li FAQ ak resous gratis yo pou w vin pi fò." : "Bon travail ! Revois nos guides gratuits pour vous améliorer.";
+      } else {
+        desc.innerText = currentLang === 'ht' ? "Ou bezwen Suiv fòmasyon nou yo byen anvan w al sou kont reel!" : "Suivez attentivement nos formations avant de trader en réel !";
+      }
+    }
+
+    function restartQuiz() {
+      currentQuestion = 0;
+      score = 0;
+      document.getElementById('quizBox').style.display = 'block';
+      document.getElementById('resultCard').style.display = 'none';
+      loadQuestion();
+    }
+
+    // Kòmanse Quiz la lè paj la louvri
+    loadQuestion();
+  </script>
+
+</body>
+</html>
