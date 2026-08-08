@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>𝐖𝐎𝐎𝐉𝐀𝐘 | 𝐓𝐑𝐀𝐃𝐈𝐍𝐆 𝐏𝐋𝐀𝐍 𝐂𝐑𝐄𝐀𝐓𝐎𝐑</title>
+
+  <!-- FontAwesome Icons & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #090d16;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 40px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      padding: 0 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* HERO PROFILE WITH BACKGROUND IMAGE */
+    .hero-header {
+      position: relative;
+      width: 100%;
+      height: 260px;
+      background: url('https://i.postimg.cc/02pCsWgB/IMG-20260808-WA0015.jpg') center/cover no-repeat;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, #090d16 15%, rgba(9, 13, 22, 0.4) 60%, rgba(0, 0, 0, 0.2));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      text-align: center;
+    }
+
+    .avatar-circle {
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      border: 3px solid #f59e0b;
+      margin: 0 auto 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+    }
+
+    .avatar-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 1px;
+    }
+
+    .profile-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #000000;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-top: 5px;
+      text-transform: uppercase;
+    }
+
+    /* CARD STYLING */
+    .card {
+      background: #111827;
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f59e0b;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    /* ESSENTIAL RULES FOR TRADING PLAN CREATOR */
+    .rules-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .rule-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 12px;
+      border-radius: 12px;
+      border-left: 3px solid #3b82f6;
+    }
+
+    .rule-icon {
+      color: #3b82f6;
+      font-size: 1.1rem;
+      margin-top: 2px;
+    }
+
+    .rule-text h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .rule-text p {
+      font-size: 0.78rem;
+      color: #9ca3af;
+      margin-top: 2px;
+      line-height: 1.3;
+    }
+
+    /* BOUTON STYLES (MATCHING YOUR SITE PATTERN) */
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #1f2937;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 14px;
+      padding: 14px 18px;
+      text-decoration: none;
+      color: #ffffff;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .link-btn:hover {
+      border-color: #f59e0b;
+      transform: translateY(-2px);
+    }
+
+    .link-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .link-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .icon-bullseye {
+      background: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+    }
+
+    .icon-whatsapp {
+      background: rgba(34, 197, 94, 0.2);
+      color: #22c55e;
+    }
+
+    .icon-email {
+      background: rgba(59, 130, 246, 0.2);
+      color: #3b82f6;
+    }
+
+    .link-btn span {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #6b7280;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION WITH BACKGROUND IMAGE -->
+  <div class="hero-header">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="avatar-circle">
+        <img src="https://i.postimg.cc/02pCsWgB/IMG-20260808-WA0015.jpg" alt="Woojay Profil">
+      </div>
+      <h1 class="profile-title">𝐖𝐎𝐎𝐉𝐀𝐘</h1>
+      <span class="profile-badge">⚡ 𝐓𝐑𝐀𝐃𝐈𝐍𝐆 𝐏𝐋𝐀𝐍 𝐂𝐑𝐄𝐀𝐓𝐎𝐑</span>
+    </div>
+  </div>
+
+  <div class="container" style="margin-top: 20px;">
+
+    <!-- ABOUT / PHILOSOPHY -->
+    <div class="card">
+      <div class="section-title">
+        <i class="fa-solid fa-compass"></i> 𝐋𝐀 𝐕𝐈𝐒𝐈𝐎𝐍 𝐃𝐄 𝐖𝐎𝐎𝐉𝐀𝐘
+      </div>
+      <p style="font-size: 0.85rem; color: #d1d5db; line-height: 1.5;">
+        Un créateur de plan de trading ne vend pas de la chance, il structure le succès. Mon objectif est de fournir des plans de gestion stricts pour transformer la discipline en rentabilité durable.
+      </p>
+    </div>
+
+    <!-- BOUTON JAYWIN SNIPER (EXACT MATCHING YOUR STYLE) -->
+    <a href="jaywin-sniper.html" class="link-btn" style="background: linear-gradient(135deg, #1f2937, #111827); border-color: #ef4444;">
+      <div class="link-left">
+        <div class="link-icon icon-bullseye">
+          <i class="fa-solid fa-bullseye"></i>
+        </div>
+        <span>𝐉𝐀𝐘𝐖𝐈𝐍 𝐒𝐍𝐈𝐏𝐄𝐑</span>
+      </div>
+      <i class="fa-solid fa-chevron-right" style="font-size:0.8rem; color:#64748b;"></i>
+    </a>
+
+    <!-- TRADING CREATOR GUIDE / ADVICES -->
+    <div class="card">
+      <div class="section-title">
+        <i class="fa-solid fa-list-check"></i> 𝐏𝐈𝐋𝐈𝐄𝐑𝐒 𝐃'𝐔𝐍 𝐁𝐎𝐍 𝐏𝐋𝐀𝐍
+      </div>
+
+      <div class="rules-list">
+        <div class="rule-item">
+          <i class="fa-solid fa-shield-cat rule-icon"></i>
+          <div class="rule-text">
+            <h4>𝐆𝐄𝐒𝐓𝐈𝐎𝐍 𝐃𝐔 𝐂𝐀𝐏𝐈𝐓𝐀𝐋 (𝐑𝐈𝐒𝐊 𝐌𝐀𝐍𝐀𝐆𝐄𝐌𝐄𝐍𝐓)</h4>
+            <p>Ne jamais risquer plus de 2% à 5% de votre capital total sur une seule session.</p>
+          </div>
+        </div>
+
+        <div class="rule-item" style="border-left-color: #f59e0b;">
+          <i class="fa-solid fa-crosshair rule-icon" style="color: #f59e0b;"></i>
+          <div class="rule-text">
+            <h4>𝐎𝐁𝐉𝐄𝐂𝐓𝐈𝐅 𝐒𝐓𝐎𝐏 𝐋𝐎𝐒𝐒 &amp; 𝐓𝐀𝐊𝐄 𝐏𝐑𝐎𝐅𝐈𝐓</h4>
+            <p>Fixez une limite claire : sachez quand vous arrêter, que vous soyez en gain ou en perte.</p>
+          </div>
+        </div>
+
+        <div class="rule-item" style="border-left-color: #10b981;">
+          <i class="fa-solid fa-brain rule-icon" style="color: #10b981;"></i>
+          <div class="rule-text">
+            <h4>𝐃𝐈𝐒𝐂𝐈𝐏𝐋𝐈𝐍𝐄 𝐄𝐓 𝐏𝐒𝐘𝐂𝐇𝐎𝐋𝐎𝐆𝐈𝐄</h4>
+            <p>Le marché punit les émotions. Suivez le plan scrupuleusement sans vengeance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT BUTTONS -->
+    <div class="card">
+      <div class="section-title">
+        <i class="fa-solid fa-paper-plane"></i> 𝐌𝐄 𝐂𝐎𝐍𝐓𝐀𝐂𝐓𝐄𝐑
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <a href="https://wa.me/50941574596?text=Bonjour%20Woojay,%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20plans%20de%20trading." target="_blank" class="link-btn">
+          <div class="link-left">
+            <div class="link-icon icon-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <span>+𝟓𝟎𝟗 𝟒𝟏𝟓𝟕 𝟒𝟓𝟗𝟔</span>
+          </div>
+          <i class="fa-solid fa-chevron-right" style="font-size:0.8rem; color:#64748b;"></i>
+        </a>
+
+        <a href="mailto:fleurimondgarvens@gmail.com?subject=Contact%20Woojay%20Trading" class="link-btn">
+          <div class="link-left">
+            <div class="link-icon icon-email">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <span>𝐄𝐌𝐀𝐈𝐋 𝐎𝐅𝐅𝐈𝐂𝐈𝐄𝐋</span>
+          </div>
+          <i class="fa-solid fa-chevron-right" style="font-size:0.8rem; color:#64748b;"></i>
+        </a>
+      </div>
+    </div>
+
+    <footer>
+      © 2026 ⚡ • 𝐖𝐎𝐎𝐉𝐀𝐘 𝐓𝐑𝐀𝐃𝐈𝐍𝐆 • 𝐏𝐎𝐖𝐄𝐑𝐄𝐃 𝐁𝐘 @𝐙𝐀𝐘𝐕𝐄𝐍.𝐂𝐑𝐔𝐙
+    </footer>
+
+  </div>
+
+</body>
+  </html>
+  
