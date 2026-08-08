@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>𝐆𝐄𝐒𝐓𝐈𝐎𝐍 𝐃𝐄 𝐑𝐈𝐒𝐐𝐔𝐄 - 𝐙𝐚𝐲𝐯𝐞𝐧 𝐂𝐫𝐮𝐳</title>
+
+  <!-- FontAwesome Icons & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Background Fonse ak Touch Rouge & Jaune Abricot */
+    body {
+      background: #1a0c0c;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 15px 40px;
+    }
+
+    /* CONTAINER PRENSIPAL */
+    .container {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* HEADER CARD (Rouge & Abricot) */
+    .header-card {
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.2), rgba(251, 146, 60, 0.2));
+      backdrop-filter: blur(12px);
+      border: 2px solid #fb923c; /* Jaune Abricot */
+      border-radius: 24px;
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+    }
+
+    .badge-risk {
+      display: inline-block;
+      background: #dc2626; /* Rouge */
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+    }
+
+    .header-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .header-subtitle {
+      font-size: 0.85rem;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    /* CARDS SEKSYON YO */
+    .card {
+      background: #261212;
+      border: 1px solid rgba(251, 146, 60, 0.3);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    /* FORMILÈ KALKILATRIS LA */
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .input-group label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fb923c; /* Jaune Abricot */
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 12px 15px;
+      background: #140808;
+      border: 1px solid rgba(251, 146, 60, 0.4);
+      border-radius: 12px;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .input-field:focus {
+      border-color: #dc2626;
+      box-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+    }
+
+    /* BOUTON KALKILE */
+    .btn-calc {
+      background: linear-gradient(135deg, #dc2626, #fb923c);
+      color: #ffffff;
+      border: none;
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 5px;
+    }
+
+    .btn-calc:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    /* REZILTA KALKIL LA */
+    .result-box {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(220, 38, 38, 0.15);
+      border: 1px solid #dc2626;
+      border-radius: 14px;
+      text-align: center;
+      display: none; /* Lap parèt lè moun lan klike sou kalkile */
+    }
+
+    .result-title {
+      font-size: 0.9rem;
+      color: #fb923c;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .result-value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    /* RÈG LÒ DEGESTYON */
+    .rules-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .rule-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.85rem;
+      color: #ffffff;
+      line-height: 1.5;
+    }
+
+    .rule-icon {
+      color: #dc2626;
+      font-size: 1.1rem;
+      margin-top: 2px;
+    }
+
+    /* BOUTON RETOUNEN */
+    .btn-back {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .btn-back:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #94a3b8;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER CARD -->
+    <div class="header-card">
+      <span class="badge-risk">🛡️ 𝐆𝐄𝐒𝐓𝐈𝐎𝐍 𝐃𝐄 𝐑𝐈𝐒𝐐𝐔𝐄</span>
+      <h1 class="header-title">𝐂𝐀𝐋𝐂𝐔𝐋𝐀𝐓𝐄𝐔𝐑 𝐃𝐄 𝐑𝐈𝐒𝐐𝐔𝐄</h1>
+      <p class="header-subtitle">
+        𝐋𝐚 𝐜𝐥é 𝐝𝐮 𝐬𝐮𝐜𝐜è𝐬 𝐞𝐧 𝐭𝐫𝐚𝐝𝐢𝐧𝐠 𝐞𝐬𝐭 𝐥𝐚 𝐠𝐞𝐬𝐭𝐢𝐨𝐧 𝐝𝐮 𝐜𝐚𝐩𝐢𝐭𝐚𝐥. 𝐍𝐞 𝐫𝐢𝐬𝐪𝐮𝐞𝐳 𝐣𝐚𝐦𝐚𝐢𝐬 𝐩𝐥𝐮𝐬 𝐪𝐮𝐞 𝐜𝐞 𝐪𝐮𝐞 𝐯𝐨𝐮𝐬 𝐩𝐨𝐮𝐯𝐞𝐳 𝐩𝐞𝐫𝐝𝐫𝐞.
+      </p>
+    </div>
+
+    <!-- KALKILATRIS CARD -->
+    <div class="card">
+      <div style="font-size: 1rem; font-weight: 700; color: #fb923c; margin-bottom: 15px; text-align: center;">
+        𝟓. 𝐂𝐀𝐋𝐂𝐔𝐋𝐄𝐙 𝐕𝐎𝐓𝐑𝐄 𝐓𝐑𝐀𝐃𝐄
+      </div>
+
+      <div class="input-group">
+        <label>𝐂𝐀𝐏𝐈𝐓𝐀𝐋 𝐓𝐎𝐓𝐀𝐋 ($)</label>
+        <input type="number" id="capital" class="input-field" placeholder="Ex: 100" value="100">
+      </div>
+
+      <div class="input-group">
+        <label>𝐑𝐈𝐒𝐐𝐔𝐄 𝐏𝐀𝐑 𝐓𝐑𝐀𝐃𝐄 (%)</label>
+        <input type="number" id="riskPercent" class="input-field" placeholder="Ex: 2" value="2">
+      </div>
+
+      <button class="btn-calc" onclick="calculateRisk()">
+        ⚡ 𝐂𝐀𝐋𝐂𝐔𝐋𝐄𝐑 𝐋𝐄 𝐌𝐎𝐍𝐓𝐀𝐍𝐓
+      </button>
+
+      <!-- REZILTA LA -->
+      <div id="resultBox" class="result-box">
+        <div class="result-title">𝐌𝐎𝐍𝐓𝐀𝐍𝐓 À 𝐌𝐄𝐓𝐓𝐑𝐄 𝐏𝐀𝐑 𝐓𝐑𝐀𝐃𝐄 :</div>
+        <div id="tradeAmount" class="result-value">$0.00</div>
+        <div style="font-size: 0.75rem; color: #ffffff; margin-top: 5px;" id="riskAmountText">
+          Perte maximale acceptée : $0.00
+        </div>
+      </div>
+    </div>
+
+    <!-- RÈG D'OR DE TRADING -->
+    <div class="card">
+      <div style="font-size: 1rem; font-weight: 700; color: #dc2626; margin-bottom: 15px; text-align: center;">
+        ⚠️ 𝐋𝐄𝐒 𝟓 𝐑È𝐆𝐋𝐄𝐒 𝐃'𝐎𝐑
+      </div>
+
+      <div class="rules-list">
+        <div class="rule-item">
+          <i class="fa-solid fa-triangle-exclamation rule-icon"></i>
+          <div><b>𝐑è𝐠𝐥𝐞 𝟏 :</b> 𝐍𝐞 𝐫𝐢𝐬𝐪𝐮𝐞𝐳 𝐣𝐚𝐦𝐚𝐢𝐬 𝐩𝐥𝐮𝐬 𝐝𝐞 𝟏% à 𝟓% 𝐝𝐞 𝐯𝐨𝐭𝐫𝐞 𝐜𝐚𝐩𝐢𝐭𝐚𝐥 𝐩𝐚𝐫 𝐭𝐫𝐚𝐝𝐞.</div>
+        </div>
+
+        <div class="rule-item">
+          <i class="fa-solid fa-ban rule-icon"></i>
+          <div><b>𝐑è𝐠𝐥𝐞 𝟐 :</b> 𝐀𝐫𝐫ê𝐭𝐞𝐳-𝐯𝐨𝐮𝐬 𝐚𝐩𝐫è𝐬 𝟐 𝐨𝐮 𝟑 𝐩𝐞𝐫𝐭𝐞𝐬 𝐜𝐨𝐧𝐬é𝐜𝐮𝐭𝐢𝐯𝐞𝐬 (𝐒𝐭𝐨𝐩 𝐋𝐨𝐬𝐬 𝐉𝐨𝐮𝐫𝐧𝐚𝐥𝐢𝐞𝐫).</div>
+        </div>
+
+        <div class="rule-item">
+          <i class="fa-solid fa-brain rule-icon"></i>
+          <div><b>𝐑è𝐠𝐥𝐞 𝟑 :</b> 𝐍'𝐞𝐬𝐬𝐚𝐲𝐞𝐳 𝐣𝐚𝐦𝐚𝐢𝐬 𝐝𝐞 𝐯𝐨𝐮𝐬 𝐯𝐞𝐧𝐠𝐞𝐫 𝐝𝐮 𝐦𝐚𝐫𝐜𝐡é (𝐏𝐚𝐬 𝐝𝐞 𝐑𝐞𝐯𝐞𝐧𝐠𝐞 𝐓𝐫𝐚𝐝𝐢𝐧𝐠).</div>
+        </div>
+
+        <div class="rule-item">
+          <i class="fa-solid fa-gem rule-icon"></i>
+          <div><b>𝐑è𝐠𝐥𝐞 𝟒 :</b> 𝐋𝐚 𝐜𝐨𝐧𝐬𝐢𝐬𝐭𝐚𝐧𝐜𝐞 𝐞𝐬𝐭 𝐩𝐥𝐮𝐬 𝐢𝐦𝐩𝐨𝐫𝐭𝐚𝐧𝐭𝐞 𝐪𝐮𝐞 𝐥𝐞 𝐠𝐚𝐢𝐧 𝐫𝐚𝐩𝐢𝐝𝐞.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOUTON RETOUNEN -->
+    <a href="index.html" class="btn-back">
+      <i class="fa-solid fa-arrow-left"></i> 𝐑𝐄𝐓𝐎𝐔𝐑 𝐀𝐔 𝐏𝐑𝐎𝐅𝐈𝐋
+    </a>
+
+    <footer>
+      © 2026 ⚡ • 𝐏𝐎𝐖𝐄𝐑𝐄𝐃 𝐁𝐘 @𝐙𝐀𝐘𝐕𝐄𝐍.𝐂𝐑𝐔𝐙 ★
+    </footer>
+
+  </div>
+
+  <!-- JAVASCRIPT POU KALKIL LA -->
+  <script>
+    function calculateRisk() {
+      const capital = parseFloat(document.getElementById('capital').value);
+      const riskPercent = parseFloat(document.getElementById('riskPercent').value);
+
+      if (isNaN(capital) || isNaN(riskPercent) || capital <= 0 || riskPercent <= 0) {
+        alert("Veuillez entrer des chiffres valides.");
+        return;
+      }
+
+      const riskAmount = (capital * riskPercent) / 100;
+
+      document.getElementById('tradeAmount').innerText = '$' + riskAmount.toFixed(2);
+      document.getElementById('riskAmountText').innerText = 'Perte maximale acceptée : $' + riskAmount.toFixed(2);
+      document.getElementById('resultBox').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
