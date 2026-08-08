@@ -237,6 +237,67 @@
         <i class="fa-solid fa-video"></i> 𝐑𝐄𝐉𝐎𝐈𝐍𝐃𝐑𝐄 𝐋𝐀 𝐒𝐄𝐒𝐒𝐈𝐎𝐍 𝐙𝐎𝐎𝐌
       </a>
 
+      <!-- BOKS MODPAS ZOOM -->
+<div class="zoom-pass-box">
+  <div class="zoom-pass-title">
+    <i class="fa-solid fa-key"></i> 𝐌𝐎𝐓 𝐃𝐄 𝐏𝐀𝐒𝐒𝐄 𝐙𝐎𝐎𝐌 :
+  </div>
+  <div class="zoom-pass-code" onclick="copyZoomPass()">
+    <span>𝐙𝐀𝐕𝐄𝐍𝐂𝐑𝐔𝐙</span>
+    <i class="fa-regular fa-copy" style="font-size: 0.9rem;"></i>
+  </div>
+  <span id="copyMsg" class="copy-success-text">Copié !</span>
+</div>
+
+<style>
+  .zoom-pass-box {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px dashed #f59e0b;
+    border-radius: 14px;
+    padding: 12px;
+    margin-top: 12px;
+    text-align: center;
+  }
+  .zoom-pass-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #f59e0b;
+    margin-bottom: 6px;
+  }
+  .zoom-pass-code {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #0d1b2a;
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: all;
+    letter-spacing: 1px;
+  }
+  .copy-success-text {
+    display: none;
+    font-size: 0.75rem;
+    color: #22c55e;
+    margin-top: 4px;
+    font-weight: 600;
+  }
+</style>
+
+<script>
+  function copyZoomPass() {
+    navigator.clipboard.writeText("ZAVENCRUZ");
+    const msg = document.getElementById("copyMsg");
+    msg.style.display = "block";
+    setTimeout(() => { msg.style.display = "none"; }, 2000);
+  }
+</script>
+      
+
       <!-- 🟢🔴 ABNAN KI KOULÈ OU KA MODIFYE STATUS A: -->
       <!-- POU W METE L "OUVERT" (VERT) : Sèvi ak class="status-container status-open" -->
       <!-- POU W METE L "FERMÉ" (ROUGE) : Sèvi ak class="status-container status-closed" -->
