@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dsprimis-portfolios.vercel.app/sitemap.xml
+Sitemap: https://zayven-cruz.vercel.app/sitemap.xml
