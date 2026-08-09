@@ -12,7 +12,7 @@
   <a href="https://wa.me/50933518203">
     <img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp">
   </a>
-  <a href="https://instagram.com/zaywen.cruzz">
+  <a href="https://www.instagram.com/kevee.yxz?igsh=cTV1Yjlud3EwcjZp">
     <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram">
   </a>
   <a href="mailto: johnkevee2@gmail.com">
