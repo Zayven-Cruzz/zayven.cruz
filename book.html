@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>𝐄-𝐁𝐎𝐎𝐊 | 𝐋𝐄 𝐆𝐔𝐈𝐃𝐄 𝐔𝐋𝐓𝐈𝐌𝐄 𝐃𝐔 𝐓𝐑𝐀𝐃𝐈𝐍𝐆 𝐁𝐈𝐍𝐀𝐈𝐑𝐄</title>
+
+  <!-- FontAwesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0d0d0d;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 10px 100px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 550px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* HEADER STYLE */
+    .book-header {
+      background: linear-gradient(135deg, #ff007f, #b30059);
+      border-radius: 20px;
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(255, 0, 127, 0.4);
+      color: #ffffff;
+    }
+
+    .book-header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .book-header p {
+      font-size: 0.85rem;
+      color: #fce7f3;
+      font-weight: 600;
+    }
+
+    /* BOOK CARD DISPLAY CONTAINER */
+    .page-card {
+      display: none; /* Cache par défaut, active via JavaScript */
+      background: rgba(20, 20, 20, 0.95);
+      border: 2px solid #ff007f;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      animation: fadeIn 0.4s ease;
+    }
+
+    .page-card.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* IMAGE COVER POU CHAK PAJ */
+    .page-banner {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 2px solid #ff007f;
+    }
+
+    /* TEXT CONTENT WITH BACKGROUND PATTERN */
+    .page-content {
+      padding: 22px 20px;
+      background: linear-gradient(180deg, rgba(255, 0, 127, 0.05) 0%, rgba(0, 0, 0, 0.8) 100%);
+      line-height: 1.6;
+    }
+
+    .page-number-badge {
+      display: inline-block;
+      background: #ff007f;
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .page-title {
+      font-size: 1.2rem;
+      color: #ff3399;
+      font-weight: 700;
+      margin-bottom: 14px;
+      border-bottom: 1px dashed rgba(255, 0, 127, 0.3);
+      padding-bottom: 8px;
+    }
+
+    .page-body-text {
+      font-size: 0.88rem;
+      color: #f1f5f9;
+      text-align: justify;
+    }
+
+    .highlight-box {
+      background: rgba(255, 0, 127, 0.15);
+      border-left: 4px solid #ff007f;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 15px;
+      font-size: 0.83rem;
+      color: #fbcfe8;
+    }
+
+    /* PAGINATION NAV BAR (ACCÈS DIRECT 1 À 50) */
+    .pagination-bar-wrapper {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #121212;
+      border-top: 2px solid #ff007f;
+      padding: 12px 10px;
+      box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.9);
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .pagination-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 550px;
+      margin-bottom: 8px;
+    }
+
+    .nav-btn {
+      background: #ff007f;
+      color: #ffffff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:disabled {
+      background: #333333;
+      color: #777777;
+      cursor: not-allowed;
+    }
+
+    .page-indicator {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #ff3399;
+    }
+
+    /* SCROLLABLE NUMBER STRIP (BARRE HORIZONTALE / VERTICALE ADAPTATIVE) */
+    .number-strip {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      width: 100%;
+      max-width: 550px;
+      padding: 5px 2px;
+      scrollbar-width: thin;
+      scrollbar-color: #ff007f #121212;
+    }
+
+    .num-btn {
+      flex: 0 0 auto;
+      width: 36px;
+      height: 36px;
+      background: #1e1e1e;
+      border: 1px solid rgba(255, 0, 127, 0.4);
+      color: #ffffff;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .num-btn.active {
+      background: #ff007f;
+      color: #ffffff;
+      border-color: #ffffff;
+      box-shadow: 0 0 10px #ff007f;
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #a1a1aa;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER E-BOOK -->
+    <div class="book-header">
+      <h1>📖 𝐋𝐄 𝐆𝐔𝐈𝐃𝐄 𝐔𝐋𝐓𝐈𝐌𝐄 𝐃𝐔 𝐓𝐑𝐀𝐃𝐈𝐍𝐆 𝐁𝐈𝐍𝐀𝐈𝐑𝐄</h1>
+      <p>𝐃𝐞 𝐀 à 𝐙 : 𝐌𝐚î𝐭𝐫𝐢𝐬𝐞 𝐝𝐞𝐬 𝐑𝐢𝐬𝐪𝐮𝐞𝐬 &amp; 𝐒𝐭𝐫𝐚𝐭é𝐠𝐢𝐞𝐬 𝐏𝐫𝐨𝐟𝐞𝐬𝐬𝐢𝐨𝐧𝐧𝐞𝐥𝐥𝐞𝐬</p>
+    </div>
+
+    <!-- BOOK PAGES CONTAINER (50 PAGES) -->
+    <div id="book-container"></div>
+
+    <footer>
+      © 2026 📖 • 𝐙𝐀𝐘𝐕𝐄𝐍 𝐂𝐑𝐔𝐙 &amp; 𝐖𝐎𝐎𝐉𝐀𝐘 • 𝐓𝐎𝐔𝐒 𝐃𝐑𝐎𝐈𝐓𝐒 𝐑É𝐒𝐄𝐑𝐕É𝐒
+    </footer>
+
+  </div>
+
+  <!-- FIXED NAVIGATION BAR AT BOTTOM -->
+  <div class="pagination-bar-wrapper">
+    <div class="pagination-controls">
+      <button id="prevBtn" class="nav-btn" onclick="changePage(-1)">← 𝐏𝐫é𝐜é𝐝𝐞𝐧𝐭</button>
+      <span id="pageIndicator" class="page-indicator">𝐏𝐚𝐠𝐞 𝟏 / 𝟓𝟎</span>
+      <button id="nextBtn" class="nav-btn" onclick="changePage(1)">𝐒𝐮𝐢𝐯𝐚𝐧𝐭 →</button>
+    </div>
+
+    <!-- ACCÈS RAPIDE 1 À 50 -->
+    <div class="number-strip" id="numberStrip"></div>
+  </div>
+
+  <script>
+    // CONTENU DES 50 PAGES DU LIVRE
+    const bookData = [
+      { page: 1, title: "𝐈𝐍𝐓𝐑𝐎𝐃𝐔𝐂𝐓𝐈𝐎𝐍 𝐀𝐔 𝐓𝐑𝐀𝐃𝐈𝐍𝐆 𝐁𝐈𝐍𝐀𝐈𝐑𝐄", text: "Le trading d'options binaires est une forme de trading financier où vous prédisez la direction d'un actif (HAUSSE ou BAISSE) sur une période de temps déterminée. Contrairement aux marchés traditionnels, votre profit ou perte est fixe et connu à l'avance.", img: "https://images.pexels.com/photos/6770610/pexels-photo-6770610.jpeg?auto=compress&cs=tinysrgb&w=800", note: "💡 Règle n°1 : Ce marché récompense la discipline, pas la spéculation aveugle." },
+      { page: 2, title: "𝐋𝐄 𝐅𝐎𝐍𝐂𝐓𝐈𝐎𝐍𝐍𝐄𝐌𝐄𝐍𝐓 𝐃𝐄𝐒 𝐎𝐏𝐓𝐈𝐎𝐍𝐒 𝐁𝐈𝐍𝐀𝐈𝐑𝐄𝐒", text: "Lorsque vous ouvrez un trade 'CALL' (Achat), vous pariez que le prix sera plus élevé à l'expiration. Un trade 'PUT' (Vente) signifie que le prix sera plus bas. Les durées varient de 5 secondes à plusieurs heures.", img: "https://images.pexels.com/photos/7567443/pexels-photo-7567443.jpeg?auto=compress&cs=tinysrgb&w=800", note: "⚠️ L'expiration fixe est votre plus grand avantage et votre plus grand risque." },
+      { page: 3, title: "𝐋𝐀 𝐑É𝐀𝐋𝐈𝐓É 𝐃𝐄𝐒 𝐑𝐈𝐒𝐐𝐔𝐄𝐒", text: "Le risque majeur du Binary est la rapidité avec laquelle un compte peut être vidé. Avec des paiements moyens de 80% à 92%, vous devez gagner plus de 55% de vos trades pour être simplement rentable à long terme.", img: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800", note: "🚨 Ne risquez jamais de l'argent dont vous avez besoin pour vivre." },
+      { page: 4, title: "𝐋𝐄 𝐏𝐎𝐔𝐑𝐂𝐄𝐍𝐓𝐀𝐆𝐄 𝐃𝐄 𝐏𝐀𝐈𝐄𝐌𝐄𝐍𝐓 (𝐏𝐀𝐘𝐎𝐔𝐓)", text: "Le Payout détermine votre profit. Si le Payout est de 80% et que vous misez 10$, un gain vous rapporte 8$ de profit net. En cas de perte, vous perdez la totalité des 10$.", img: "https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800", note: "📊 Évitez de trader les actifs avec un Payout inférieur à 75%." },
+      { page: 5, title: "𝐋𝐀 𝐆𝐄𝐒𝐓𝐈𝐎𝐍 𝐃𝐔 𝐂𝐀𝐏𝐈𝐓𝐀𝐋 (𝐌𝐎𝐍𝐄𝐘 𝐌𝐀𝐍𝐀𝐆𝐄𝐌𝐄𝐍𝐓)", text: "La règle d'or consiste à ne jamais investir plus de 1% à 3% de votre capital total sur une seule position. Si votre compte contient 100$, vos trades ne doivent pas dépasser 2$.", img: "https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=800", note: "🛡️ Protéger son capital est prioritaire sur la recherche de profits." },
+      { page: 6, title: "𝐋𝐄 𝐃𝐀𝐍𝐆𝐄𝐑 𝐃𝐔 𝐌𝐀𝐑𝐓𝐈𝐍𝐆𝐀𝐋𝐄", text: "La stratégie Martingale consiste à doubler votre mise après chaque perte. C'est le moyen le plus rapide de détruire un compte de trading en cas de série noire.", img: "https://images.pexels.com/photos/7567565/pexels-photo-7567565.jpeg?auto=compress&cs=tinysrgb&w=800", note: "❌ À bannir absolument pour les débutants !" },
+      { page: 7, title: "𝐋𝐀 𝐌𝐀Î𝐓𝐑𝐈𝐒𝐄 𝐃𝐔 𝐌𝐀𝐑𝐓𝐈𝐍𝐆𝐀𝐋𝐄 𝐌𝐎𝐃𝐈𝐅𝐈É", text: "Si le Martingale est utilisé, il doit être strictement limité à 1 seul niveau (Anti-Loss) et calculé pour couvrir uniquement la perte précédente sans chercher de gros sur-profit.", img: "https://images.pexels.com/photos/6770610/pexels-photo-6770610.jpeg?auto=compress&cs=tinysrgb&w=800", note: "🎯 Max 1 réinvestissement par session." },
+      { page: 8, title: "𝐋𝐄 𝐒𝐓𝐎𝐏 𝐋𝐎𝐒𝐒 𝐐𝐔𝐎𝐓𝐈𝐃𝐈𝐄𝐍", text: "Fixez une limite de perte maximale par jour. Par exemple, si vous perdez 3 trades consécutifs ou 10% de votre capital, fermez la plateforme et arrêtez de trader pour la journée.", img: "https://images.pexels.com/photos/7567443/pexels-photo-7567443.jpeg?auto=compress&cs=tinysrgb&w=800", note: "🛑 Savoir s'arrêter est la marque d'un professionnel." },
+      { page: 9, title: "𝐋𝐄 𝐓𝐀𝐊𝐄 𝐏𝐑𝐎𝐅𝐈𝐓 𝐐𝐔𝐎𝐓𝐈𝐃𝐈𝐄𝐍", text: "Définissez un objectif de gain réaliste (ex: 5% à 8% de votre capital par jour). Une fois atteint, verrouillez vos bénéfices et quittez le marché.", img: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800", note: "💰 La cupidité transforme les journées gagnantes en pertes." },
+      { page: 10, title: "𝐋𝐀 𝐏𝐒𝐘𝐂𝐇𝐎𝐋𝐎𝐆𝐈𝐄 𝐃𝐔 𝐓𝐑𝐀𝐃𝐄𝐑", text: "Le trading est à 80% psychologique et 20% technique. Les deux plus grands ennemis du trader sont la peur de perdre et la cupidité.", img: "https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800", note: "🧠 Un esprit calme prend des décisions rationnelles." },
+      { page: 11, title: "É𝐕𝐈𝐓𝐄𝐑 𝐋𝐄 '𝐑𝐄𝐕𝐄𝐍𝐆𝐄 𝐓𝐑𝐀𝐃𝐈𝐍𝐆'", text: "Le Revenge Trading survient lorsque vous tentez de récupérer immédiatement une perte en prenant des trades impulsifs sans analyse. C'est un piège mortel.", img: "https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=800", note: "⚡ Acceptez la perte comme un coût d'exploitation." },
+      { page: 12, title: "𝐋'𝐀𝐍𝐀𝐋𝐘𝐒𝐄 𝐓𝐄𝐂𝐇𝐍𝐈𝐐𝐔𝐄 : 𝐋𝐄𝐒 𝐁𝐀𝐒𝐄𝐒", text: "L'analyse technique repose sur l'étude des graphiques et des prix passés pour anticiper les mouvements futurs grâce aux chandeliers japonais.", img: "https://images.pexels.com/photos/7567565/pexels-photo-7567565.jpeg?auto=compress&cs=tinysrgb&w=800", note: "📈 Le prix intègre toutes les informations du marché." },
+      { page: 13, title: "𝐋𝐄𝐒 𝐂𝐇𝐀𝐍𝐃𝐄𝐋𝐈𝐄𝐑𝐒 𝐉𝐀𝐏𝐎𝐍𝐀𝐈𝐒", text: "Chaque bougie indique 4 prix : l'Ouverture, le Plus Haut, le Plus Bas et la Fermeture (OHLC). La couleur indique la direction (Vert = Hausse, Rouge = Baisse).", img: "https://images.pexels.com/photos/6770610/pexels-photo-6770610.jpeg?auto=compress&cs=tinysrgb&w=800", note: "🕯️ L'anatomie d'une bougie révèle la force des acheteurs ou vendeurs." },
+      { page: 14, title: "𝐋𝐄𝐒 𝐒𝐔𝐏𝐏𝐎𝐑𝐓𝐒 𝐄𝐓 𝐑É𝐒𝐈𝐒𝐓𝐀𝐍𝐂𝐄𝐒", text: "Un Support est un niveau où le prix rebondit vers le haut. Une Résistance est un plafond où le prix rejette vers le bas.", img: "https://images.pexels.com/photos/7567443/pexels-photo-7567443.jpeg?auto=compress&cs=tinysrgb&w=800", note: "🧱 Plus un niveau est testé, plus il devient fort ou prêt à casser." },
+      { page: 15, title: "𝐋𝐄𝐒 𝐋𝐈𝐆𝐍𝐄𝐒 𝐃𝐄 𝐓𝐄𝐍𝐃𝐀𝐍𝐂𝐄 (𝐓𝐑𝐄𝐍𝐃𝐋𝐈𝐍𝐄𝐒)", text: "Ne tradez jamais contre la tendance principale. 'The trend is your friend'. Identifiez les sommets plus hauts (Haussière) ou plus bas (Baissière).", img: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800", note: "🌊 Surfez sur la vague du marché, ne nagez pas à contre-courant." },
+      { page: 16, title: "𝐋'𝐈𝐍𝐃𝐈𝐂𝐀𝐓𝐄𝐔𝐑 𝐌𝐀𝐂𝐃", text: "Le MACD mesure le momentum. Un croisement de la ligne MACD au-dessus de la ligne de signal indique une opportunité d'achat (CALL).", img: "https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800", note: "📊 Utilisez le MACD en confirmation, jamais seul." },
+      { page: 17, title: "𝐋𝐄𝐒 𝐌𝐎𝐘𝐄𝐍𝐍𝐄𝐒 𝐌𝐎𝐁𝐈𝐋𝐄𝐒 (𝐄𝐌𝐀)", text: "L'EMA (Moyenne Mobile Exponentielle) lisse le prix. Une EMA 20 au-dessus d'une EMA 50 confirme une forte tendance haussière.", img: "https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=800", note: "📉 Les EMA servent de supports et résistances dynamiques." },
+      { page: 18, title: "𝐋𝐄 𝐑𝐒𝐈 (𝐑𝐄𝐋𝐀𝐓𝐈𝐕𝐄 𝐒𝐓𝐑𝐄𝐍𝐆𝐓𝐇 𝐈𝐍𝐃𝐄𝐗)", text: "Le RSI mesure la survente (<30) et la surchauffe (>70). Un RSI au-dessus de 70 indique que le prix peut bientôt chuter (PUT).", img: "https://images.pexels.com/photos/7567565/pexels-photo-7567565.jpeg?auto=compress&cs=tinysrgb&w=800", note: "⚠️ Une survente peut durer longtemps lors d'une forte tendance." },
+      { page: 19, title: "𝐋𝐄𝐒 𝐁𝐀𝐍𝐃𝐄𝐒 𝐃𝐄 𝐁𝐎𝐋𝐋𝐈𝐍𝐆𝐄𝐑", text: "Les Bandes de Bollinger mesurent la volatilité. Lorsque le prix touche la bande supérieure, un retour au centre est fréquent.", img: "https://images.pexels.com/photos/6770610/pexels-photo-6770610.jpeg?auto=compress&cs=tinysrgb&w=800", note: "🎯 Cherchez les rejets sur les bandes extérieures." },
+      { page: 20, title: "𝐋𝐄𝐒 𝐅𝐈𝐆𝐔𝐑𝐄𝐒 𝐃𝐄 𝐑𝐄𝐕𝐄𝐑𝐒𝐄𝐌𝐄𝐍𝐓", text: "Les figures comme le Marteau (Hammer), l'Englobante (Engulfing) ou le Doji signalent un retournement imminent de la tendance.", img: "https://images.pexels.com/photos/7567443/pexels-photo-7567443.jpeg?auto=compress&cs=tinysrgb&w=800", note: "🔍 Confirmez toujours la bougie suivante avant de valider." },
+      { page: 21, title: "𝐋'𝐀𝐍𝐀𝐋𝐘𝐒𝐄 𝐅𝐎𝐍𝐃𝐀𝐌𝐄𝐍𝐓𝐀𝐋𝐄 &amp; 𝐍𝐄𝐖𝐒", text: "Les annonces économiques majeurs (NFP, Décisions de Taux) provoquent des volatilités extrêmes. Évitez de trader 15 min avant et après une news à fort impact.", img: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800", note: "📰 Consultez ForexFactory avant chaque session." },
+      { page: 22, title: "𝐋𝐄𝐒 𝐌𝐀𝐑𝐂𝐇É𝐒 𝐎𝐓𝐂 (𝐎𝐕𝐄𝐑 𝐓𝐇𝐄 𝐂𝐎𝐔𝐍𝐓𝐄𝐑)", text: "Les marchés OTC sont générés par les algorithmes des courtiers le week-end. Ils suivent des règles mathématiques strictes mais purement techniques.", img: "https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800", note: "🤖 Soyez très rigoureux avec les supports/résistances en OTC." },
+      { page: 23, title: "𝐋𝐄 𝐂𝐇𝐎𝐈𝐗 𝐃𝐔 𝐁𝐎𝐍 𝐂𝐎𝐔𝐑𝐓𝐈𝐄𝐑 (𝐁𝐑𝐎𝐊𝐄𝐑)", text: "Utilisez uniquement des plateformes reconnues comme Pocket Option. Vérifiez la rapidité des retraits et l'exécution sans délai des ordres.", img: "https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=800", note: "🔒 Sécurisez toujours votre compte avec le 2FA." },
+      { page: 24, title: "𝐋𝐀 𝐆𝐄𝐒𝐓𝐈𝐎𝐍 𝐃𝐄𝐒 𝐒𝐄𝐒𝐒𝐈𝐎𝐍𝐒 𝐃𝐄 𝐓𝐑𝐀𝐃𝐈𝐍𝐆", text: "Ne tradez pas toute la journée. Limitez votre temps de trading à 1 ou 2 sessions de 45 minutes maximum par jour pour garder une concentration optimale.", img: "https://images.pexels.com/photos/7567565/pexels-photo-7567565.jpeg?auto=compress&cs=tinysrgb&w=800", note: "⌛ La fatigue mène aux erreurs de calcul." },
+      { page: 25, title: "𝐋𝐄 𝐉𝐎𝐔𝐑𝐍𝐀𝐋 𝐃𝐄 𝐓𝐑𝐀𝐃𝐈𝐍𝐆", text: "Notez chaque trade effectué : Heure, Actif, Raison de l'entrée, Misa, Résultat. C'est l'outil numéro 1 pour identifier vos faiblesses.", img: "https://images.pexels.com/photos/6770610/pexels-photo-6770610.jpeg?auto=compress&cs=tinysrgb&w=800", note: "📝 Ce qui ne s'évalue pas ne s'améliore pas." },
+      { page: 26, title: "𝐋𝐀 𝐒𝐓𝐑𝐀𝐓É𝐆𝐈𝐄 𝐃𝐄 𝐁𝐑𝐄𝐀𝐊𝐎𝐔𝐓 (𝐂𝐀𝐒𝐒𝐔𝐑𝐄)", text: "Lorsqu'un prix casse une résistance majeure avec une forte bougie, attendez un 'Pullback' (test du niveau) pour entrer dans le sens de la cassure.", img: "https://images.pexels.com/photos/7567443/pexels-photo-7567443.jpeg?auto=compress&cs=tinysrgb&w=800", note: "🎯 Évitez les fausses cassures en vérifiant le volume." },
+      { page: 27, title: "𝐋𝐀 𝐒𝐓𝐑𝐀𝐓É𝐆𝐈𝐄 𝐃𝐄 𝐑𝐄𝐉𝐄𝐓 (𝐏𝐈𝐍𝐁𝐀𝐑)", text: "Une longue mèche vers le haut ou le bas indique un rejet net des prix. C'est une excellente opportunité de trade à contre-tendance sur 1 à 3 min.", img: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800", note: "📍 La mèche montre où les institutionnels ont rejeté le prix." },
+      { page: 28, title: "𝐋𝐄 𝐓𝐈𝐌𝐈𝐍𝐆 𝐃'𝐄𝐗𝐏𝐈𝐑𝐀𝐓𝐈𝐎𝐍", text: "Alignez votre temps d'expiration avec votre unité de temps. Si vous analysez en M1 (1 min), privilégiez des expirations de 2 à 3 minutes.", img: "https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=800", note: "⏱️ Donnez au prix le temps de se développer." },
+      { page: 29, title: "𝐋'𝐈𝐌𝐏𝐀𝐂𝐓 𝐃𝐄𝐒 𝐅𝐑𝐀𝐈𝐒 𝐄𝐓 𝐃𝐄𝐒 𝐒𝐏𝐑𝐄𝐀𝐃𝐒", text: "Même s'il n'y a pas de commission directe en Binary, le décalage de temps (delay d'exécution) peut parfois faire échouer un trade à quelques pips.", img: "https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg?auto=compress&cs=tinysrgb&w=800", note: "⚡ Privilégiez une excellente connexion internet." },
+      { page: 30, title: "𝐋𝐀 𝐃𝐈𝐕𝐄𝐑𝐒𝐈𝐅𝐈𝐂𝐀𝐓𝐈𝐎𝐍 𝐃𝐄𝐒 𝐏𝐀𝐈𝐑𝐄𝐒", text: "Ne vous focalisez pas sur une seule paire de devises si elle est plate sans mouvement. Naviguez entre EUR/USD, GBP/USD, USD/JPY pour trouver de bonnes tendances.", img: "https://images.pexels.com/photos/7567565/pexels-photo-7567565.jpeg?auto=compress&cs=tinysrgb&w=800", note: "👀 La patience est la clé de la sélection des opportunités." },
+      { page: 31, title: "𝐋'𝐄𝐅𝐅𝐄𝐓 𝐃𝐄 𝐂𝐎𝐌𝐏𝐎𝐒𝐈𝐓𝐈𝐎𝐍 (𝐈𝐍𝐓É𝐑Ê𝐓𝐒 𝐂𝐎𝐌𝐏𝐎𝐒É𝐒)", text: "Re-investir une petite fraction de vos gains quotidiens permet de faire grandir un compte de 50$ de manière exponentielle sur 3 mois.", img: "https://images.pexels.com/photos/6770610/pexels-photo-6770610.jpeg?auto=compress&cs=tinysrgb&w=800", note: "📈 La régularité bat la vitesse." },
+      { page: 32, title: "𝐋𝐄𝐒 𝐄𝐑𝐑𝐄𝐔𝐑𝐒 𝐅𝐀𝐓𝐀𝐋𝐄𝐒 𝐃𝐔 𝐃É𝐁𝐔𝐓𝐀𝐍𝐓", text: "Trader sans plan, risquer 50% de son compte sur un 'Feeling', trader sous l'effet du stress ou de l'alcool sont les causes de 99% des échecs.", img: "https://images.pexels.com/photos/7567443/pexels-photo-7567443.jpeg?auto=compress&cs=tinysrgb&w=800", note: "🚫 Traitez le trading comme un business sérieux." },
+      { page: 33, title: "𝐋'𝐈𝐌𝐏𝐎𝐑𝐓𝐀𝐍𝐂𝐄 𝐃𝐔 𝐂𝐎𝐌𝐏𝐓𝐄 𝐃É𝐌𝐎", text: "Testez toujours toute nouvelle stratégie sur un compte Démo pendant au moins 100 trades avant d'investir le moindre dollar réel.", img: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800", note: "🎮 Validez l
