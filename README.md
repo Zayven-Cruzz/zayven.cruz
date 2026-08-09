@@ -2,7 +2,7 @@
 
 <!-- Dynamic Typing Banner Header -->
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=25&pause=1000&color=D4AF37&center=true&vCenter=true&width=600&lines=%F0%9F%93%88+𝐙𝐀𝐘𝐕𝐄𝐍+𝐂𝐑𝐔𝐙+𝐓𝐑𝐀𝐃𝐈𝐍𝐆+𝐀𝐂𝐀𝐃𝐄𝐌𝐘;%F0%9F%94%A5+𝐍𝐎+𝐑𝐈𝐒𝐊.+𝐍𝐎+𝐒𝐓𝐎𝐑𝐘.;%F0%9F%A4%96+𝐁𝐢𝐧𝐚𝐫𝐲+𝐎𝐩𝐭𝐢𝐨𝐧𝐬+%26+𝐀𝐥𝐠𝐨𝐫𝐢𝐭𝐡𝐦𝐬;%F0%9F%92%B0+𝙼𝚊𝚜𝚝𝚎𝚛+𝚃𝚑𝚎+𝙵𝚒𝚗𝚊𝚗𝚌𝚒𝚊𝚕+𝙼𝚊𝚛𝚔𝚎𝚝𝚜" alt="Typing SVG" />
+  <img src="https://i.postimg.cc/3JD9H1jg/IMG-20260807-WA0009.jpg-typing-svg.demolab.com?font=Fira+Code&weight=700&size=25&pause=1000&color=D4AF37&center=true&vCenter=true&width=600&lines=%F0%9F%93%88+𝐙𝐀𝐘𝐕𝐄𝐍+𝐂𝐑𝐔𝐙+𝐓𝐑𝐀𝐃𝐈𝐍𝐆+𝐀𝐂𝐀𝐃𝐄𝐌𝐘;%F0%9F%94%A5+𝐍𝐎+𝐑𝐈𝐒𝐊.+𝐍𝐎+𝐒𝐓𝐎𝐑𝐘.;%F0%9F%A4%96+𝐁𝐢𝐧𝐚𝐫𝐲+𝐎𝐩𝐭𝐢𝐨𝐧𝐬+%26+𝐀𝐥𝐠𝐨𝐫𝐢𝐭𝐡𝐦𝐬;%F0%9F%92%B0+𝙼𝚊𝚜𝚝𝚎𝚛+𝚃𝚑𝚎+𝙵𝚒𝚗𝚊𝚗𝚌𝚒𝚊𝚕+𝙼𝚊𝚛𝚔𝚎𝚝𝚜" alt="Typing SVG" />
 </a>
 
   <br><br>
