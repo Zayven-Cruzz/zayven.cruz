@@ -13,16 +13,16 @@
   <br><br>
 
   <!-- Badges Kontak & Sosyal -->
-  <a href="https://wa.me/50931234567">
+  <a href="https://wa.me/50933518203">
     <img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp">
   </a>
   <a href="https://instagram.com/zaywen.cruzz">
     <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram">
   </a>
-  <a href="mailto:zayvencruz@gmail.com">
+  <a href="mailto: johnkevee2@gmail.com">
     <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail">
   </a>
-  <a href="https://zayven-cruz.vercel.app">
+  <a href="https://zayven-cruz.vercel.app/">
     <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Website">
   </a>
 
@@ -32,15 +32,15 @@
 
 ## 📖 𝐀𝐁𝐎𝐔𝐓 𝐓𝐇𝐄 𝐏𝐋𝐀𝐓𝐅𝐎𝐑𝐌
 
-> 𝚎𝚡𝚊𝚖𝚙𝚕𝚎: 𝚆𝚎𝚕𝚌𝚘𝚖𝚎 𝚝𝚘 𝚝𝚑𝚎 𝚘𝚏𝚏𝚒𝚌𝚒𝚊𝚕 𝚛𝚎𝚙𝚘𝚜𝚒𝚝𝚘𝚛𝚢 𝚘𝚏 𝐙𝐀𝐘𝐕𝐄𝐍 𝐂𝐑𝐔𝐙 𝐓𝐑𝐀𝐃𝐈𝐍𝐆 𝐀𝐂𝐀𝐃𝐄𝐌𝐘. 𝚃𝚑𝚒𝚜 𝚠𝚎𝚋𝚜𝚒𝚝𝚎 𝚠𝚊𝚜 𝚎𝚗𝚐𝚒𝚗𝚎𝚎𝚛𝚎𝚍 𝚝𝚘 𝚜𝚎𝚛𝚟𝚎 𝚊𝚜 𝚊 𝚠𝚘𝚛𝚕𝚍-𝚌𝚕𝚊𝚜𝚜 𝚑𝚞𝚋 𝚏𝚘𝚛 𝚝𝚛𝚊𝚍𝚎𝚛𝚜 𝚜𝚎𝚎𝚔𝚒𝚗𝚐 𝚙𝚛𝚘𝚏𝚎𝚜𝚜𝚒𝚘𝚗𝚊𝚕 𝚎𝚍𝚞𝚌𝚊𝚝𝚒𝚘𝚗, 𝚝𝚎𝚌𝚑𝚗𝚒𝚌𝚊𝚕 𝚊𝚗𝚊𝚕𝚢𝚜𝚒𝚜, 𝚊𝚗𝚍 𝚛𝚎𝚊𝚕-𝚝𝚒𝚖𝚎 𝚖𝚊𝚛𝚔𝚎𝚝 𝚎𝚡𝚎𝚌𝚞𝚝𝚒𝚘𝚗.
+𝚆𝚎𝚕𝚌𝚘𝚖𝚎 𝚝𝚘 𝚝𝚑𝚎 𝚘𝚏𝚏𝚒𝚌𝚒𝚊𝚕 𝚛𝚎𝚙𝚘𝚜𝚒𝚝𝚘𝚛𝚢 𝚘𝚏 𝐙𝐀𝐘𝐕𝐄𝐍 𝐂𝐑𝐔𝐙 𝐓𝐑𝐀𝐃𝐈𝐍𝐆 𝐀𝐂𝐀𝐃𝐄𝐌𝐘. 𝚃𝚑𝚒𝚜 𝚠𝚎𝚋𝚜𝚒𝚝𝚎 𝚠𝚊𝚜 𝚎𝚗𝚐𝚒𝚗𝚎𝚎𝚛𝚎𝚍 𝚝𝚘 𝚜𝚎𝚛𝚟𝚎 𝚊𝚜 𝚊 𝚠𝚘𝚛𝚕𝚍-𝚌𝚕𝚊𝚜𝚜 𝚑𝚞𝚋 𝚏𝚘𝚛 𝚝𝚛𝚊𝚍𝚎𝚛𝚜 𝚜𝚎𝚎𝚔𝚒𝚗𝚐 𝚙𝚛𝚘𝚏𝚎𝚜𝚜𝚒𝚘𝚗𝚊𝚕 𝚎𝚍𝚞𝚌𝚊𝚝𝚒𝚘𝚗, 𝚝𝚎𝚌𝚑𝚗𝚒𝚌𝚊𝚕 𝚊𝚗𝚊𝚕𝚢𝚜𝚒𝚜, 𝚊𝚗𝚍 𝚛𝚎𝚊𝚕-𝚝𝚒𝚖𝚎 𝚖𝚊𝚛𝚔𝚎𝚝 𝚎𝚡𝚎𝚌𝚞𝚝𝚒𝚘𝚗.
 
-* 🎯 **𝐌𝐢𝐬𝐬𝐢𝐨𝐧:** 𝚎𝚡𝚊𝚖𝚙𝚕𝚎: 𝚃𝚘 𝚎𝚖𝚙𝚘𝚠𝚎𝚛 𝚒𝚗𝚍𝚒𝚟𝚒𝚍𝚞𝚊𝚕𝚜 𝚠𝚒𝚝𝚑 𝚊𝚍𝚟𝚊𝚗𝚌𝚎𝚍 𝚝𝚛𝚊𝚍𝚒𝚗𝚐 𝚜𝚝𝚛𝚊𝚝𝚎𝚐𝚒𝚎𝚜, 𝚙𝚛𝚘𝚙𝚛𝚒𝚎𝚝𝚊𝚛𝚢 𝚒𝚗𝚍𝚒𝚌𝚊𝚝𝚘𝚛𝚜, 𝚊𝚗𝚍 𝚜𝚝𝚛𝚒𝚌𝚝 𝚛𝚒𝚜𝚔 𝚖𝚊𝚗𝚊𝚐𝚎𝚖𝚎𝚗𝚝 𝚏𝚛𝚊𝚖𝚎𝚡𝚘𝚛𝚔𝚜.
-* 💡 **𝐏𝐡𝐢𝐥𝐨𝐬𝐨𝐩𝐡𝐲:** 𝐞𝐱𝐚𝐦𝐩𝐥𝐞: "𝐍𝐎 𝐑𝐈𝐒𝐊. 𝐍𝐎 𝐒𝐓𝐎𝐑𝐘." — 𝚎𝚡𝚊𝚖𝚙𝚕𝚎: 𝙵𝚒𝚗𝚊𝚗𝚌𝚒𝚊𝚕 𝚐𝚛𝚘𝚠𝚝𝚑 𝚛𝚎𝚚𝚞𝚒𝚛𝚎𝚜 𝚌𝚊𝚕𝚌𝚞𝚕𝚊𝚝𝚎𝚍 𝚌𝚘𝚞𝚛𝚊𝚐𝚎, 𝚊𝚕𝚐𝚘𝚛𝚒𝚝𝚑𝚖𝚒𝚌 𝚙𝚛𝚎𝚌𝚒𝚜𝚒𝚘𝚗, 𝚊𝚗𝚍 𝚞𝚗𝚠𝚊𝚟𝚎𝚛𝚒𝚗𝚐 𝚍𝚒𝚜𝚌𝚒𝚙𝚕𝚒𝚗𝚎.
+* 🎯 **𝐌𝐢𝐬𝐬𝐢𝐨𝐧:** 𝚃𝚘 𝚎𝚖𝚙𝚘𝚠𝚎𝚛 𝚒𝚗𝚍𝚒𝚟𝚒𝚍𝚞𝚊𝚕𝚜 𝚠𝚒𝚝𝚑 𝚊𝚍𝚟𝚊𝚗𝚌𝚎𝚍 𝚝𝚛𝚊𝚍𝚒𝚗𝚐 𝚜𝚝𝚛𝚊𝚝𝚎𝚐𝚒𝚎𝚜, 𝚙𝚛𝚘𝚙𝚛𝚒𝚎𝚝𝚊𝚛𝚢 𝚒𝚗𝚍𝚒𝚌𝚊𝚝𝚘𝚛𝚜, 𝚊𝚗𝚍 𝚜𝚝𝚛𝚒𝚌𝚝 𝚛𝚒𝚜𝚔 𝚖𝚊𝚗𝚊𝚐𝚎𝚖𝚎𝚗𝚝 𝚏𝚛𝚊𝚖𝚎𝚡𝚘𝚛𝚔𝚜.
+* 💡 **𝐏𝐡𝐢𝐥𝐨𝐬𝐨𝐩𝐡𝐲:** "𝐍𝐎 𝐑𝐈𝐒𝐊. 𝐍𝐎 𝐒𝐓𝐎𝐑𝐘." — 𝚎𝚡𝚊𝚖𝚙𝚕𝚎: 𝙵𝚒𝚗𝚊𝚗𝚌𝚒𝚊𝚕 𝚐𝚛𝚘𝚠𝚝𝚑 𝚛𝚎𝚚𝚞𝚒𝚛𝚎𝚜 𝚌𝚊𝚕𝚌𝚞𝚕𝚊𝚝𝚎𝚍 𝚌𝚘𝚞𝚛𝚊𝚐𝚎, 𝚊𝚕𝚐𝚘𝚛𝚒𝚝𝚑𝚖𝚒𝚌 𝚙𝚛𝚎𝚌𝚒𝚜𝚒𝚘𝚗, 𝚊𝚗𝚍 𝚞𝚗𝚠𝚊𝚟𝚎𝚛𝚒𝚗𝚐 𝚍𝚒𝚜𝚌𝚒𝚙𝚕𝚒𝚗𝚎.
 
 <br>
 
 <div align="center">
-  <img src="466054.jpg" alt="No Risk No Story Quote" width="46%" style="border-radius: 12px; margin-right: 8px;">
+  <img src="https://images.pexels.com/photos/6770610/pexels-photo-6770610.jpeg" alt="No Risk No Story Quote" width="46%" style="border-radius: 12px; margin-right: 8px;">
   <img src="493309.jpg" alt="Zayven Cruz Character" width="46%" style="border-radius: 12px;">
 </div>
 
