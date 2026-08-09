@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+  <meta charset="UTF-8">
+  <title>𝐙𝐀𝐘𝐕𝐄𝐍 𝐂𝐑𝐔𝐙 | 𝐕𝐈𝐏 𝐀𝐂𝐂𝐄𝐒𝐒</title>
+  <style>
+    :root {
+      --bg-color: #0b0e14;
+      --card-bg: #151a23;
+      --accent-gold: #d4af37;
+      --text-main: #e2e8f0;
+    }
+
+    body { background-color: var(--bg-color); color: var(--text-main); font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+
+    /* Login Box */
+    .login-box { background: var(--card-bg); padding: 40px; border-radius: 15px; border: 1px solid var(--accent-gold); text-align: center; width: 300px; }
+    h2 { color: var(--accent-gold); margin-bottom: 20px; }
+    input { width: 80%; padding: 10px; margin-bottom: 20px; border-radius: 5px; border: 1px solid #333; background: #0b0e14; color: white; text-align: center; font-size: 1.2rem; }
+    button { background: var(--accent-gold); color: black; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; }
+    button:hover { background: #b8860b; }
+
+    /* VIP Content (Kache pa default) */
+    #vip-content { display: none; text-align: center; padding: 20px; }
+  </style>
+</head>
+<body>
+
+  <!-- Login Area -->
+  <div id="login-form" class="login-box">
+    <h2>🔒 𝐄𝐍𝐓𝐑𝐄 𝐕𝐈𝐏</h2>
+    <input type="password" id="code" placeholder="XXXX" maxlength="4">
+    <br>
+    <button onclick="checkCode()">𝐀𝐍𝐓𝐑𝐄</button>
+  </div>
+
+  <!-- Contenu VIP (Parèt sèlman apre kòd la) -->
+  <div id="vip-content">
+    <h1 style="color: var(--accent-gold);">Bienvini nan Zòn VIP!</h1>
+    <p>Isit la, ou jwenn aksè a kontni eksklizif, estrateji sekrè, ak siyal avanse.</p>
+    <a href="index.html" style="color: var(--accent-gold);">Retounen nan Akèy</a>
+  </div>
+
+  <script>
+    function checkCode() {
+      const code = document.getElementById('code').value;
+      if (code === "4118") {
+        document.getElementById('login-form').style.display = 'none';
+        document.getElementById('vip-content').style.display = 'block';
+      } else {
+        alert("Kòd sa a pa bon. Eseye ankò!");
+      }
+    }
+  </script>
+
+</body>
+</html>
