@@ -7,11 +7,7 @@
 
   <br><br>
 
-  <!-- Banner Prensipal Site la -->
-  <img src="https://i.postimg.cc/2yJnDtrV/IMG-20260807-WA0013.jpg" alt="Zayven Cruz Academy Banner" width="100%" style="border-radius: 14px; border: 2px solid #d4af37;">
-
-  <br><br>
-
+  
   <!-- Badges Kontak & Sosyal -->
   <a href="https://wa.me/50933518203">
     <img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp">
