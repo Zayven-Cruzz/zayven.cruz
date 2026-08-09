@@ -10,9 +10,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <!-- BOUTON TOGGLE THEME -->
-<button id="theme-toggle" class="theme-toggle-btn" aria-label="Changer de thème">
+<button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Changer de thème">
   <i class="fa-solid fa-moon" id="theme-icon"></i>
 </button>
+
   
   <style>
     * {
@@ -240,49 +241,85 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* ============================================ */
-/* STYLES POU MOD KLÈ (LIGHT MODE)              */
-/* ============================================ */
+/* Bouton an li menm */
+.theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #f59e0b !important;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* ==================================================== */
+/* FORCER LE LIGHT MODE SUR TOUS LES ÉLÉMENTS DE LA PAGE */
+/* ==================================================== */
 body.light-mode {
-  background-color: #f3f4f6 !important;
-  color: #1f2937 !important;
+  background-color: #f1f5f9 !important;
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
 }
 
-body.light-mode .theme-toggle-btn {
-  background: rgba(0, 0, 0, 0.08);
-  border-color: rgba(0, 0, 0, 0.15);
-  color: #1e40af;
-}
-
-/* Kat ak Blòk Tèks yo nan Mod Klè */
+/* Chanje koulè tout kat, bwat ak kontni nan Mod Klè */
 body.light-mode .container,
 body.light-mode .page-card,
 body.light-mode .card,
-body.light-mode .profile-card {
+body.light-mode .profile-card,
+body.light-mode .book-container,
+body.light-mode header,
+body.light-mode nav,
+body.light-mode footer {
   background-color: #ffffff !important;
-  color: #1f2937 !important;
-  border-color: rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
 }
 
-/* Tèks ak Tit nan Mod Klè */
-body.light-mode h1, 
-body.light-mode h2, 
+/* Tit ak Tèks yo */
+body.light-mode h1,
+body.light-mode h2,
 body.light-mode h3,
-body.light-mode .page-title {
-  color: #111827 !important;
+body.light-mode h4,
+body.light-mode .page-title,
+body.light-mode strong {
+  color: #0f172a !important;
 }
 
 body.light-mode p,
+body.light-mode span,
+body.light-mode li,
 body.light-mode .page-body-text {
-  color: #374151 !important;
+  color: #334155 !important;
 }
 
+/* Bwat Nòt / Highlights */
 body.light-mode .highlight-box {
   background: #fef3c7 !important;
-  color: #92400e !important;
-  border-left-color: #f59e0b !important;
+  color: #78350f !important;
+  border-left: 4px solid #f59e0b !important;
 }
+
+/* Style bouton an lè l nan Mod Klè */
+body.light-mode .theme-toggle-btn {
+  background: rgba(15, 23, 42, 0.1) !important;
+  border-color: rgba(15, 23, 42, 0.2) !important;
+  color: #1e3a8a !important;
+}
+
+
     
     footer {
       text-align: center;
