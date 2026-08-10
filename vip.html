@@ -1,55 +1,348 @@
 <!DOCTYPE html>
-<html lang="ht">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>𝐙𝐀𝐘𝐕𝐄𝐍 𝐂𝐑𝐔𝐙 | 𝐕𝐈𝐏 𝐀𝐂𝐂𝐄𝐒𝐒</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>𝐙𝐀𝐘𝐕𝐄𝐍 𝐂𝐑𝐔𝐙 | 𝐕𝐈𝐏 𝐌𝐄𝐌𝐁𝐄𝐑𝐒𝐇𝐈𝐏</title>
   <style>
     :root {
-      --bg-color: #0b0e14;
-      --card-bg: #151a23;
-      --accent-gold: #d4af37;
-      --text-main: #e2e8f0;
+      --bg-color: #06090e;
+      --card-bg: rgba(18, 24, 38, 0.75);
+      --text-color: #f1f5f9;
+      --accent-gold: #ffd700;
+      --accent-gold-glow: #ffae00;
+      --accent-purple: #8b5cf6;
+      --border-color: rgba(255, 215, 0, 0.25);
     }
 
-    body { background-color: var(--bg-color); color: var(--text-main); font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+    body {
+      background: radial-gradient(circle at top, #111827 0%, #06090e 100%);
+      color: var(--text-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      padding-bottom: 90px;
+      min-height: 100vh;
+    }
 
-    /* Login Box */
-    .login-box { background: var(--card-bg); padding: 40px; border-radius: 15px; border: 1px solid var(--accent-gold); text-align: center; width: 300px; }
-    h2 { color: var(--accent-gold); margin-bottom: 20px; }
-    input { width: 80%; padding: 10px; margin-bottom: 20px; border-radius: 5px; border: 1px solid #333; background: #0b0e14; color: white; text-align: center; font-size: 1.2rem; }
-    button { background: var(--accent-gold); color: black; border: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; }
-    button:hover { background: #b8860b; }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-    /* VIP Content (Kache pa default) */
-    #vip-content { display: none; text-align: center; padding: 20px; }
+    /* SYSTEM LOGIN / PASSWORD */
+    #login-box {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--accent-gold);
+      border-radius: 20px;
+      padding: 35px 25px;
+      text-align: center;
+      margin-top: 25%;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.2), inset 0 0 15px rgba(255, 215, 0, 0.05);
+    }
+
+    input[type="password"] {
+      width: 80%;
+      padding: 14px;
+      margin: 20px 0;
+      border-radius: 12px;
+      border: 1px solid var(--accent-gold);
+      background: rgba(0, 0, 0, 0.6);
+      color: var(--accent-gold);
+      text-align: center;
+      font-size: 1.8rem;
+      letter-spacing: 8px;
+      outline: none;
+      box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.2);
+    }
+
+    .btn-login {
+      background: linear-gradient(135deg, #ffd700, #ff8c00);
+      color: #000;
+      border: none;
+      padding: 14px 35px;
+      border-radius: 30px;
+      font-weight: 800;
+      cursor: pointer;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .btn-login:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+    }
+
+    /* VIP MAIN DASHBOARD */
+    #vip-main {
+      display: none;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* STYLE CARD GLASSMORPHISM */
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      transition: border 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(255, 215, 0, 0.5);
+    }
+
+    h1 {
+      background: linear-gradient(135deg, #ffd700, #ff8c00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      color: var(--accent-gold);
+      font-size: 1.2rem;
+      margin-top: 0;
+    }
+
+    /* BOTTOM NAVIGATION BAR */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 70px;
+      background: rgba(10, 14, 23, 0.92);
+      backdrop-filter: blur(15px);
+      border-top: 1px solid rgba(255, 215, 0, 0.3);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #64748b;
+      text-decoration: none;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .nav-item .icon {
+      font-size: 1.5rem;
+      margin-bottom: 3px;
+      filter: grayscale(100%);
+      transition: all 0.3s ease;
+    }
+
+    .nav-item.active {
+      color: var(--accent-gold);
+    }
+
+    .nav-item.active .icon {
+      filter: grayscale(0%);
+      transform: scale(1.15);
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+    }
+
+    /* BUTTONS & LINKS */
+    .btn-broker {
+      display: block;
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 140, 0, 0.05));
+      color: var(--accent-gold);
+      border: 1px solid var(--accent-gold);
+      padding: 14px;
+      border-radius: 12px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 12px 0;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn-broker:hover {
+      background: linear-gradient(135deg, #ffd700, #ff8c00);
+      color: #000;
+      box-shadow: 0 0 18px rgba(255, 215, 0, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .pay-box {
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px dashed var(--accent-gold);
+      padding: 15px;
+      border-radius: 10px;
+      word-break: break-all;
+      margin: 12px 0;
+      color: #4ade80;
+      font-family: monospace;
+      font-size: 0.95rem;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.8);
+    }
   </style>
 </head>
 <body>
 
-  <!-- Login Area -->
-  <div id="login-form" class="login-box">
-    <h2>🔒 𝐄𝐍𝐓𝐑𝐄 𝐋𝐄 𝐂𝐎𝐃𝐄 𝐕𝐈𝐏</h2>
-    <input type="password" id="code" placeholder="XXXX" maxlength="4">
-    <br>
-    <button onclick="checkCode()">𝐀𝐍𝐓𝐑𝐄</button>
+  <div class="container">
+
+    <!-- LOGIN AREA -->
+    <div id="login-box">
+      <h1>🔒 𝐙𝐀𝐘𝐕𝐄𝐍 𝐂𝐑𝐔𝐙 | 𝐕𝐈𝐏 𝐀𝐂𝐂È𝐒</h1>
+      <p style="color: #94a3b8;">𝐕𝐞𝐮𝐢𝐥𝐥𝐞𝐳 𝐞𝐧𝐭𝐫𝐞𝐫 𝐥𝐞 𝐜𝐨𝐝𝐞 𝐝'𝐚𝐜𝐜è𝐬 à 𝟒 𝐜𝐡𝐢𝐟𝐟𝐫𝐞𝐬</p>
+      <input type="password" id="vip-code" placeholder="••••" maxlength="4">
+      <br>
+      <button class="btn-login" onclick="checkVipCode()">𝐀𝐍𝐓𝐑𝐄</button>
+    </div>
+
+    <!-- MAIN VIP DASHBOARD -->
+    <div id="vip-main">
+
+      <!-- 1. PAGE D'ACCUEIL (HOME) -->
+      <div id="page-home" class="tab-content active">
+        <h1>🏠 𝐀𝐂𝐂𝐔𝐄𝐈𝐋 𝐕𝐈𝐏</h1>
+        <div class="card">
+          <p style="text-align: center; color: #94a3b8;">
+            (𝐏𝐚𝐠𝐞 𝐝'𝐚𝐜𝐜𝐮𝐞𝐢𝐥 𝐞𝐧 𝐜𝐨𝐮𝐫𝐬 𝐝𝐞 𝐜𝐨𝐧𝐬𝐭𝐫𝐮𝐜𝐭𝐢𝐨𝐧...)
+          </p>
+        </div>
+      </div>
+
+      <!-- 2. PAGE INFO VIP -->
+      <div id="page-info" class="tab-content">
+        <h1>ℹ️ 𝐈𝐍𝐅𝐎𝐑𝐌𝐀𝐓𝐈𝐎𝐍𝐒 𝐕𝐈𝐏</h1>
+        
+        <div class="card">
+          <h2>🎯 𝐀̀ 𝐏𝐫𝐨𝐩𝐨𝐬 𝐝𝐮 𝐂𝐥𝐮𝐛 𝐕𝐈𝐏</h2>
+          <p>𝐁𝐢𝐞𝐧𝐯𝐞𝐧𝐮𝐞 𝐝𝐚𝐧𝐬 𝐥'𝐞𝐬𝐩𝐚𝐜𝐞 𝐞𝐱𝐜𝐥𝐮𝐬𝐢𝐟 𝐝𝐞 𝐙𝐀𝐘𝐕𝐄𝐍 𝐂𝐑𝐔𝐙 𝐓𝐑𝐀𝐃𝐈𝐍𝐆 𝐀𝐂𝐀𝐃𝐄𝐌𝐘. 𝐂𝐞𝐭𝐭𝐞 𝐬𝐞𝐜𝐭𝐢𝐨𝐧 𝐞𝐬𝐭 𝐬𝐭𝐫𝐢𝐜𝐭𝐞𝐦𝐞𝐧𝐭 𝐫é𝐬𝐞𝐫𝐯é𝐞 𝐚𝐮𝐱 𝐦𝐞𝐦𝐛𝐫𝐞𝐬 𝐕𝐈𝐏 𝐪𝐮𝐢 𝐫𝐞𝐜𝐡𝐞𝐫𝐜𝐡𝐞𝐧𝐭 𝐮𝐧𝐞 𝐩𝐞𝐫𝐟𝐨𝐫𝐦𝐚𝐧𝐜𝐞 𝐟𝐢𝐧𝐚𝐧𝐜𝐢è𝐫𝐞 𝐬𝐮𝐩é𝐫𝐢𝐞𝐮𝐫𝐞.</p>
+        </div>
+
+        <div class="card">
+          <h2>📊 𝐍𝐨𝐬 𝐒𝐞𝐫𝐯𝐢𝐜𝐞𝐬 𝐄𝐱𝐜𝐥𝐮𝐬𝐢𝐟𝐬</h2>
+          <ul style="padding-left: 18px; line-height: 2;">
+            <li>📈 𝐒𝐢𝐠𝐧𝐚𝐮𝐱 𝐝𝐞 𝐓𝐫𝐚𝐝𝐢𝐧𝐠 𝐄𝐱𝐜𝐥𝐮𝐬𝐢𝐟𝐬 (𝐁𝐢𝐧𝐚𝐫𝐲 𝐎𝐩𝐭𝐢𝐨𝐧𝐬 &amp; 𝐅𝐨𝐫𝐞𝐱)</li>
+            <li>💎 𝐏𝐥𝐚𝐧𝐬 𝐝'𝐈𝐧𝐯𝐞𝐬𝐭𝐢𝐬𝐬𝐞𝐦𝐞𝐧𝐭 𝐞𝐭 𝐆𝐞𝐬𝐭𝐢𝐨𝐧 𝐝𝐞 𝐂𝐚𝐩𝐢𝐭𝐚𝐥 𝐀𝐯𝐚𝐧𝐜é𝐬</li>
+            <li>🚀 𝐏𝐫𝐨𝐣𝐞𝐭𝐬 𝐅𝐢𝐧𝐚𝐧𝐜𝐢𝐞𝐫𝐬 𝐞𝐭 𝐀𝐥𝐠𝐨𝐫𝐢𝐭𝐡𝐦𝐞𝐬 𝐒𝐞𝐜𝐫𝐞𝐭𝐬</li>
+            <li>🎥 𝐒𝐞𝐬𝐬𝐢𝐨𝐧𝐬 𝐙𝐨𝐨𝐦 𝐏𝐫𝐢𝐯é𝐞𝐬 𝐞𝐭 𝐀𝐧𝐚𝐥𝐲𝐬𝐞𝐬 𝐞𝐧 𝐃𝐢𝐫𝐞𝐜𝐭</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 3. PAGE BROKERS (TRADING LOGO) -->
+      <div id="page-brokers" class="tab-content">
+        <h1>📈 𝐁𝐑𝐎𝐊𝐄𝐑𝐒 𝐑𝐄𝐂𝐎𝐌𝐌𝐀𝐍𝐃É𝐒</h1>
+        
+        <div class="card">
+          <p style="text-align: center; color: #cbd5e1; margin-bottom: 20px;">
+            𝐔𝐭𝐢𝐥𝐢𝐬𝐞𝐳 𝐧𝐨𝐬 𝐥𝐢𝐞𝐧𝐬 𝐨𝐟𝐟𝐢𝐜𝐢𝐞𝐥𝐬 𝐩𝐨𝐮𝐫 𝐜𝐫é𝐞𝐫 𝐯𝐨𝐭𝐫𝐞 𝐜𝐨𝐦𝐩𝐭𝐞 𝐞𝐭 𝐛é𝐧é𝐟𝐢𝐜𝐢𝐞𝐫 𝐝𝐞 𝐧𝐨𝐬 𝐢𝐧𝐝𝐢𝐜𝐚𝐭𝐞𝐮𝐫𝐬 :
+          </p>
+
+          <a href="https://pocketoption.com" target="_blank" class="btn-broker">📊 𝐏𝐎𝐂𝐊𝐄𝐓 𝐎𝐏𝐓𝐈𝐎𝐍</a>
+          <a href="https://quotex.com" target="_blank" class="btn-broker">📉 𝐐𝐔𝐎𝐓𝐄𝐗</a>
+          <a href="https://binolla.com" target="_blank" class="btn-broker">⚡ 𝐁𝐈𝐍𝐎𝐋𝐋𝐀</a>
+        </div>
+      </div>
+
+      <!-- 4. PAGE SUPPORT & DONATION -->
+      <div id="page-support" class="tab-content">
+        <h1>🤝 𝐒𝐔𝐏𝐏𝐎𝐑𝐓 &amp; 𝐂𝐎𝐍𝐓𝐑𝐈𝐁𝐔𝐓𝐈𝐎𝐍</h1>
+        
+        <div class="card">
+          <h2>👤 𝐈𝐧𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧𝐬 𝐏𝐞𝐫𝐬𝐨𝐧𝐧𝐞𝐥𝐥𝐞𝐬</h2>
+          <p><strong>𝐍𝐨𝐦 :</strong> 𝐙𝐚𝐲𝐯𝐞𝐧 𝐂𝐫𝐮𝐳</p>
+          <p><strong>𝐄𝐦𝐚𝐢𝐥 :</strong> zayvencruz@gmail.com</p>
+          <p><strong>𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩 :</strong> +509 31 23 4567</p>
+        </div>
+
+        <div class="card">
+          <h2>💳 𝐒𝐮𝐩𝐩𝐨𝐫𝐭𝐞𝐫 𝐥𝐞 𝐏𝐫𝐨𝐣𝐞𝐭 (𝐁𝐢𝐧𝐚𝐧𝐜𝐞 𝐏𝐚𝐲)</h2>
+          <p style="color: #cbd5e1;">𝐒𝐢 𝐯𝐨𝐮𝐬 𝐬𝐨𝐮𝐡𝐚𝐢𝐭𝐞𝐳 𝐬𝐨𝐮𝐭𝐞𝐧𝐢𝐫 𝐥'𝐚𝐜𝐚𝐝é𝐦𝐢𝐞 𝐨𝐮 𝐞𝐟𝐟𝐞𝐜𝐭𝐮𝐞𝐫 𝐮𝐧 𝐩𝐚𝐢𝐞𝐦𝐞𝐧𝐭 :</p>
+          
+          <p><strong>𝐁𝐢𝐧𝐚𝐧𝐜𝐞 𝐏𝐚𝐲 𝐈𝐃 / 𝐀𝐝𝐫𝐞𝐬𝐬𝐞 (𝐁𝐄𝐏𝟐𝟎) :</strong></p>
+          <div class="pay-box">
+            <code>0x1234567890abcdef1234567890abcdef12345678</code>
+          </div>
+          <small style="color: #94a3b8;">* 𝐑𝐞𝐬𝐞𝐚𝐮 𝐮𝐭𝐢𝐥𝐢𝐬𝐞́ : 𝐁𝐄𝐏𝟐𝟎 (𝐁𝐢𝐧𝐚𝐧𝐜𝐞 𝐒𝐦𝐚𝐫𝐭 𝐂𝐡𝐚𝐢𝐧)</small>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 
-  <!-- Contenu VIP (Parèt sèlman apre kòd la) -->
-  <div id="vip-content">
-    <h1 style="color: var(--accent-gold);">Bienvini nan Zòn VIP!</h1>
-    <p>Isit la, ou jwenn aksè a kontni eksklizif, estrateji sekrè, ak siyal avanse.</p>
-    <a href="index.html" style="color: var(--accent-gold);">Retounen nan Akèy</a>
+  <!-- BOTTOM NAVIGATION BAR -->
+  <div id="vip-nav" class="bottom-nav" style="display: none;">
+    <div class="nav-item active" onclick="switchTab('page-home', this)">
+      <span class="icon">🏠</span>
+      <span>𝐀𝐜𝐜𝐮𝐞𝐢𝐥</span>
+    </div>
+
+    <div class="nav-item" onclick="switchTab('page-info', this)">
+      <span class="icon">ℹ️</span>
+      <span>𝐈𝐧𝐟𝐨</span>
+    </div>
+
+    <div class="nav-item" onclick="switchTab('page-brokers', this)">
+      <span class="icon">📈</span>
+      <span>𝐁𝐫𝐨𝐤𝐞𝐫𝐬</span>
+    </div>
+
+    <div class="nav-item" onclick="switchTab('page-support', this)">
+      <span class="icon">🤝</span>
+      <span>𝐒𝐮𝐩𝐩𝐨𝐫𝐭</span>
+    </div>
   </div>
 
   <script>
-    function checkCode() {
-      const code = document.getElementById('code').value;
-      if (code === "4118") {
-        document.getElementById('login-form').style.display = 'none';
-        document.getElementById('vip-content').style.display = 'block';
+    // System Password
+    function checkVipCode() {
+      const inputCode = document.getElementById('vip-code').value;
+      if (inputCode === "4118") {
+        document.getElementById('login-box').style.display = 'none';
+        document.getElementById('vip-main').style.display = 'block';
+        document.getElementById('vip-nav').style.display = 'flex';
       } else {
-        alert("Kòd sa a pa bon. Eseye ankò!");
+        alert("❌ Code incorrect. Veuillez réessayer.");
       }
+    }
+
+    // Tab Switcher
+    function switchTab(tabId, element) {
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      const navItems = document.querySelectorAll('.nav-item');
+      navItems.forEach(item => item.classList.remove('active'));
+
+      document.getElementById(tabId).classList.add('active');
+      element.classList.add('active');
     }
   </script>
 
