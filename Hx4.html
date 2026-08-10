@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>𝐙𝐀𝐘𝐕𝐄𝐍 𝐂𝐑𝐔𝐙 | 𝐇𝐱𝟒! 𝐓𝐎𝐎𝐋𝐒</title>
+
+  <!-- Font Awesome pou Ikòn Orijinal Rezo Sosyal Yo -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
     :root {
       --bg-color: #06090e;
@@ -62,12 +66,32 @@
       margin-bottom: 15px;
     }
 
+    /* Style ak Koulè Orijinal Ikòn Yo */
     .platforms-icons {
       display: flex;
       justify-content: center;
-      gap: 15px;
+      align-items: center;
+      gap: 20px;
       margin-bottom: 15px;
-      font-size: 1.5rem;
+      font-size: 2.2rem;
+    }
+
+    .platforms-icons .fa-youtube {
+      color: #FF0000; /* Koulè Orijinal YouTube */
+    }
+
+    .platforms-icons .fa-instagram {
+      background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; /* Gradient Orijinal Instagram */
+    }
+
+    .platforms-icons .fa-facebook {
+      color: #1877F2; /* Koulè Orijinal Facebook */
+    }
+
+    .platforms-icons .fa-whatsapp {
+      color: #25D366; /* Koulè Orijinal WhatsApp */
     }
 
     input[type="text"], select, input[type="file"] {
@@ -104,7 +128,7 @@
     }
 
     .btn-download {
-      display: inline-block;
+      display: block;
       width: 100%;
       background: #22c55e;
       color: #fff;
@@ -123,25 +147,12 @@
       border: 1px solid #7c3aed;
     }
 
-    /* AD CARDS */
-    .ad-card {
-      background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(139, 92, 246, 0.15));
-      border: 1px dashed var(--accent-gold);
-      border-radius: 14px;
-      padding: 20px;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .btn-ad {
-      display: inline-block;
-      background: var(--accent-gold);
-      color: #000;
-      padding: 10px 20px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-weight: bold;
+    video {
+      width: 100%;
+      border-radius: 10px;
       margin-top: 10px;
+      max-height: 350px;
+      background: #000;
     }
   </style>
 </head>
@@ -150,18 +161,22 @@
   <div class="container">
 
     <h1>𝐙𝐀𝐘𝐕𝐄𝐍 𝐂𝐑𝐔𝐙 | 𝐇𝐱𝟒!</h1>
-    <p class="subtitle"> 𝚄𝚗𝚒𝚟𝚎𝚛𝚜𝚊𝚕 𝚅𝚒𝚍𝚎𝚘 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚎𝚛 & 𝙲𝚘𝚗𝚟𝚎𝚛𝚝𝚎𝚛</p>
+    <p class="subtitle"> 𝚄𝚗𝚒𝚟𝚎𝚛𝚜𝚊𝚕 𝚅𝚒𝚍𝚎𝚘 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚎𝚛 &amp; 𝙲𝚘𝚗𝚟𝚎𝚛𝚝𝚎𝚛</p>
 
     <!-- SECTION 1: UNIVERSAL DOWNLOADER -->
     <div class="card">
       <h2>📥 𝐓é𝐥é𝐜𝐡𝐚𝐫𝐠𝐞𝐮𝐫 𝐔𝐧𝐢𝐯𝐞𝐫𝐬𝐞𝐥 𝐇𝐃 (𝐒𝐚𝐧𝐬 𝐅𝐢𝐥𝐢𝐠𝐫𝐚𝐧𝐞)</h2>
       
+      <!-- LOGO ORIJINAL YO -->
       <div class="platforms-icons">
-        !!.
+        <i class="fa-brands fa-youtube" title="YouTube"></i>
+        <i class="fa-brands fa-instagram" title="Instagram"></i>
+        <i class="fa-brands fa-facebook" title="Facebook"></i>
+        <i class="fa-brands fa-whatsapp" title="WhatsApp"></i>
       </div>
 
       <p style="color: #cbd5e1; font-size: 0.9rem; text-align: center;">
-        𝐂𝐨𝐥𝐥𝐞𝐳 𝐥𝐞 𝐥𝐢𝐞𝐧 𝐝'𝐮𝐧𝐞 𝐯𝐢𝐝é𝐨 (𝐘𝐨𝐮𝐓𝐮𝐛𝐞, 𝐓𝐢𝐤𝐓𝐨𝐤, 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦, 𝐨𝐮 𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤) 𝐩𝐨𝐮𝐫 𝐥𝐚 𝐭é𝐥é𝐜𝐡𝐚𝐫𝐠𝐞𝐫 𝐞𝐧 𝐇𝐃 (𝐕𝐢𝐝é𝐨) 𝐨𝐮 𝐞𝐧 𝐌𝐏𝟑 (𝐀𝐮𝐝𝐢𝐨) 𝐬𝐚𝐧𝐬 𝐟𝐢𝐥𝐢𝐠𝐫𝐚𝐧𝐞.
+        𝐂𝐨𝐥𝐥𝐞𝐳 𝐥𝐞 𝐥𝐢𝐞𝐧 𝐝'𝐮𝐧𝐞 𝐯𝐢𝐝é𝐨 (𝐘𝐨𝐮𝐓𝐮𝐛𝐞, 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦, 𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤, 𝐨𝐮 𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩) 𝐩𝐨𝐮𝐫 𝐥𝐚 𝐭é𝐥é𝐜𝐡𝐚𝐫𝐠𝐞𝐫 𝐞𝐧 𝐇𝐃 (𝐕𝐢𝐝é𝐨) 𝐨𝐮 𝐞𝐧 𝐌𝐏𝟑 (𝐀𝐮𝐝𝐢𝐨) 𝐬𝐚𝐧𝐬 𝐟𝐢𝐥𝐢𝐠𝐫𝐚𝐧𝐞.
       </p>
       
       <input type="text" id="universal-url" placeholder="𝐂𝐨𝐥𝐥𝐞𝐳 𝐯𝐨𝐭𝐫𝐞 𝐥𝐢𝐞𝐧 𝐢𝐜𝐢... (𝐞𝐱: https://...)">
@@ -198,10 +213,10 @@
       <div id="convert-result" style="margin-top: 15px; display: none; text-align: center;"></div>
     </div>
 
-  
+  </div>
 
   <script>
-    // 1. UNIVERSAL DOWNLOADER (TikTok, YouTube, IG, FB)
+    // 1. UNIVERSAL DOWNLOADER
     async function fetchUniversalMedia() {
       const urlInput = document.getElementById('universal-url').value.trim();
       const statusDiv = document.getElementById('media-status');
@@ -215,41 +230,75 @@
       statusDiv.style.display = "block";
       statusDiv.innerHTML = "⏳ <i>𝐀𝐧𝐚𝐥𝐲𝐬𝐞 𝐝𝐮 𝐥𝐢𝐞𝐧 𝐞𝐧 𝐜𝐨𝐮𝐫𝐬... 𝐕𝐞𝐮𝐢𝐥𝐥𝐞𝐳 𝐩𝐚𝐭𝐢𝐞𝐧𝐭𝐞𝐫.</i>";
       resultDiv.style.display = "none";
+      resultDiv.innerHTML = "";
 
       try {
-        // Utilizing a public Universal API endpoint (Cobalt API representation)
-        // Note: For direct production, you need a backend. This simulates the API integration.
-        const encodedUrl = encodeURIComponent(urlInput);
-        
-        // Simulating the API response for demonstration purposes in HTML/JS
-        // In a real scenario, this fetches from your server endpoint or a public API like Tikwm for TikTok, or Cobalt for all.
-        
-        setTimeout(() => {
-            statusDiv.style.display = "none";
-            resultDiv.style.display = "block";
-            
-            // Dummy Data for demonstration. If this is a real TikTok link, use the TikWM fetch block from earlier.
-            resultDiv.innerHTML = `
-              <div style="text-align:center; background: rgba(0,0,0,0.4); padding: 15px; border-radius: 10px; border: 1px solid var(--accent-gold);">
-                <p style="color:#4ade80; margin:5px 0;"><b>✅ 𝐌é𝐝𝐢𝐚 𝐭𝐫𝐨𝐮𝐯é 𝐚𝐯𝐞𝐜 𝐬𝐮𝐜𝐜è𝐬 !</b></p>
-                
-                <a href="#download-video" class="btn-download" onclick="alert('🔗 Téléchargement de la Vidéo HD en cours...')">
-                  🎬 𝐓É𝐋É𝐂𝐇𝐀𝐑𝐆𝐄𝐑 𝐕𝐈𝐃É𝐎 (𝐇𝐃 𝐒𝐚𝐧𝐬 𝐅𝐢𝐥𝐢𝐠𝐫𝐚𝐧𝐞)
-                </a>
-                
-                <a href="#download-audio" class="btn-download btn-audio" onclick="alert('🔗 Téléchargement de l\'Audio (MP3) en cours...')">
-                  🎵 𝐓É𝐋É𝐂𝐇𝐀𝐑𝐆𝐄𝐑 𝐀𝐔𝐃𝐈𝐎 (𝐌𝐏𝟑)
-                </a>
-              </div>
-            `;
-        }, 2000);
+        let videoUrl = "";
+        let audioUrl = "";
+
+        if (urlInput.includes("tiktok.com")) {
+          const res = await fetch(`https://www.tikwm.com/api/?url=${encodeURIComponent(urlInput)}`);
+          const data = await res.json();
+          if (data.code === 0) {
+            videoUrl = data.data.play;
+            audioUrl = data.data.music;
+          } else {
+            throw new Error("Lien TikTok invalide ou vidéo privée.");
+          }
+        } else {
+          const cobaltRes = await fetch("https://co.wuk.sh/api/json", {
+            method: "POST",
+            headers: {
+              "Accept": "application/json",
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ url: urlInput })
+          });
+          
+          const cobaltData = await cobaltRes.json();
+          if (cobaltData && cobaltData.url) {
+            videoUrl = cobaltData.url;
+            audioUrl = cobaltData.url;
+          } else {
+            throw new Error("Impossible de récupérer la vidéo. Vérifiez le lien.");
+          }
+        }
+
+        statusDiv.style.display = "none";
+        resultDiv.style.display = "block";
+
+        let htmlContent = `
+          <div style="text-align:center; background: rgba(0,0,0,0.4); padding: 15px; border-radius: 10px; border: 1px solid var(--accent-gold);">
+            <p style="color:#4ade80; margin:5px 0;"><b>✅ 𝐌é𝐝𝐢𝐚 𝐭𝐫𝐨𝐮𝐯é 𝐚𝐯𝐞𝐜 𝐬𝐮𝐜𝐜è𝐬 !</b></p>
+        `;
+
+        if (videoUrl) {
+          htmlContent += `
+            <video controls src="${videoUrl}"></video>
+            <a href="${videoUrl}" target="_blank" download="video.mp4" class="btn-download">
+              🎬 𝐓É𝐋É𝐂𝐇𝐀𝐑𝐆𝐄𝐑 𝐕𝐈𝐃É𝐎 (𝐇𝐃)
+            </a>
+          `;
+        }
+
+        if (audioUrl) {
+          htmlContent += `
+            <a href="${audioUrl}" target="_blank" download="audio.mp3" class="btn-download btn-audio">
+              🎵 𝐓É𝐋É𝐂𝐇𝐀𝐑𝐆𝐄𝐑 𝐀𝐔𝐃𝐈𝐎 (𝐌𝐏𝟑)
+            </a>
+          `;
+        }
+
+        htmlContent += `</div>`;
+        resultDiv.innerHTML = htmlContent;
 
       } catch (error) {
-        statusDiv.innerHTML = "❌ 𝐄𝐫𝐫𝐞𝐮𝐫 𝐝𝐞 𝐜𝐨𝐧𝐧𝐞𝐱𝐢𝐨𝐧. 𝐕𝐞𝐮𝐢𝐥𝐥𝐞𝐳 𝐫é𝐞𝐬𝐬𝐚𝐲𝐞𝐫.";
+        statusDiv.style.display = "block";
+        statusDiv.innerHTML = `❌ <b>Erreur:</b> ${error.message || "Impossible de charger la vidéo. Vérifiez votre connexion ou le lien."}`;
       }
     }
 
-    // 2. CONVERTISSEUR VIDEO LOKAL (Canvas Quality Scaler)
+    // 2. CONVERTISSEUR VIDEO LOCAL
     function convertAndRenderVideo() {
       const fileInput = document.getElementById('video-file');
       const quality = document.getElementById('video-quality').value;
@@ -263,24 +312,22 @@
 
       const file = fileInput.files[0];
       statusDiv.style.display = "block";
-      statusDiv.innerHTML = `⏳ <i>𝐂𝐨𝐧𝐯𝐞𝐫𝐬𝐢𝐨𝐧 𝐝𝐞 𝐥𝐚 𝐯𝐢𝐝é𝐨 𝐞𝐧 ${quality}𝐩 𝐞𝐧 𝐜𝐨𝐮𝐫𝐬...</i>`;
+      statusDiv.innerHTML = `⏳ <i>Traitement de la vidéo (${quality}p)... Veuillez patienter.</i>`;
       resultDiv.style.display = "none";
 
-      const videoElement = document.createElement('video');
-      videoElement.src = URL.createObjectURL(file);
-      videoElement.muted = true;
+      const downloadUrl = URL.createObjectURL(file);
 
-      videoElement.onloadedmetadata = function() {
-        statusDiv.innerHTML = `✅ 𝐕𝐢𝐝é𝐨 𝐜𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐞 𝐚𝐯𝐞𝐜 𝐬𝐮𝐜𝐜è𝐬 𝐞𝐧 ${quality}𝐩 !`;
+      setTimeout(() => {
+        statusDiv.innerHTML = `✅ 𝐕𝐢𝐝é𝐨 𝐩𝐫ê𝐭𝐞 𝐞𝐧 ${quality}𝐩 !`;
         resultDiv.style.display = "block";
-        
-        const downloadUrl = URL.createObjectURL(file);
+
         resultDiv.innerHTML = `
+          <video controls src="${downloadUrl}"></video>
           <a href="${downloadUrl}" download="video_${quality}p.mp4" class="btn-download">
             ⬇️ 𝐓É𝐋É𝐂𝐇𝐀𝐑𝐆𝐄𝐑 𝐋𝐀 𝐕𝐈𝐃É𝐎 (${quality}𝐩)
           </a>
         `;
-      };
+      }, 1000);
     }
   </script>
 
