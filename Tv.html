@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>𝐙𝐀𝐘𝐕𝐄𝐍 𝐓𝐕 | 𝐈𝐌𝐏𝐄𝐑𝐈𝐀𝐋 𝐒𝐓𝐑𝐄𝐀𝐌</title>
+
+  <!-- Font Awesome pou Ikòn yo -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- HLS.js pou jwe flux TV / Live Stream yo an dirèk -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+  <style>
+    :root {
+      --roman-bg: #0b0a08;
+      --card-bg: rgba(26, 20, 12, 0.9);
+      --text-gold: #ffd700;
+      --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+      --border-gold: rgba(212, 175, 55, 0.4);
+      --imperial-red: #800020;
+    }
+
+    body {
+      background: radial-gradient(circle at center, #1c150c 0%, var(--roman-bg) 100%);
+      color: #f1f5f9;
+      font-family: 'Times New Roman', Times, serif, 'Segoe UI';
+      margin: 0;
+      padding: 15px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Header ak Style Alemi Wòm */
+    .header {
+      text-align: center;
+      border-bottom: 2px solid var(--border-gold);
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 2.5rem;
+      margin: 0;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 0 2px 10px rgba(212, 175, 55, 0.2);
+    }
+
+    .subtitle {
+      color: #d4af37;
+      font-size: 1rem;
+      margin-top: 5px;
+      font-family: monospace;
+    }
+
+    /* Player TV Screen */
+    .player-card {
+      background: var(--card-bg);
+      border: 2px solid var(--border-gold);
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(212, 175, 55, 0.2);
+      margin-bottom: 25px;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      border: 1px solid var(--border-gold);
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .channel-title {
+      color: var(--text-gold);
+      font-size: 1.3rem;
+      margin: 12px 0 5px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Bouton Kategori yo (Tabs) */
+    .categories {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      scrollbar-width: thin;
+    }
+
+    .btn-category {
+      background: rgba(20, 15, 10, 0.8);
+      color: #d4af37;
+      border: 1px solid var(--border-gold);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .btn-category:hover, .btn-category.active {
+      background: var(--gold-gradient);
+      color: #000;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+    }
+
+    /* Liste des Chaînes Grid */
+    .channels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 15px;
+    }
+
+    .channel-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-gold);
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .channel-btn:hover {
+      transform: translateY(-3px);
+      border-color: #ffd700;
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+      background: rgba(45, 33, 18, 0.9);
+    }
+
+    .channel-btn i {
+      font-size: 1.8rem;
+      color: #ffd700;
+    }
+
+    .channel-btn span {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #f1f5f9;
+    }
+
+    /* Style pou ti badge LIVE la */
+    .live-badge {
+      background: var(--imperial-red);
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER STYLE WÒM / LÒ -->
+    <div class="header">
+      <h1>🏛️ 𝐙𝐀𝐘𝐕𝐄𝐍 𝐓𝐕 🏛️</h1>
+      <p class="subtitle"> 𝚃𝚅 𝙰𝚗 𝙳𝚒𝚛è𝚔 • 𝙵𝚒𝚕𝚖𝚜 • 𝚂𝚙𝚘𝚛𝚝𝚜 • 𝙽𝚘𝚞𝚟è𝚕</p>
+    </div>
+
+    <!-- PLAYER CARD -->
+    <div class="player-card">
+      <div class="video-container">
+        <video id="tv-player" controls autoplay poster="https://via.placeholder.com/800x450/000000/ffd700?text=%F0%9F%B3%BA+𝐙𝐀𝐘𝐕𝐄𝐍+𝐓𝐕+𝐈𝐌𝐏𝐄𝐑𝐈𝐀𝐋"></video>
+      </div>
+      <div class="channel-title">
+        <span class="live-badge">LIVE</span>
+        <span id="current-channel-name">⚡ 𝐒é𝐥𝐞𝐜𝐭𝐢𝐨𝐧𝐧𝐞𝐳 𝐮𝐧𝐞 𝐜𝐡𝐚î𝐧𝐞</span>
+      </div>
+    </div>
+
+    <!-- CATEGORY BUTTONS -->
+    <div class="categories">
+      <button class="btn-category active" onclick="filterChannels('all', this)">
+        🌐 𝐓𝐎𝐔𝐓 𝐂𝐇𝐀Î𝐍𝐄𝐒
+      </button>
+      <button class="btn-category" onclick="filterChannels('films', this)">
+        🎬 𝐅𝐈𝐋𝐌𝐒 𝐅𝐑𝐀𝐍Ç𝐀𝐈𝐒
+      </button>
+      <button class="btn-category" onclick="filterChannels('basket', this)">
+        🏀 𝐁𝐀𝐒𝐊𝐄𝐓𝐁𝐀𝐋𝐋
+      </button>
+
+      <button class="btn-category" onclick="filterChannels('football', this)">
+        ⚽ 𝐅𝐎𝐎𝐓𝐁𝐀𝐋𝐋
+      </button>
+
+      <button class="btn-category" onclick="filterChannels('haiti', this)">
+        🇭🇹 𝐍𝐎𝐔𝐕È𝐋 𝐀𝐘𝐈𝐓𝐈
+      </button>
+      <button class="btn-category" onclick="filterChannels('news', this)">
+        📰 𝐍𝐎𝐔𝐕È𝐋 𝐄𝐍𝐓È𝐍𝐀𝐒𝐘𝐎𝐍𝐀𝐋
+      </button>
+    </div>
+
+    <!-- CHANNELS LIST GRID -->
+    <div class="channels-grid" id="channels-container">
+      <!-- M ap rantre aksè ak tout chaîne yo dinamikman nan JS -->
+    </div>
+
+  </div>
+
+  <script>
+    // LISTE TOUT CHAÎNE YO AK FLUX LIVE/HLS (m3u8 ak mp4 streaming API)
+    const channels = [
+      // --- FILMS AN FRANÇAIS ---
+      {
+        name: "🎬 𝐅𝐢𝐥𝐦𝐬 𝐀𝐜𝐭𝐢𝐨𝐧 (𝐅𝐑)",
+        category: "films",
+        icon: "fa-film",
+        url: "https://vidsrc.xyz/embed/movie/tt0111161" // Lecteur Film HD
+      },
+      {
+        name: "🍿 𝐂𝐢𝐧é𝐦𝐚 𝐅𝐫𝐚𝐧ç𝐚𝐢𝐬",
+        category: "films",
+        icon: "fa-clapperboard",
+        url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" 
+      },
+
+      // --- BASKETBALL ---
+      {
+        name: "🏀 𝐍𝐁𝐀 𝐓𝐕 / 𝐁𝐚𝐬𝐤𝐞𝐭 𝐋𝐢𝐯𝐞",
+        category: "basket",
+        icon: "fa-basketball",
+        url: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
+      },
+
+      // --- FOOTBALL ---
+      {
+        name: "⚽ 𝐅𝐨𝐨𝐭𝐛𝐚𝐥𝐥 𝐋𝐢𝐯𝐞 𝐒𝐩𝐨𝐫𝐭",
+        category: "football",
+        icon: "fa-football",
+        url: "https://playertest.longtailvideo.com/adaptive/oceans/oceans.m3u8"
+      },
+
+      // --- NOUVÈL AYITI ---
+      {
+        name: "🇭🇹 𝐓é𝐥é 𝐆𝐚𝐥𝐚𝐱𝐢𝐞 (𝐀𝐲𝐢𝐭𝐢)",
+        category: "haiti",
+        icon: "fa-tv",
+        url: "https://stream.ecable.tv/telegalaxie/index.m3u8" 
+      },
+      {
+        name: "🇭🇹 𝐓é𝐥é 𝐍𝐚𝐭𝐢𝐨𝐧𝐚𝐥𝐞 (𝐓𝐍𝐇)",
+        category: "haiti",
+        icon: "fa-landmark",
+        url: "https://stream.ecable.tv/tnh/index.m3u8"
+      },
+
+      // --- NOUVÈL ENTÈNASYONAL ---
+      {
+        name: "📰 𝐅𝐫𝐚𝐧𝐜𝐞 𝟐𝟒 (𝐅𝐫𝐚𝐧ç𝐚𝐢𝐬)",
+        category: "news",
+        icon: "fa-newspaper",
+        url: "https://static.france24.com/live/F24_FR_PAD_HLS/live_tv.m3u8"
+      },
+      {
+        name: "🌎 𝐄𝐮𝐫𝐨𝐧𝐞𝐰𝐬 (𝐅𝐑)",
+        category: "news",
+        icon: "fa-globe",
+        url: "https://euronews-euronews-french-1-us.samsung.wurl.tv/playlist.m3u8"
+      }
+    ];
+
+    const player = document.getElementById('tv-player');
+    const channelNameEl = document.getElementById('current-channel-name');
+    const container = document.getElementById('channels-container');
+    let hls = new Hls();
+
+    // Fonksyon pou afiche Chaîne yo nan paj la
+    function renderChannels(items) {
+      container.innerHTML = "";
+      items.forEach(ch => {
+        const card = document.createElement('div');
+        card.className = "channel-btn";
+        card.onclick = () => playChannel(ch);
+        card.innerHTML = `
+          <i class="fa-solid ${ch.icon}"></i>
+          <span>${ch.name}</span>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Fonksyon pou Joue yon Chaîne lè moun klike sou li
+    function playChannel(ch) {
+      channelNameEl.innerText = ch.name;
+      
+      // Si se yon flux HLS (.m3u8)
+      if (ch.url.endsWith('.m3u8')) {
+        if (Hls.isSupported()) {
+          hls.destroy();
+          hls = new Hls();
+          hls.loadSource(ch.url);
+          hls.attachMedia(player);
+          hls.on(Hls.Events.MANIFEST_PARSED, function() {
+            player.play();
+          });
+        } else if (player.canPlayType('application/vnd.apple.mpegurl')) {
+          player.src = ch.url;
+          player.play();
+        }
+      } else {
+        // Pou videyo senp oswa lòt lien direct
+        hls.destroy();
+        player.src = ch.url;
+        player.play();
+      }
+    }
+
+    // Filtre chaîne yo pa Kategori
+    function filterChannels(cat, btn) {
+      document.querySelectorAll('.btn-category').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      if (cat === 'all') {
+        renderChannels(channels);
+      } else {
+        const filtered = channels.filter(c => c.category === cat);
+        renderChannels(filtered);
+      }
+    }
+
+    // Chaje tout chaîne yo depi paj la louvri
+    renderChannels(channels);
+  </script>
+
+</body>
+    </html>
+    
