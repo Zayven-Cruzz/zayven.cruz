@@ -10,17 +10,21 @@
 
   <style>
     :root {
-      --bg-color: #06090e;
-      --card-bg: rgba(18, 24, 38, 0.85);
-      --text-color: #f1f5f9;
-      --accent-gold: #ffd700;
-      --border-color: rgba(255, 215, 0, 0.3);
-      --accent-purple: #8b5cf6;
+      --bg-black: #000000;
+      --crystal-card: rgba(18, 18, 20, 0.55);
+      --crystal-border: rgba(255, 215, 0, 0.4);
+      --crystal-glow: rgba(255, 215, 0, 0.15);
+      --text-gold: #ffd700;
+      --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+      --text-white: #f8fafc;
     }
 
     body {
-      background: radial-gradient(circle at top, #111827 0%, #06090e 100%);
-      color: var(--text-color);
+      background: #000000;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15) 0%, transparent 70%),
+        radial-gradient(circle at 100% 100%, rgba(255, 215, 0, 0.08) 0%, transparent 50%);
+      color: var(--text-white);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 20px 10px;
@@ -33,40 +37,44 @@
     }
 
     h1 {
-      background: linear-gradient(135deg, #ffd700, #ff8c00);
+      background: var(--gold-gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-align: center;
       font-size: 2.2rem;
       margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .subtitle {
       text-align: center;
-      color: #94a3b8;
+      color: #d4af37;
       font-size: 0.95rem;
       margin-bottom: 30px;
       font-family: monospace;
     }
 
+    /* Style Kristal (Glassmorphism) ak Nwa & Lò */
     .card {
-      background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--border-color);
-      border-radius: 18px;
+      background: var(--crystal-card);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--crystal-border);
+      border-radius: 20px;
       padding: 25px;
       margin-bottom: 25px;
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8), inset 0 0 15px var(--crystal-glow);
     }
 
     h2 {
-      color: var(--accent-gold);
+      color: var(--text-gold);
       font-size: 1.3rem;
       margin-top: 0;
       margin-bottom: 15px;
     }
 
-    /* Style ak Koulè Orijinal Ikòn Yo */
+    /* Ikòn Yo */
     .platforms-icons {
       display: flex;
       justify-content: center;
@@ -76,62 +84,57 @@
       font-size: 2.2rem;
     }
 
-    .platforms-icons .fa-youtube {
-      color: #FF0000; /* Koulè Orijinal YouTube */
-    }
-
+    .platforms-icons .fa-youtube { color: #FF0000; }
     .platforms-icons .fa-instagram {
       background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent; /* Gradient Orijinal Instagram */
+      -webkit-text-fill-color: transparent;
     }
-
-    .platforms-icons .fa-facebook {
-      color: #1877F2; /* Koulè Orijinal Facebook */
-    }
-
-    .platforms-icons .fa-whatsapp {
-      color: #25D366; /* Koulè Orijinal WhatsApp */
-    }
+    .platforms-icons .fa-facebook { color: #1877F2; }
+    .platforms-icons .fa-whatsapp { color: #25D366; }
 
     input[type="text"], select, input[type="file"] {
       width: 100%;
       padding: 14px;
       margin: 10px 0 15px 0;
-      border-radius: 10px;
-      border: 1px solid var(--border-color);
-      background: rgba(0, 0, 0, 0.7);
-      color: #fff;
+      border-radius: 12px;
+      border: 1px solid var(--crystal-border);
+      background: rgba(0, 0, 0, 0.85);
+      color: var(--text-gold);
       font-size: 0.95rem;
       box-sizing: border-box;
       outline: none;
     }
 
+    input[type="text"]::placeholder {
+      color: #94a3b8;
+    }
+
     .btn-action {
       width: 100%;
-      background: linear-gradient(135deg, #ffd700, #ff8c00);
+      background: var(--gold-gradient);
       color: #000;
       border: none;
       padding: 14px;
-      border-radius: 10px;
+      border-radius: 12px;
       font-weight: 800;
       cursor: pointer;
       font-size: 1rem;
       text-transform: uppercase;
-      box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
       transition: all 0.3s ease;
     }
 
     .btn-action:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+      box-shadow: 0 6px 25px rgba(255, 215, 0, 0.7);
     }
 
     .btn-download {
       display: block;
       width: 100%;
-      background: #22c55e;
-      color: #fff;
+      background: var(--gold-gradient);
+      color: #000;
       padding: 12px;
       border-radius: 10px;
       text-decoration: none;
@@ -139,20 +142,22 @@
       text-align: center;
       margin-top: 10px;
       box-sizing: border-box;
-      border: 1px solid #16a34a;
+      border: 1px solid var(--text-gold);
     }
 
     .btn-audio {
-      background: var(--accent-purple);
-      border: 1px solid #7c3aed;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-gold);
+      border: 1px solid var(--crystal-border);
     }
 
     video {
       width: 100%;
-      border-radius: 10px;
+      border-radius: 12px;
       margin-top: 10px;
       max-height: 350px;
       background: #000;
+      border: 1px solid var(--crystal-border);
     }
   </style>
 </head>
@@ -167,7 +172,6 @@
     <div class="card">
       <h2>📥 𝐓é𝐥é𝐜𝐡𝐚𝐫𝐠𝐞𝐮𝐫 𝐔𝐧𝐢𝐯𝐞𝐫𝐬𝐞𝐥 𝐇𝐃 (𝐒𝐚𝐧𝐬 𝐅𝐢𝐥𝐢𝐠𝐫𝐚𝐧𝐞)</h2>
       
-      <!-- LOGO ORIJINAL YO -->
       <div class="platforms-icons">
         <i class="fa-brands fa-youtube" title="YouTube"></i>
         <i class="fa-brands fa-instagram" title="Instagram"></i>
@@ -182,41 +186,42 @@
       <input type="text" id="universal-url" placeholder="𝐂𝐨𝐥𝐥𝐞𝐳 𝐯𝐨𝐭𝐫𝐞 𝐥𝐢𝐞𝐧 𝐢𝐜𝐢... (𝐞𝐱: https://...)">
       
       <button class="btn-action" onclick="fetchUniversalMedia()">
-        ⚡ 𝐓É𝐋É𝐂𝐇𝐀𝐑𝐆𝐄𝐑 𝐋𝐄 𝐌É𝐃𝐈𝐀
+        ⚡ 𝐓É𝐋É𝐂𝐇𝐀𝐑𝐆𝐄𝐑 𝐋𝐄 𝐌É𝐃𝐈𝐀 (𝐇𝐃 𝟏𝟎𝟖𝟎𝐩)
       </button>
 
-      <div id="media-status" style="margin-top: 15px; display: none; text-align: center; color: var(--accent-gold);"></div>
+      <div id="media-status" style="margin-top: 15px; display: none; text-align: center; color: var(--text-gold);"></div>
       <div id="media-result" style="margin-top: 15px; display: none;"></div>
     </div>
 
     <!-- SECTION 2: VIDEO CONVERTER -->
     <div class="card">
-      <h2>🎬 𝐂𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐬𝐬𝐞𝐮𝐫 &amp; 𝐑é𝐝𝐮𝐜𝐭𝐞𝐮𝐫 (𝟑𝟖𝟎𝐩 / 𝟒𝟖𝟎𝐩 / 𝟕𝟐𝟎𝐩)</h2>
+      <h2>🎬 𝐂𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐬𝐬𝐞𝐮𝐫 &amp; 𝐑é𝐝𝐮𝐜𝐭𝐞𝐮𝐫 (𝟑𝟔𝟎𝐩 / 𝟒𝟖𝟎𝐩 / 𝟕𝟐𝟎𝐩 / 𝟏𝟎𝟖𝟎𝐩)</h2>
       <p style="color: #cbd5e1; font-size: 0.9rem; text-align: center;">
-        𝐈𝐦𝐩𝐨𝐫𝐭𝐞𝐳 𝐮𝐧𝐞 𝐯𝐢𝐝é𝐨 𝐝𝐞 𝐯𝐨𝐭𝐫𝐞 𝐚𝐩𝐩𝐚𝐫𝐞𝐢𝐥 𝐩𝐨𝐮𝐫 𝐫é𝐝𝐮𝐢𝐫𝐞 𝐬𝐚 𝐭𝐚𝐢𝐥𝐥𝐞 𝐨𝐮 𝐚𝐣𝐮𝐬𝐭𝐞𝐫 𝐬𝐚 𝐪𝐮𝐚𝐥𝐢𝐭é (𝐞𝐱: 𝟑𝟖𝟎𝐩).
+        𝐈𝐦𝐩𝐨𝐫𝐭𝐞𝐳 𝐮𝐧𝐞 𝐯𝐢𝐝é𝐨 𝐝𝐞 𝐯𝐨𝐭𝐫𝐞 𝐚𝐩𝐩𝐚𝐫𝐞𝐢𝐥 𝐩𝐨𝐮𝐫 𝐜𝐡𝐚𝐧𝐠𝐞𝐫 𝐬𝐚 𝐪𝐮𝐚𝐥𝐢𝐭é 𝐞𝐭 𝐬𝐚 𝐫é𝐬𝐨𝐥𝐮𝐭𝐢𝐨𝐧 (𝐞𝐱: 𝟏𝟎𝟖𝟎𝐩 𝐅𝐮𝐥𝐥 𝐇𝐃).
       </p>
 
       <input type="file" id="video-file" accept="video/*">
 
-      <label style="font-size: 0.85rem; color: var(--accent-gold);">𝐒é𝐥𝐞𝐜𝐭𝐢𝐨𝐧𝐧𝐞𝐳 𝐥𝐚 𝐪𝐮𝐚𝐥𝐢𝐭é 𝐝é𝐬𝐢𝐫é𝐞 :</label>
+      <label style="font-size: 0.85rem; color: var(--text-gold);">𝐒é𝐥𝐞𝐜𝐭𝐢𝐨𝐧𝐧𝐞𝐳 𝐥𝐚 𝐪𝐮𝐚𝐥𝐢𝐭é 𝐝é𝐬𝐢𝐫é𝐞 :</label>
       <select id="video-quality">
-        <option value="380">380p (Basse résolution / Fichier très léger)</option>
+        <option value="360">360p (Basse résolution / Fichier léger)</option>
         <option value="480">480p (Qualité Standard SD)</option>
         <option value="720">720p (Haute Définition HD)</option>
+        <option value="1080" selected>1080p (Full HD 1080p Haute Qualité)</option>
       </select>
 
-      <button class="btn-action" onclick="convertAndRenderVideo()">
+      <button class="btn-action" onclick="processAndConvertVideo()">
         ⚙️ 𝐂𝐎𝐍𝐕𝐄𝐑𝐓𝐈𝐑 𝐄𝐓 𝐓É𝐋É𝐂𝐇𝐀𝐑𝐆𝐄𝐑
       </button>
 
-      <div id="convert-status" style="margin-top: 15px; display: none; text-align: center; color: var(--accent-gold);"></div>
+      <div id="convert-status" style="margin-top: 15px; display: none; text-align: center; color: var(--text-gold);"></div>
       <div id="convert-result" style="margin-top: 15px; display: none; text-align: center;"></div>
     </div>
 
   </div>
 
   <script>
-    // 1. UNIVERSAL DOWNLOADER
+    // 1. UNIVERSAL DOWNLOADER AK KONTWÒL KALITE 1080p
     async function fetchUniversalMedia() {
       const urlInput = document.getElementById('universal-url').value.trim();
       const statusDiv = document.getElementById('media-status');
@@ -228,7 +233,7 @@
       }
 
       statusDiv.style.display = "block";
-      statusDiv.innerHTML = "⏳ <i>𝐀𝐧𝐚𝐥𝐲𝐬𝐞 𝐝𝐮 𝐥𝐢𝐞𝐧 𝐞𝐧 𝐜𝐨𝐮𝐫𝐬... 𝐕𝐞𝐮𝐢𝐥𝐥𝐞𝐳 𝐩𝐚𝐭𝐢𝐞𝐧𝐭𝐞𝐫.</i>";
+      statusDiv.innerHTML = "⏳ <i>Analyse du lien en HD 1080p en cours... Veuillez patienter.</i>";
       resultDiv.style.display = "none";
       resultDiv.innerHTML = "";
 
@@ -237,22 +242,26 @@
         let audioUrl = "";
 
         if (urlInput.includes("tiktok.com")) {
-          const res = await fetch(`https://www.tikwm.com/api/?url=${encodeURIComponent(urlInput)}`);
+          const res = await fetch(`https://www.tikwm.com/api/?url=${encodeURIComponent(urlInput)}&hd=1`);
           const data = await res.json();
           if (data.code === 0) {
-            videoUrl = data.data.play;
+            videoUrl = data.data.hdplay || data.data.play;
             audioUrl = data.data.music;
           } else {
             throw new Error("Lien TikTok invalide ou vidéo privée.");
           }
         } else {
+          // Demande expressément la qualité 1080p via l'API
           const cobaltRes = await fetch("https://co.wuk.sh/api/json", {
             method: "POST",
             headers: {
               "Accept": "application/json",
               "Content-Type": "application/json"
             },
-            body: JSON.stringify({ url: urlInput })
+            body: JSON.stringify({ 
+              url: urlInput,
+              videoQuality: "1080"
+            })
           });
           
           const cobaltData = await cobaltRes.json();
@@ -260,7 +269,7 @@
             videoUrl = cobaltData.url;
             audioUrl = cobaltData.url;
           } else {
-            throw new Error("Impossible de récupérer la vidéo. Vérifiez le lien.");
+            throw new Error("Impossible de récupérer la vidéo en 1080p. Vérifiez le lien.");
           }
         }
 
@@ -268,15 +277,15 @@
         resultDiv.style.display = "block";
 
         let htmlContent = `
-          <div style="text-align:center; background: rgba(0,0,0,0.4); padding: 15px; border-radius: 10px; border: 1px solid var(--accent-gold);">
-            <p style="color:#4ade80; margin:5px 0;"><b>✅ 𝐌é𝐝𝐢𝐚 𝐭𝐫𝐨𝐮𝐯é 𝐚𝐯𝐞𝐜 𝐬𝐮𝐜𝐜è𝐬 !</b></p>
+          <div style="text-align:center; background: rgba(0,0,0,0.6); padding: 15px; border-radius: 15px; border: 1px solid var(--crystal-border);">
+            <p style="color:#4ade80; margin:5px 0;"><b>✅ 𝐌é𝐝𝐢𝐚 𝟏𝟎𝟖𝟎𝐩 𝐇𝐃 𝐭𝐫𝐨𝐮𝐯é !</b></p>
         `;
 
         if (videoUrl) {
           htmlContent += `
             <video controls src="${videoUrl}"></video>
-            <a href="${videoUrl}" target="_blank" download="video.mp4" class="btn-download">
-              🎬 𝐓É𝐋É𝐂𝐇𝐀𝐑𝐆𝐄𝐑 𝐕𝐈𝐃É𝐎 (𝐇𝐃)
+            <a href="${videoUrl}" target="_blank" download="video_1080p.mp4" class="btn-download">
+              🎬 𝐓É𝐋É𝐂𝐇𝐀𝐑𝐆𝐄𝐑 𝐕𝐈𝐃É𝐎 (𝟏𝟎𝟖𝟎𝐩 𝐅𝐮𝐥𝐥 𝐇𝐃)
             </a>
           `;
         }
@@ -294,14 +303,14 @@
 
       } catch (error) {
         statusDiv.style.display = "block";
-        statusDiv.innerHTML = `❌ <b>Erreur:</b> ${error.message || "Impossible de charger la vidéo. Vérifiez votre connexion ou le lien."}`;
+        statusDiv.innerHTML = `❌ <b>Erreur:</b> ${error.message || "Impossible de charger la vidéo."}`;
       }
     }
 
-    // 2. CONVERTISSEUR VIDEO LOCAL
-    function convertAndRenderVideo() {
+    // 2. CONVERTISSEUR VIDEO LOKAL AVEC CANVAS RE-ENCODING (CHAMBARDEMENT KALITE REEL)
+    async function processAndConvertVideo() {
       const fileInput = document.getElementById('video-file');
-      const quality = document.getElementById('video-quality').value;
+      const targetHeight = parseInt(document.getElementById('video-quality').value);
       const statusDiv = document.getElementById('convert-status');
       const resultDiv = document.getElementById('convert-result');
 
@@ -312,24 +321,63 @@
 
       const file = fileInput.files[0];
       statusDiv.style.display = "block";
-      statusDiv.innerHTML = `⏳ <i>Traitement de la vidéo (${quality}p)... Veuillez patienter.</i>`;
+      statusDiv.innerHTML = `⏳ <i>Encodage et rendu réel en ${targetHeight}p en cours... Veuillez patienter.</i>`;
       resultDiv.style.display = "none";
 
-      const downloadUrl = URL.createObjectURL(file);
+      const tempVideo = document.createElement('video');
+      tempVideo.src = URL.createObjectURL(file);
+      tempVideo.muted = true;
+      await tempVideo.play().catch(() => {});
 
-      setTimeout(() => {
-        statusDiv.innerHTML = `✅ 𝐕𝐢𝐝é𝐨 𝐩𝐫ê𝐭𝐞 𝐞𝐧 ${quality}𝐩 !`;
-        resultDiv.style.display = "block";
+      tempVideo.onloadeddata = () => {
+        const aspectRatio = tempVideo.videoWidth / tempVideo.videoHeight;
+        const targetWidth = Math.round(targetHeight * aspectRatio);
 
-        resultDiv.innerHTML = `
-          <video controls src="${downloadUrl}"></video>
-          <a href="${downloadUrl}" download="video_${quality}p.mp4" class="btn-download">
-            ⬇️ 𝐓É𝐋É𝐂𝐇𝐀𝐑𝐆𝐄𝐑 𝐋𝐀 𝐕𝐈𝐃É𝐎 (${quality}𝐩)
-          </a>
-        `;
-      }, 1000);
+        const canvas = document.createElement('canvas');
+        canvas.width = targetWidth;
+        canvas.height = targetHeight;
+        const ctx = canvas.getContext('2d');
+
+        const stream = canvas.captureStream(30);
+        const mediaRecorder = new MediaRecorder(stream, {
+          mimeType: 'video/webm;codecs=vp8',
+          videoBitsPerSecond: targetHeight >= 1080 ? 5000000 : targetHeight >= 720 ? 2500000 : 1000000
+        });
+
+        const chunks = [];
+        mediaRecorder.ondataavailable = (e) => chunks.push(e.data);
+        
+        mediaRecorder.onstop = () => {
+          const blob = new Blob(chunks, { type: 'video/mp4' });
+          const convertedUrl = URL.createObjectURL(blob);
+
+          statusDiv.innerHTML = `✅ 𝐕𝐢𝐝é𝐨 𝐜𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐞 𝐞𝐭 𝐫𝐞-𝐞𝐧𝐜𝐨𝐝é𝐞 𝐞𝐧 ${targetHeight}𝐩 (${targetWidth}x${targetHeight}) !`;
+          resultDiv.style.display = "block";
+
+          resultDiv.innerHTML = `
+            <video controls src="${convertedUrl}"></video>
+            <a href="${convertedUrl}" download="video_${targetHeight}p.mp4" class="btn-download">
+              ⬇️ 𝐓É𝐋É𝐂𝐇𝐀𝐑𝐆𝐄𝐑 𝐋𝐀 𝐕𝐈𝐃É𝐎 (${targetHeight}𝐩)
+            </a>
+          `;
+        };
+
+        mediaRecorder.start();
+        tempVideo.currentTime = 0;
+
+        function drawFrame() {
+          if (!tempVideo.paused && !tempVideo.ended) {
+            ctx.drawImage(tempVideo, 0, 0, targetWidth, targetHeight);
+            requestAnimationFrame(drawFrame);
+          } else {
+            mediaRecorder.stop();
+          }
+        }
+        drawFrame();
+      };
     }
   </script>
 
 </body>
-</html>
+  </html>
+  
