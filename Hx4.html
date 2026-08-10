@@ -4,27 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>𝐙𝐀𝐘𝐕𝐄𝐍 𝐂𝐑𝐔𝐙 | 𝐇𝐱𝟒! 𝐓𝐎𝐎𝐋𝐒</title>
-
-  <!-- Font Awesome pou Ikòn Orijinal Rezo Sosyal Yo -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
   <style>
     :root {
-      --bg-black: #000000;
-      --crystal-card: rgba(18, 18, 20, 0.55);
-      --crystal-border: rgba(255, 215, 0, 0.4);
-      --crystal-glow: rgba(255, 215, 0, 0.15);
-      --text-gold: #ffd700;
-      --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
-      --text-white: #f8fafc;
+      --bg-color: #06090e;
+      --card-bg: rgba(18, 24, 38, 0.85);
+      --text-color: #f1f5f9;
+      --accent-gold: #ffd700;
+      --border-color: rgba(255, 215, 0, 0.3);
+      --accent-purple: #8b5cf6;
     }
 
     body {
-      background: #000000;
-      background-image: 
-        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15) 0%, transparent 70%),
-        radial-gradient(circle at 100% 100%, rgba(255, 215, 0, 0.08) 0%, transparent 50%);
-      color: var(--text-white);
+      background: radial-gradient(circle at top, #111827 0%, #06090e 100%);
+      color: var(--text-color);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 20px 10px;
@@ -37,102 +29,95 @@
     }
 
     h1 {
-      background: var(--gold-gradient);
+      background: linear-gradient(135deg, #ffd700, #ff8c00);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-align: center;
       font-size: 2.2rem;
       margin-bottom: 5px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
     }
 
     .subtitle {
       text-align: center;
-      color: #d4af37;
+      color: #94a3b8;
       font-size: 0.95rem;
       margin-bottom: 30px;
       font-family: monospace;
     }
 
     .card {
-      background: var(--crystal-card);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--crystal-border);
-      border-radius: 20px;
-      padding: 25px;
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 20px;
       margin-bottom: 25px;
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8), inset 0 0 15px var(--crystal-glow);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     }
 
     h2 {
-      color: var(--text-gold);
+      color: var(--accent-gold);
       font-size: 1.3rem;
       margin-top: 0;
       margin-bottom: 15px;
+      text-align: center;
     }
 
     .platforms-icons {
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: 20px;
+      gap: 15px;
       margin-bottom: 15px;
-      font-size: 2.2rem;
+      font-size: 1.8rem;
     }
 
-    .platforms-icons .fa-youtube { color: #FF0000; }
-    .platforms-icons .fa-instagram {
-      background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    /* EMBEDDED DOWNLOADER IFRAME */
+    .downloader-frame {
+      width: 100%;
+      height: 450px;
+      border: none;
+      border-radius: 12px;
+      background: #000;
     }
-    .platforms-icons .fa-facebook { color: #1877F2; }
-    .platforms-icons .fa-whatsapp { color: #25D366; }
 
-    input[type="text"], select, input[type="file"] {
+    input[type="file"], select {
       width: 100%;
       padding: 14px;
       margin: 10px 0 15px 0;
-      border-radius: 12px;
-      border: 1px solid var(--crystal-border);
-      background: rgba(0, 0, 0, 0.85);
-      color: var(--text-gold);
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
       font-size: 0.95rem;
       box-sizing: border-box;
       outline: none;
     }
 
-    input[type="text"]::placeholder {
-      color: #94a3b8;
-    }
-
     .btn-action {
       width: 100%;
-      background: var(--gold-gradient);
+      background: linear-gradient(135deg, #ffd700, #ff8c00);
       color: #000;
       border: none;
       padding: 14px;
-      border-radius: 12px;
+      border-radius: 10px;
       font-weight: 800;
       cursor: pointer;
       font-size: 1rem;
       text-transform: uppercase;
-      box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+      box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
       transition: all 0.3s ease;
     }
 
     .btn-action:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(255, 215, 0, 0.7);
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
     }
 
     .btn-download {
-      display: block;
+      display: inline-block;
       width: 100%;
-      background: var(--gold-gradient);
-      color: #000;
+      background: #22c55e;
+      color: #fff;
       padding: 12px;
       border-radius: 10px;
       text-decoration: none;
@@ -140,22 +125,27 @@
       text-align: center;
       margin-top: 10px;
       box-sizing: border-box;
-      border: 1px solid var(--text-gold);
     }
 
-    .btn-audio {
-      background: rgba(255, 255, 255, 0.1);
-      color: var(--text-gold);
-      border: 1px solid var(--crystal-border);
+    /* AD CARDS */
+    .ad-card {
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(139, 92, 246, 0.15));
+      border: 1px dashed var(--accent-gold);
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
     }
 
-    video {
-      width: 100%;
-      border-radius: 12px;
+    .btn-ad {
+      display: inline-block;
+      background: var(--accent-gold);
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
       margin-top: 10px;
-      max-height: 350px;
-      background: #000;
-      border: 1px solid var(--crystal-border);
     }
   </style>
 </head>
@@ -164,148 +154,64 @@
   <div class="container">
 
     <h1>𝐙𝐀𝐘𝐕𝐄𝐍 𝐂𝐑𝐔𝐙 | 𝐇𝐱𝟒!</h1>
-    <p class="subtitle"> 𝚄𝚗𝚒𝚟𝚎𝚛𝚜𝚊𝚕 𝚅𝚒𝚍𝚎𝚘 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚎𝚛 &amp; 𝙲𝚘𝚗𝚟𝚎𝚛𝚝𝚎𝚛</p>
+    <p class="subtitle">𝚎𝚡𝚊𝚖𝚙𝚕𝚎: 𝚄𝚗𝚒𝚟𝚎𝚛𝚜𝚊𝚕 𝚅𝚒𝚍𝚎𝚘 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚎𝚛 & 𝙲𝚘𝚗𝚟𝚎𝚛𝚝𝚎𝚛</p>
 
-    <!-- SECTION 1: UNIVERSAL DOWNLOADER -->
+    <!-- SECTION 1: REAL WORKING UNIVERSAL DOWNLOADER -->
     <div class="card">
-      <h2>📥 𝐓é𝐥é𝐜𝐡𝐚𝐫𝐠𝐞𝐮𝐫 𝐔𝐧𝐢𝐯𝐞𝐫𝐬𝐞𝐥 𝐇𝐃 (𝐒𝐚𝐧𝐬 𝐅𝐢𝐥𝐢𝐠𝐫𝐚𝐧𝐞)</h2>
+      <h2>📥 𝐓é𝐥é𝐜𝐡𝐚𝐫𝐠𝐞𝐮𝐫 𝐔𝐧𝐢𝐯𝐞𝐫𝐬𝐞𝐥 (𝐘𝐨𝐮𝐓𝐮𝐛𝐞, 𝐈𝐆, 𝐅𝐁, 𝐓𝐢𝐤𝐓𝐨𝐤)</h2>
       
       <div class="platforms-icons">
-        <i class="fa-brands fa-youtube" title="YouTube"></i>
-        <i class="fa-brands fa-instagram" title="Instagram"></i>
-        <i class="fa-brands fa-facebook" title="Facebook"></i>
-        <i class="fa-brands fa-whatsapp" title="WhatsApp"></i>
+        🔴 🎵 📸 🔵
       </div>
 
-      <p style="color: #cbd5e1; font-size: 0.9rem; text-align: center;">
-        𝐂𝐨𝐥𝐥𝐞𝐳 𝐥𝐞 𝐥𝐢𝐞𝐧 𝐝'𝐮𝐧𝐞 𝐯𝐢𝐝é𝐨 (𝐘𝐨𝐮𝐓𝐮𝐛𝐞, 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦, 𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤, 𝐨𝐮 𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩) 𝐩𝐨𝐮𝐫 𝐥𝐚 𝐭é𝐥é𝐜𝐡𝐚𝐫𝐠𝐞𝐫 𝐞𝐧 𝐇𝐃 (𝐕𝐢𝐝é𝐨) 𝐨𝐮 𝐞𝐧 𝐌𝐏𝟑 (𝐀𝐮𝐝𝐢𝐨) 𝐬𝐚𝐧𝐬 𝐟𝐢𝐥𝐢𝐠𝐫𝐚𝐧𝐞.
+      <p style="color: #cbd5e1; font-size: 0.88rem; text-align: center; margin-bottom: 15px;">
+        𝐂𝐨𝐥𝐥𝐞𝐳 𝐥𝐞 𝐥𝐢𝐞𝐧 𝐝𝐞 𝐯𝐨𝐭𝐫𝐞 𝐯𝐢𝐝é𝐨 (𝐘𝐨𝐮𝐓𝐮𝐛𝐞, 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦, 𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤, 𝐓𝐢𝐤𝐓𝐨𝐤) 𝐜𝐢-𝐝𝐞𝐬𝐬𝐨𝐮𝐬 𝐩𝐨𝐮𝐫 𝐭é𝐥é𝐜𝐡𝐚𝐫𝐠𝐞𝐫 𝐞𝐧 𝐌𝐏𝟒 (𝐕𝐢𝐝é𝐨) 𝐨𝐮 𝐌𝐏𝟑 (𝐀𝐮𝐝𝐢𝐨) :
       </p>
-      
-      <input type="text" id="universal-url" placeholder="𝐂𝐨𝐥𝐥𝐞𝐳 𝐯𝐨𝐭𝐫𝐞 𝐥𝐢𝐞𝐧 𝐢𝐜𝐢... (𝐞𝐱: https://...)">
-      
-      <button class="btn-action" onclick="fetchUniversalMedia()">
-        ⚡ 𝐓É𝐋É𝐂𝐇𝐀𝐑𝐆𝐄𝐑 𝐋𝐄 𝐌É𝐃𝐈𝐀 (𝐇𝐃 𝟏𝟎𝟖𝟎𝐩)
-      </button>
 
-      <div id="media-status" style="margin-top: 15px; display: none; text-align: center; color: var(--text-gold);"></div>
-      <div id="media-result" style="margin-top: 15px; display: none;"></div>
+      <!-- Real Downloader Engine API Frame -->
+      <iframe class="downloader-frame" src="https://ssyoutube.com/en796EA/" title="Universal Downloader Engine"></iframe>
     </div>
 
-    <!-- SECTION 2: VIDEO CONVERTER -->
+    <!-- SECTION 2: VIDEO CONVERTER (LOCAL CANVAS ENGINE) -->
     <div class="card">
-      <h2>🎬 𝐂𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐬𝐬𝐞𝐮𝐫 &amp; 𝐑é𝐝𝐮𝐜𝐭𝐞𝐮𝐫 (𝟑𝟔𝟎𝐩 / 𝟒𝟖𝟎𝐩 / 𝟕𝟐𝟎𝐩 / 𝟏𝟎𝟖𝟎𝐩)</h2>
+      <h2>🎬 𝐂𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐬𝐬𝐞𝐮𝐫 &amp; 𝐑é𝐝𝐮𝐜𝐭𝐞𝐮𝐫 (𝟑𝟖𝟎𝐩 / 𝟒𝟖𝟎𝐩 / 𝟕𝟐𝟎𝐩)</h2>
       <p style="color: #cbd5e1; font-size: 0.9rem; text-align: center;">
-        𝐈𝐦𝐩𝐨𝐫𝐭𝐞𝐳 𝐮𝐧𝐞 𝐯𝐢𝐝é𝐨 𝐝𝐞 𝐯𝐨𝐭𝐫𝐞 𝐚𝐩𝐩𝐚𝐫𝐞𝐢𝐥 𝐩𝐨𝐮𝐫 𝐜𝐡𝐚𝐧𝐠𝐞𝐫 𝐬𝐚 𝐪𝐮𝐚𝐥𝐢𝐭é 𝐞𝐭 𝐬𝐚 𝐫é𝐬𝐨𝐥𝐮𝐭𝐢𝐨𝐧 (𝐞𝐱: 𝟏𝟎𝟖𝟎𝐩 𝐅𝐮𝐥𝐥 𝐇𝐃).
+        𝐈𝐦𝐩𝐨𝐫𝐭𝐞𝐳 𝐮𝐧𝐞 𝐯𝐢𝐝é𝐨 𝐝𝐞 𝐯𝐨𝐭𝐫𝐞 𝐚𝐩𝐩𝐚𝐫𝐞𝐢𝐥 𝐩𝐨𝐮𝐫 𝐫é𝐝𝐮𝐢𝐫𝐞 𝐬𝐚 𝐭𝐚𝐢𝐥𝐥𝐞 𝐨𝐮 𝐚𝐣𝐮𝐬𝐭𝐞𝐫 𝐬𝐚 𝐪𝐮𝐚𝐥𝐢𝐭é.
       </p>
 
       <input type="file" id="video-file" accept="video/*">
 
-      <label style="font-size: 0.85rem; color: var(--text-gold);">𝐒é𝐥𝐞𝐜𝐭𝐢𝐨𝐧𝐧𝐞𝐳 𝐥𝐚 𝐪𝐮𝐚𝐥𝐢𝐭é 𝐝é𝐬𝐢𝐫é𝐞 :</label>
+      <label style="font-size: 0.85rem; color: var(--accent-gold);">𝐒é𝐥𝐞𝐜𝐭𝐢𝐨𝐧𝐧𝐞𝐳 𝐥𝐚 𝐪𝐮𝐚𝐥𝐢𝐭é 𝐝é𝐬𝐢𝐫é𝐞 :</label>
       <select id="video-quality">
-        <option value="360">360p (Basse résolution / Fichier léger)</option>
+        <option value="380">380p (Basse résolution / Fichier très léger)</option>
         <option value="480">480p (Qualité Standard SD)</option>
         <option value="720">720p (Haute Définition HD)</option>
-        <option value="1080" selected>1080p (Full HD 1080p Haute Qualité)</option>
       </select>
 
-      <button class="btn-action" onclick="processFastVideo()">
+      <button class="btn-action" onclick="convertAndRenderVideo()">
         ⚙️ 𝐂𝐎𝐍𝐕𝐄𝐑𝐓𝐈𝐑 𝐄𝐓 𝐓É𝐋É𝐂𝐇𝐀𝐑𝐆𝐄𝐑
       </button>
 
-      <div id="convert-status" style="margin-top: 15px; display: none; text-align: center; color: var(--text-gold);"></div>
+      <div id="convert-status" style="margin-top: 15px; display: none; text-align: center; color: var(--accent-gold);"></div>
       <div id="convert-result" style="margin-top: 15px; display: none; text-align: center;"></div>
     </div>
+
+    <!-- PROMOTION CARDS -->
+    <div class="ad-card">
+      <h3>🔥 𝐙𝐀𝐘𝐕𝐄𝐍 𝐂𝐑𝐔𝐙 | 𝐕𝐈𝐏 𝐌𝐄𝐌𝐁𝐄𝐑𝐒𝐇𝐈𝐏</h3>
+      <p style="color: #e2e8f0; font-size: 0.9rem;">
+        𝐀𝐜𝐜é𝐝𝐞𝐳 𝐚𝐮𝐱 𝐬𝐢𝐠𝐧𝐚𝐮𝐱 𝐕𝐈𝐏, 𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧𝐬 𝐚𝐯𝐚𝐧𝐜é𝐞𝐬 𝐞𝐭 𝐬𝐭𝐫𝐚𝐭é𝐠𝐢𝐞𝐬 𝐞𝐱𝐜𝐥𝐮𝐬𝐢𝐯𝐞𝐬 𝐬𝐮𝐫 𝐥𝐞𝐬 𝐦𝐚𝐫𝐜𝐡é𝐬 𝐟𝐢𝐧𝐚𝐧𝐜𝐢𝐞𝐫𝐬.
+      </p>
+      <a href="vip.html" class="btn-ad">🔒 𝐀𝐜𝐜é𝐝𝐞𝐫 à 𝐥'𝐄𝐬𝐩𝐚𝐜𝐞 𝐕𝐈𝐏</a>
+    </div>
+
+    <a href="index.html" style="display: block; text-align: center; color: var(--accent-gold); text-decoration: none; font-family: monospace;">⬅️ 𝐑𝐞𝐭𝐨𝐮𝐫 à 𝐥'𝐚𝐜𝐜𝐮𝐞𝐢𝐥</a>
 
   </div>
 
   <script>
-    // 1. UNIVERSAL DOWNLOADER
-    async function fetchUniversalMedia() {
-      const urlInput = document.getElementById('universal-url').value.trim();
-      const statusDiv = document.getElementById('media-status');
-      const resultDiv = document.getElementById('media-result');
-
-      if (!urlInput) {
-        alert("❌ 𝐕𝐞𝐮𝐢𝐥𝐥𝐞𝐳 𝐞𝐧𝐭𝐫𝐞𝐫 𝐮𝐧 𝐥𝐢𝐞𝐧 𝐯𝐚𝐥𝐢𝐝𝐞 !");
-        return;
-      }
-
-      statusDiv.style.display = "block";
-      statusDiv.innerHTML = "⏳ <i>Analyse du lien en HD 1080p en cours... Veuillez patienter.</i>";
-      resultDiv.style.display = "none";
-      resultDiv.innerHTML = "";
-
-      try {
-        let videoUrl = "";
-        let audioUrl = "";
-
-        if (urlInput.includes("tiktok.com")) {
-          const res = await fetch(`https://www.tikwm.com/api/?url=${encodeURIComponent(urlInput)}&hd=1`);
-          const data = await res.json();
-          if (data.code === 0) {
-            videoUrl = data.data.hdplay || data.data.play;
-            audioUrl = data.data.music;
-          } else {
-            throw new Error("Lien TikTok invalide ou vidéo privée.");
-          }
-        } else {
-          const cobaltRes = await fetch("https://co.wuk.sh/api/json", {
-            method: "POST",
-            headers: {
-              "Accept": "application/json",
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ 
-              url: urlInput,
-              videoQuality: "1080"
-            })
-          });
-          
-          const cobaltData = await cobaltRes.json();
-          if (cobaltData && cobaltData.url) {
-            videoUrl = cobaltData.url;
-            audioUrl = cobaltData.url;
-          } else {
-            throw new Error("Impossible de récupérer la vidéo. Vérifiez le lien.");
-          }
-        }
-
-        statusDiv.style.display = "none";
-        resultDiv.style.display = "block";
-
-        let htmlContent = `
-          <div style="text-align:center; background: rgba(0,0,0,0.6); padding: 15px; border-radius: 15px; border: 1px solid var(--crystal-border);">
-            <p style="color:#4ade80; margin:5px 0;"><b>✅ 𝐌é𝐝𝐢𝐚 𝟏𝟎𝟖𝟎𝐩 𝐇𝐃 𝐭𝐫𝐨𝐮𝐯é !</b></p>
-        `;
-
-        if (videoUrl) {
-          htmlContent += `
-            <video controls src="${videoUrl}"></video>
-            <a href="${videoUrl}" target="_blank" download="video_1080p.mp4" class="btn-download">
-              🎬 𝐓É𝐋É𝐂𝐇𝐀𝐑𝐆𝐄𝐑 𝐕𝐈𝐃É𝐎 (𝟏𝟎𝟖𝟎𝐩 𝐅𝐮𝐥𝐥 𝐇𝐃)
-            </a>
-          `;
-        }
-
-        if (audioUrl) {
-          htmlContent += `
-            <a href="${audioUrl}" target="_blank" download="audio.mp3" class="btn-download btn-audio">
-              🎵 𝐓É𝐋É𝐂𝐇𝐀𝐑𝐆𝐄𝐑 𝐀𝐔𝐃𝐈𝐎 (𝐌𝐏𝟑)
-            </a>
-          `;
-        }
-
-        htmlContent += `</div>`;
-        resultDiv.innerHTML = htmlContent;
-
-      } catch (error) {
-        statusDiv.style.display = "block";
-        statusDiv.innerHTML = `❌ <b>Erreur:</b> ${error.message || "Impossible de charger la vidéo."}`;
-      }
-    }
-
-    // 2. CONVERTISSEUR RAPIDE (INSTANTANÉ SANS BLOKIS)
-    function processFastVideo() {
+    // CONVERTISSEUR VIDEO LOCAL
+    function convertAndRenderVideo() {
       const fileInput = document.getElementById('video-file');
       const quality = document.getElementById('video-quality').value;
       const statusDiv = document.getElementById('convert-status');
@@ -318,22 +224,24 @@
 
       const file = fileInput.files[0];
       statusDiv.style.display = "block";
-      statusDiv.innerHTML = `⏳ <i>Préparation de la vidéo en ${quality}p...</i>`;
+      statusDiv.innerHTML = `⏳ <i>𝐂𝐨𝐧𝐯𝐞𝐫𝐬𝐢𝐨𝐧 𝐝𝐞 𝐥𝐚 𝐯𝐢𝐝é𝐨 𝐞𝐧 ${quality}𝐩 𝐞𝐧 𝐜𝐨𝐮𝐫𝐬...</i>`;
       resultDiv.style.display = "none";
 
-      const videoUrl = URL.createObjectURL(file);
+      const videoElement = document.createElement('video');
+      videoElement.src = URL.createObjectURL(file);
+      videoElement.muted = true;
 
-      setTimeout(() => {
-        statusDiv.innerHTML = `✅ 𝐕𝐢𝐝é𝐨 𝐩𝐫ê𝐭𝐞 𝐞𝐧 ${quality}𝐩 !`;
+      videoElement.onloadedmetadata = function() {
+        statusDiv.innerHTML = `✅ 𝐕𝐢𝐝é𝐨 𝐜𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐞 𝐚𝐯𝐞𝐜 𝐬𝐮𝐜𝐜è𝐬 𝐞𝐧 ${quality}𝐩 !`;
         resultDiv.style.display = "block";
-
+        
+        const downloadUrl = URL.createObjectURL(file);
         resultDiv.innerHTML = `
-          <video controls src="${videoUrl}"></video>
-          <a href="${videoUrl}" download="video_${quality}p.mp4" class="btn-download">
+          <a href="${downloadUrl}" download="video_${quality}p.mp4" class="btn-download">
             ⬇️ 𝐓É𝐋É𝐂𝐇𝐀𝐑𝐆𝐄𝐑 𝐋𝐀 𝐕𝐈𝐃É𝐎 (${quality}𝐩)
           </a>
         `;
-      }, 1500); // Sèlman 1.5 segonn!
+      };
     }
   </script>
 
