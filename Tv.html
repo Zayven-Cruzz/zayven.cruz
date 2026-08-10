@@ -7,9 +7,6 @@
 
   <!-- Font Awesome pou Ikòn yo -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <!-- HLS.js pou jwe flux TV / Live Stream yo an dirèk -->
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
   <style>
     :root {
@@ -81,10 +78,10 @@
       border: 1px solid var(--border-gold);
     }
 
-    video {
+    iframe {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      border: none;
     }
 
     .channel-title {
@@ -164,7 +161,6 @@
       color: #f1f5f9;
     }
 
-    /* Style pou ti badge LIVE la */
     .live-badge {
       background: var(--imperial-red);
       color: #fff;
@@ -186,14 +182,14 @@
       <p class="subtitle"> 𝚃𝚅 𝙰𝚗 𝙳𝚒𝚛è𝚔 • 𝙵𝚒𝚕𝚖𝚜 • 𝚂𝚙𝚘𝚛𝚝𝚜 • 𝙽𝚘𝚞𝚟è𝚕</p>
     </div>
 
-    <!-- PLAYER CARD -->
+    <!-- PLAYER CARD (IFRAME SYSTEM POU ELIMINE PA VİRE A) -->
     <div class="player-card">
       <div class="video-container">
-        <video id="tv-player" controls autoplay poster="https://via.placeholder.com/800x450/000000/ffd700?text=%F0%9F%B3%BA+𝐙𝐀𝐘𝐕𝐄𝐍+𝐓𝐕+𝐈𝐌𝐏𝐄𝐑𝐈𝐀𝐋"></video>
+        <iframe id="tv-frame" src="https://www.youtube.com/embed/wwNZJr9xjTM?autoplay=1" allowfullscreen allow="autoplay"></iframe>
       </div>
       <div class="channel-title">
         <span class="live-badge">LIVE</span>
-        <span id="current-channel-name">⚡ 𝐒é𝐥𝐞𝐜𝐭𝐢𝐨𝐧𝐧𝐞𝐳 𝐮𝐧𝐞 𝐜𝐡𝐚î𝐧𝐞</span>
+        <span id="current-channel-name">📰 𝐅𝐫𝐚𝐧𝐜𝐞 𝟐𝟒 (𝐅𝐫𝐚𝐧ç𝐚𝐢𝐬)</span>
       </div>
     </div>
 
@@ -222,35 +218,33 @@
     </div>
 
     <!-- CHANNELS LIST GRID -->
-    <div class="channels-grid" id="channels-container">
-      <!-- M ap rantre aksè ak tout chaîne yo dinamikman nan JS -->
-    </div>
+    <div class="channels-grid" id="channels-container"></div>
 
   </div>
 
   <script>
-    // LISTE TOUT CHAÎNE YO AK FLUX LIVE/HLS (m3u8 ak mp4 streaming API)
+    // LISTE TOUT CHAÎNE AK SERVEUR EMBED KI PA JANM BLOKE
     const channels = [
       // --- FILMS AN FRANÇAIS ---
       {
-        name: "🎬 𝐅𝐢𝐥𝐦𝐬 𝐀𝐜𝐭𝐢𝐨𝐧 (𝐅𝐑)",
+        name: "🎬 𝐅𝐢𝐥𝐦 𝐀𝐜𝐭𝐢𝐨𝐧 (𝐅𝐑)",
         category: "films",
         icon: "fa-film",
-        url: "https://vidsrc.xyz/embed/movie/tt0111161" // Lecteur Film HD
+        embedUrl: "https://www.youtube.com/embed/live_stream?channel=UCq-Fj5jknLsUf-MWSy4_brA" 
       },
       {
-        name: "🍿 𝐂𝐢𝐧é𝐦𝐚 𝐅𝐫𝐚𝐧ç𝐚𝐢𝐬",
+        name: "🍿 𝐂𝐢𝐧é𝐦𝐚 𝐇𝐃 (𝐅𝐑)",
         category: "films",
         icon: "fa-clapperboard",
-        url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" 
+        embedUrl: "https://vidsrc.to/embed/movie/tt0111161" 
       },
 
       // --- BASKETBALL ---
       {
-        name: "🏀 𝐍𝐁𝐀 𝐓𝐕 / 𝐁𝐚𝐬𝐤𝐞𝐭 𝐋𝐢𝐯𝐞",
+        name: "🏀 𝐍𝐁𝐀 / 𝐁𝐚𝐬𝐤𝐞𝐭 𝐋𝐢𝐯𝐞",
         category: "basket",
         icon: "fa-basketball",
-        url: "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
+        embedUrl: "https://www.youtube.com/embed/5qap5aO4i9A"
       },
 
       // --- FOOTBALL ---
@@ -258,7 +252,7 @@
         name: "⚽ 𝐅𝐨𝐨𝐭𝐛𝐚𝐥𝐥 𝐋𝐢𝐯𝐞 𝐒𝐩𝐨𝐫𝐭",
         category: "football",
         icon: "fa-football",
-        url: "https://playertest.longtailvideo.com/adaptive/oceans/oceans.m3u8"
+        embedUrl: "https://www.youtube.com/embed/live_stream?channel=UC14UlmYlSNiQCcq9m_Foj6w"
       },
 
       // --- NOUVÈL AYITI ---
@@ -266,13 +260,13 @@
         name: "🇭🇹 𝐓é𝐥é 𝐆𝐚𝐥𝐚𝐱𝐢𝐞 (𝐀𝐲𝐢𝐭𝐢)",
         category: "haiti",
         icon: "fa-tv",
-        url: "https://stream.ecable.tv/telegalaxie/index.m3u8" 
+        embedUrl: "https://www.youtube.com/embed/live_stream?channel=UCY4SOnI1f2k2YwY9Nre88tA"
       },
       {
-        name: "🇭🇹 𝐓é𝐥é 𝐍𝐚𝐭𝐢𝐨𝐧𝐚𝐥𝐞 (𝐓𝐍𝐇)",
+        name: "🇭🇹 𝐓é𝐥é 𝐏𝐚𝐧𝐨𝐫𝐚𝐦𝐚 (𝐀𝐲𝐢𝐭𝐢)",
         category: "haiti",
         icon: "fa-landmark",
-        url: "https://stream.ecable.tv/tnh/index.m3u8"
+        embedUrl: "https://www.youtube.com/embed/live_stream?channel=UC4S14e3DkC94i94d50vK40A"
       },
 
       // --- NOUVÈL ENTÈNASYONAL ---
@@ -280,22 +274,26 @@
         name: "📰 𝐅𝐫𝐚𝐧𝐜𝐞 𝟐𝟒 (𝐅𝐫𝐚𝐧ç𝐚𝐢𝐬)",
         category: "news",
         icon: "fa-newspaper",
-        url: "https://static.france24.com/live/F24_FR_PAD_HLS/live_tv.m3u8"
+        embedUrl: "https://www.youtube.com/embed/wwNZJr9xjTM?autoplay=1"
       },
       {
         name: "🌎 𝐄𝐮𝐫𝐨𝐧𝐞𝐰𝐬 (𝐅𝐑)",
         category: "news",
         icon: "fa-globe",
-        url: "https://euronews-euronews-french-1-us.samsung.wurl.tv/playlist.m3u8"
+        embedUrl: "https://www.youtube.com/embed/gCNeDWCI010?autoplay=1"
+      },
+      {
+        name: "🔴 𝐁𝐅𝐌 𝐓𝐕 (𝐋𝐢𝐯𝐞)",
+        category: "news",
+        icon: "fa-circle-play",
+        embedUrl: "https://www.youtube.com/embed/live_stream?channel=UC93p__wAtM-P45zQ92996_w"
       }
     ];
 
-    const player = document.getElementById('tv-player');
+    const frame = document.getElementById('tv-frame');
     const channelNameEl = document.getElementById('current-channel-name');
     const container = document.getElementById('channels-container');
-    let hls = new Hls();
 
-    // Fonksyon pou afiche Chaîne yo nan paj la
     function renderChannels(items) {
       container.innerHTML = "";
       items.forEach(ch => {
@@ -310,33 +308,11 @@
       });
     }
 
-    // Fonksyon pou Joue yon Chaîne lè moun klike sou li
     function playChannel(ch) {
       channelNameEl.innerText = ch.name;
-      
-      // Si se yon flux HLS (.m3u8)
-      if (ch.url.endsWith('.m3u8')) {
-        if (Hls.isSupported()) {
-          hls.destroy();
-          hls = new Hls();
-          hls.loadSource(ch.url);
-          hls.attachMedia(player);
-          hls.on(Hls.Events.MANIFEST_PARSED, function() {
-            player.play();
-          });
-        } else if (player.canPlayType('application/vnd.apple.mpegurl')) {
-          player.src = ch.url;
-          player.play();
-        }
-      } else {
-        // Pou videyo senp oswa lòt lien direct
-        hls.destroy();
-        player.src = ch.url;
-        player.play();
-      }
+      frame.src = ch.embedUrl;
     }
 
-    // Filtre chaîne yo pa Kategori
     function filterChannels(cat, btn) {
       document.querySelectorAll('.btn-category').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
@@ -349,10 +325,9 @@
       }
     }
 
-    // Chaje tout chaîne yo depi paj la louvri
+    // Chaje tout chaîne yo
     renderChannels(channels);
   </script>
 
 </body>
-    </html>
-    
+</html>
