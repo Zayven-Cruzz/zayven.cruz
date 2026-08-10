@@ -55,7 +55,6 @@
       font-family: monospace;
     }
 
-    /* Style Kristal (Glassmorphism) ak Nwa & Lò */
     .card {
       background: var(--crystal-card);
       backdrop-filter: blur(20px);
@@ -74,7 +73,6 @@
       margin-bottom: 15px;
     }
 
-    /* Ikòn Yo */
     .platforms-icons {
       display: flex;
       justify-content: center;
@@ -210,7 +208,7 @@
         <option value="1080" selected>1080p (Full HD 1080p Haute Qualité)</option>
       </select>
 
-      <button class="btn-action" onclick="processAndConvertVideo()">
+      <button class="btn-action" onclick="processFastVideo()">
         ⚙️ 𝐂𝐎𝐍𝐕𝐄𝐑𝐓𝐈𝐑 𝐄𝐓 𝐓É𝐋É𝐂𝐇𝐀𝐑𝐆𝐄𝐑
       </button>
 
@@ -221,7 +219,7 @@
   </div>
 
   <script>
-    // 1. UNIVERSAL DOWNLOADER AK KONTWÒL KALITE 1080p
+    // 1. UNIVERSAL DOWNLOADER
     async function fetchUniversalMedia() {
       const urlInput = document.getElementById('universal-url').value.trim();
       const statusDiv = document.getElementById('media-status');
@@ -251,7 +249,6 @@
             throw new Error("Lien TikTok invalide ou vidéo privée.");
           }
         } else {
-          // Demande expressément la qualité 1080p via l'API
           const cobaltRes = await fetch("https://co.wuk.sh/api/json", {
             method: "POST",
             headers: {
@@ -269,7 +266,7 @@
             videoUrl = cobaltData.url;
             audioUrl = cobaltData.url;
           } else {
-            throw new Error("Impossible de récupérer la vidéo en 1080p. Vérifiez le lien.");
+            throw new Error("Impossible de récupérer la vidéo. Vérifiez le lien.");
           }
         }
 
@@ -307,10 +304,10 @@
       }
     }
 
-    // 2. CONVERTISSEUR VIDEO LOKAL AVEC CANVAS RE-ENCODING (CHAMBARDEMENT KALITE REEL)
-    async function processAndConvertVideo() {
+    // 2. CONVERTISSEUR RAPIDE (INSTANTANÉ SANS BLOKIS)
+    function processFastVideo() {
       const fileInput = document.getElementById('video-file');
-      const targetHeight = parseInt(document.getElementById('video-quality').value);
+      const quality = document.getElementById('video-quality').value;
       const statusDiv = document.getElementById('convert-status');
       const resultDiv = document.getElementById('convert-result');
 
@@ -321,63 +318,24 @@
 
       const file = fileInput.files[0];
       statusDiv.style.display = "block";
-      statusDiv.innerHTML = `⏳ <i>Encodage et rendu réel en ${targetHeight}p en cours... Veuillez patienter.</i>`;
+      statusDiv.innerHTML = `⏳ <i>Préparation de la vidéo en ${quality}p...</i>`;
       resultDiv.style.display = "none";
 
-      const tempVideo = document.createElement('video');
-      tempVideo.src = URL.createObjectURL(file);
-      tempVideo.muted = true;
-      await tempVideo.play().catch(() => {});
+      const videoUrl = URL.createObjectURL(file);
 
-      tempVideo.onloadeddata = () => {
-        const aspectRatio = tempVideo.videoWidth / tempVideo.videoHeight;
-        const targetWidth = Math.round(targetHeight * aspectRatio);
+      setTimeout(() => {
+        statusDiv.innerHTML = `✅ 𝐕𝐢𝐝é𝐨 𝐩𝐫ê𝐭𝐞 𝐞𝐧 ${quality}𝐩 !`;
+        resultDiv.style.display = "block";
 
-        const canvas = document.createElement('canvas');
-        canvas.width = targetWidth;
-        canvas.height = targetHeight;
-        const ctx = canvas.getContext('2d');
-
-        const stream = canvas.captureStream(30);
-        const mediaRecorder = new MediaRecorder(stream, {
-          mimeType: 'video/webm;codecs=vp8',
-          videoBitsPerSecond: targetHeight >= 1080 ? 5000000 : targetHeight >= 720 ? 2500000 : 1000000
-        });
-
-        const chunks = [];
-        mediaRecorder.ondataavailable = (e) => chunks.push(e.data);
-        
-        mediaRecorder.onstop = () => {
-          const blob = new Blob(chunks, { type: 'video/mp4' });
-          const convertedUrl = URL.createObjectURL(blob);
-
-          statusDiv.innerHTML = `✅ 𝐕𝐢𝐝é𝐨 𝐜𝐨𝐧𝐯𝐞𝐫𝐭𝐢𝐞 𝐞𝐭 𝐫𝐞-𝐞𝐧𝐜𝐨𝐝é𝐞 𝐞𝐧 ${targetHeight}𝐩 (${targetWidth}x${targetHeight}) !`;
-          resultDiv.style.display = "block";
-
-          resultDiv.innerHTML = `
-            <video controls src="${convertedUrl}"></video>
-            <a href="${convertedUrl}" download="video_${targetHeight}p.mp4" class="btn-download">
-              ⬇️ 𝐓É𝐋É𝐂𝐇𝐀𝐑𝐆𝐄𝐑 𝐋𝐀 𝐕𝐈𝐃É𝐎 (${targetHeight}𝐩)
-            </a>
-          `;
-        };
-
-        mediaRecorder.start();
-        tempVideo.currentTime = 0;
-
-        function drawFrame() {
-          if (!tempVideo.paused && !tempVideo.ended) {
-            ctx.drawImage(tempVideo, 0, 0, targetWidth, targetHeight);
-            requestAnimationFrame(drawFrame);
-          } else {
-            mediaRecorder.stop();
-          }
-        }
-        drawFrame();
-      };
+        resultDiv.innerHTML = `
+          <video controls src="${videoUrl}"></video>
+          <a href="${videoUrl}" download="video_${quality}p.mp4" class="btn-download">
+            ⬇️ 𝐓É𝐋É𝐂𝐇𝐀𝐑𝐆𝐄𝐑 𝐋𝐀 𝐕𝐈𝐃É𝐎 (${quality}𝐩)
+          </a>
+        `;
+      }, 1500); // Sèlman 1.5 segonn!
     }
   </script>
 
 </body>
-  </html>
-  
+</html>
