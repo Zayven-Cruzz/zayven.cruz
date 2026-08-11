@@ -228,7 +228,10 @@
 <meta name="twitter:description" content="𝐃é𝐜𝐨𝐮𝐯𝐫𝐞𝐳 𝐧𝐨𝐬 𝐬𝐭𝐫𝐚𝐭é𝐠𝐢𝐞𝐬 𝐝𝐞 𝐭𝐫𝐚𝐝𝐢𝐧𝐠, 𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧𝐬 𝐞𝐱𝐜𝐥𝐮𝐬𝐢𝐯𝐞𝐬 𝐞𝐭 𝐥'𝐞-𝐛𝐨𝐨𝐤 𝐢𝐧𝐭𝐞𝐫𝐚𝐜𝐭𝐢𝐟 𝐝𝐞 𝐀 à 𝐙.">
 <meta name="twitter:image" content="https://i.postimg.cc/76sSTkL4/WA-1786286831346.jpg">
     
-
+<!-- Lyen pou fikse manifest la -->
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0088cc">
+    
     
     
     /* FOOTER */
@@ -242,6 +245,20 @@
 </head>
 <body>
 
+  <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then((registration) => {
+          console.log('Service Worker anrejistre ak siksè!', registration.scope);
+        })
+        .catch((error) => {
+          console.error('Erè nan anrejistreman Service Worker:', error);
+        });
+    });
+  }
+  </script>
+  
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6782156627280235"
      crossorigin="anonymous"></script>
 <!-- Google tag (gtag.js) -->
