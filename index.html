@@ -9,7 +9,44 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="/style.css">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0088cc">
+</head>
+<body>
 
+  <!-- Bannè pou alèt lè pa gen entènèt -->
+  <div id="status-banner"></div>
+
+  <header>
+    <h1>Aplikasyon Mwen</h1>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2>Byenvini!</h2>
+      <p>Sit sa a ka fonksyone tankou yon vrè aplikasyon mobil menm lè ou pa gen entènèt.</p>
+      
+      <!-- Bouton pou aksyon ak enstalasyon -->
+      <button id="action-btn" class="btn">Klike La a</button>
+      <button id="install-btn" class="btn btn-install">Enstale Aplikasyon an</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Aplikasyon Mwen. Tout dwa rezeve.</p>
+  </footer>
+
+  <!-- Koneksyon Service Worker ak Script -->
+  <script src="/script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(reg => console.log('Service Worker prè!', reg.scope))
+          .catch(err => console.error('Erè Service Worker:', err));
+      });
+    
   <style>
     * {
       margin: 0;
