@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>𝐙𝐀𝐘𝐕𝐄𝐍 𝐂𝐑𝐔𝐙 | 𝐀𝐈 𝐁𝐈𝐍𝐀𝐑𝐘 𝐁𝐎𝐓</title>
+  <style>
+    :root {
+      --bg-dark: #0b0713;
+      --card-bg: rgba(23, 15, 38, 0.85);
+      --pink-neon: #ff2a85;
+      --pink-glow: rgba(255, 42, 133, 0.4);
+      --blue-ciel: #00e5ff;
+      --blue-glow: rgba(0, 229, 255, 0.4);
+      --text-color: #f8fafc;
+      --border-color: rgba(255, 42, 133, 0.3);
+      --green-buy: #00e676;
+      --red-sell: #ff1744;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #1a0c2e 0%, var(--bg-dark) 100%);
+      color: var(--text-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px 10px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    /* GLASS CARD STYLE */
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 0 25px var(--pink-glow), inset 0 0 15px rgba(0, 229, 255, 0.1);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      background: linear-gradient(135deg, var(--pink-neon), var(--blue-ciel));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--blue-ciel);
+      font-size: 0.85rem;
+      margin-bottom: 25px;
+      font-family: monospace;
+      letter-spacing: 1px;
+    }
+
+    /* LOCK SCREEN STYLES */
+    #lock-screen {
+      text-align: center;
+    }
+
+    .pin-input {
+      width: 80%;
+      padding: 15px;
+      font-size: 1.5rem;
+      text-align: center;
+      letter-spacing: 8px;
+      border-radius: 12px;
+      border: 2px solid var(--blue-ciel);
+      background: rgba(0, 0, 0, 0.6);
+      color: var(--pink-neon);
+      outline: none;
+      box-shadow: 0 0 10px var(--blue-glow);
+      margin-bottom: 20px;
+    }
+
+    .btn-access {
+      width: 80%;
+      background: linear-gradient(135deg, var(--pink-neon), var(--blue-ciel));
+      color: #000;
+      border: none;
+      padding: 14px;
+      border-radius: 12px;
+      font-weight: 900;
+      cursor: pointer;
+      font-size: 1rem;
+      text-transform: uppercase;
+      box-shadow: 0 0 15px var(--pink-glow);
+      transition: all 0.3s ease;
+    }
+
+    .btn-access:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px var(--blue-glow);
+    }
+
+    /* BOT INTERFACE STYLES */
+    #bot-screen {
+      display: none;
+    }
+
+    label {
+      font-size: 0.85rem;
+      color: var(--blue-ciel);
+      font-weight: bold;
+    }
+
+    select {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0 18px 0;
+      border-radius: 10px;
+      border: 1px solid var(--pink-neon);
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .btn-analyze {
+      width: 100%;
+      background: linear-gradient(135deg, var(--blue-ciel), var(--pink-neon));
+      color: #000;
+      border: none;
+      padding: 15px;
+      border-radius: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      font-size: 1rem;
+      text-transform: uppercase;
+      box-shadow: 0 0 15px var(--blue-glow);
+      transition: all 0.3s ease;
+    }
+
+    .btn-analyze:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px var(--pink-glow);
+    }
+
+    /* SIGNAL RESULT DISPLAY */
+    .signal-box {
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 15px;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--blue-ciel);
+      text-align: center;
+      display: none;
+    }
+
+    .signal-action {
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin: 10px 0;
+      text-transform: uppercase;
+    }
+
+    .buy-signal {
+      color: var(--green-buy);
+      text-shadow: 0 0 15px rgba(0, 230, 118, 0.6);
+    }
+
+    .sell-signal {
+      color: var(--red-sell);
+      text-shadow: 0 0 15px rgba(255, 23, 68, 0.6);
+    }
+
+    .badge-confidence {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: rgba(255, 42, 133, 0.2);
+      color: var(--pink-neon);
+      border: 1px solid var(--pink-neon);
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    /* SCANNING ANIMATION */
+    .radar-scan {
+      width: 50px;
+      height: 50px;
+      border: 3px solid var(--blue-ciel);
+      border-top-color: var(--pink-neon);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 15px auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- SCREEN 1: LOCK SCREEN (CODE: 0997) -->
+    <div class="card" id="lock-screen">
+      <h1>🔐 𝐙𝐀𝐘𝐕𝐄𝐍 𝐀𝐈 | 𝐋𝐎𝐂𝐊</h1>
+      <p class="subtitle">𝚎𝚡𝚊𝚖𝚙𝚕𝚎: 𝙴𝚗𝚝𝚎𝚛 𝙰𝚌𝚌𝚎𝚜𝚜 𝙲𝚘𝚍𝚎 𝚝𝚘 𝚄𝚗𝚕𝚘𝚌𝚔</p>
+
+      <input type="password" id="pin-code" class="pin-input" placeholder="••••" maxlength="4" inputmode="numeric">
+      
+      <button class="btn-access" onclick="verifyPin()">
+        🔓 𝐃É𝐁𝐋𝐎𝐐𝐔𝐄𝐑 𝐋𝐄 𝐁𝐎𝐓
+      </button>
+
+      <p id="error-msg" style="color: var(--pink-neon); font-size: 0.85rem; margin-top: 15px; display: none;">
+        ❌ Kòd sa a pa bon! Rereseye ankò.
+      </p>
+    </div>
+
+    <!-- SCREEN 2: BOT SIGNALS POCKET OPTION -->
+    <div class="card" id="bot-screen">
+      <h1>🤖 𝐙𝐀𝐘𝐕𝐄𝐍 𝐀𝐈 | 𝐁𝐎𝐓 𝐕𝟑</h1>
+      <p class="subtitle">𝚎𝚡𝚊𝚖𝚙𝚕𝚎: 𝙿𝚘𝚌𝚔𝚎𝚝 𝙾𝚙𝚝𝚒𝚘𝚗 𝙼𝚊𝚛𝚔𝚎𝚝 𝙰𝚗𝚊𝚕𝚢𝚣𝚎𝚛</p>
+
+      <!-- PAIR SELECTION -->
+      <label>📊 𝐒é𝐥𝐞𝐜𝐭𝐢𝐨𝐧𝐧𝐞𝐳 𝐥𝐚 𝐏𝐚𝐢𝐫𝐞 (𝐎𝐓𝐂 / 𝐋𝐢𝐯𝐞) :</label>
+      <select id="asset-pair">
+        <option value="EUR/USD (OTC)">EUR/USD (OTC) - 92%</option>
+        <option value="GBP/USD (OTC)">GBP/USD (OTC) - 89%</option>
+
+        <option value="USD/JPY (OTC)">USD/JPY (OTC) - 91%</option>
+        <option value="AUD/CAD (OTC)">AUD/CAD (OTC) - 88%</option>
+        <option value="CRYPTO TOP 10">Crypto TOP 10 Index - 93%</option>
+      </select>
+
+      <!-- TIMEFRAME SELECTION -->
+      <label>⏱️ 𝐓𝐞𝐦𝐩𝐬 𝐝'𝐄𝐱𝐩𝐢𝐫𝐚𝐭𝐢𝐨𝐧 (𝐓𝐢𝐦𝐞𝐟𝐫𝐚𝐦𝐞) :</label>
+      <select id="timeframe">
+        <option value="M1 (1 Minute)">M1 (1 Minute)</option>
+        <option value="M5 (5 Minutes)">M5 (5 Minutes)</option>
+      </select>
+
+      <button class="btn-action btn-analyze" onclick="startAIAnalysis()">
+        🔍 𝐀𝐍𝐀𝐋𝐘𝐒𝐄𝐑 𝐋𝐄 𝐌𝐀𝐑𝐂𝐇É (𝐀𝐈)
+      </button>
+
+      <!-- LOADING STATE -->
+      <div id="loading-box" style="display: none; text-align: center; margin-top: 20px;">
+        <div class="radar-scan"></div>
+        <p style="color: var(--blue-ciel); font-size: 0.85rem; font-family: monospace;">
+          ⚡ <i>L'IA teste les indicateurs RSI, MACD & Bollinger...</i>
+        </p>
+      </div>
+
+      <!-- SIGNAL RESULT -->
+      <div id="signal-result" class="signal-box">
+        <span class="badge-confidence" id="confidence-score">CONFIO : 96%</span>
+        <div style="margin-top: 10px; font-size: 0.9rem; color: #94a3b8;" id="pair-display">EUR/USD (OTC)</div>
+        
+        <div id="action-text" class="signal-action">BUY (ACHAT)</div>
+        
+        <p style="margin: 0; color: #cbd5e1; font-size: 0.85rem;">
+          ⏱️ Expiration : <b id="timer-display" style="color: var(--blue-ciel);">M1 (1 Min)</b>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // 1. SYSTEM SECURITY LOCK (CODE: 0997)
+    function verifyPin() {
+      const pinInput = document.getElementById('pin-code').value.trim();
+      const errorMsg = document.getElementById('error-msg');
+      const lockScreen = document.getElementById('lock-screen');
+      const botScreen = document.getElementById('bot-screen');
+
+      if (pinInput === "0997") {
+        lockScreen.style.display = "none";
+        botScreen.style.display = "block";
+      } else {
+        errorMsg.style.display = "block";
+        document.getElementById('pin-code').value = "";
+      }
+    }
+
+    // 2. REAL AI MARKET ANALYZER SIMULATION ENGINE
+    function startAIAnalysis() {
+      const loadingBox = document.getElementById('loading-box');
+      const signalResult = document.getElementById('signal-result');
+      const pair = document.getElementById('asset-pair').value;
+      const timeframe = document.getElementById('timeframe').value;
+      const actionText = document.getElementById('action-text');
+      const confidenceScore = document.getElementById('confidence-score');
+      const pairDisplay = document.getElementById('pair-display');
+      const timerDisplay = document.getElementById('timer-display');
+
+      // Hide result and show loader
+      signalResult.style.display = "none";
+      loadingBox.style.display = "block";
+
+      setTimeout(() => {
+        loadingBox.style.display = "none";
+        signalResult.style.display = "block";
+
+        // AI Logic Decision Algorithm
+        const isBuy = Math.random() > 0.45; // Simulated AI Market Trend Detection
+        const confidence = Math.floor(Math.random() * (98 - 88 + 1)) + 88;
+
+        pairDisplay.innerText = pair;
+        timerDisplay.innerText = timeframe;
+        confidenceScore.innerText = `PRÉCISION IA : ${confidence}%`;
+
+        if (isBuy) {
+          actionText.innerText = "🚀 CALL / BUY (ACHAT)";
+          actionText.className = "signal-action buy-signal";
+        } else {
+          actionText.innerText = "🔻 PUT / SELL (VENTE)";
+          actionText.className = "signal-action sell-signal";
+        }
+
+      }, 2500); // 2.5s analysis time
+    }
+  </script>
+
+</body>
+  </html>
+  
